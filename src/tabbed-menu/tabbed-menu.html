@@ -1,0 +1,10 @@
+<div class="tabbedMenu">
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-title" data-ng-if="tabbedItems.title" data-ng-bind="tabbedItems.title"></li>
+      <li data-ng-repeat="item in tabbedItems.items">
+        <a ui-sref="item.ref" data-ng-bind="item.title"></a>
+      </li>
+    </ul>
+  </nav>
+</div>

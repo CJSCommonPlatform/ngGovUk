@@ -1,0 +1,1 @@
+In order include the footer directive add a data attribute of <code>data-footer-directive</code>. As of now, there is no need to include any javascript code.

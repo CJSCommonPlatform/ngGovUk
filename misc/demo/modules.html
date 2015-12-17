@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <section id="page-intro">
+        <div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <h1 class="text-uppercase">Angular Modules</h1>
+                <p class="lead">Some angular modules that can be included in any project for some global gds designs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <% demoModules.forEach(function(module) { %>
+          <section id="<%= module.name %>">
+            <h1><%= module.displayName %> <small>(<%= module.libraryPrefix %>.<%= module.name %>)</small></h1>
+            <div>
+              <%= module.docs.md %>
+            </div>
+            <div class="bs-example" data-example-id="<%= module.name %>">
+              <%= module.docs.html %>
+            </div>
+            <tabset>
+              <tab heading="Markup">
+                <div hljs><%= module.docs.html %></div>
+              </tab>
+              <tab heading="JavaScript">
+                <div hljs><%- module.docs.js %></div>
+              </tab>
+            </tabset>
+          </section>
+          <% }); %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+# IDE Generated Files
+.idea
+
+# OS Generated Files
+*.DS_Store
+
+# Git Config Files
+.gitconfig
+
+# Third Party Components
+misc/demo/assets/bower_components/*
+node_modules
+
+# Code Generated Files
+demo/*
+dist/*
+src/*/*.html.js
