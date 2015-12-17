@@ -1,0 +1,440 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" >
+  <div class="row no-gutter">
+    <!-- Left col -->
+    <div class="col-sm-10" vertilize>
+      <!-- Title -->
+      <section id="title-header" class="demo-header-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="jumbotron">
+                <h1 class="text-uppercase"><%= pkg.name %> / UI COMPONENTS</h1>
+                <p>Global CSS settings, fundamental HTML elements styled and enhanced with extensible classes, and an advanced grid system.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accordion -->
+      <section id="accordion">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1>Accordion</h1>
+              </div>
+              <div class="row">
+                <!-- demo  -->
+                <div class="col-md-6">
+                  <p>
+                    <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+                    <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+                  </p>
+                  <form>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" ng-model="oneAtATime">
+                        Open only one at a time
+                      </label>
+                    </div>
+                  </form>
+                  <accordion close-others="oneAtATime">
+                    <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                      This content is straight in the template.
+                    </accordion-group>
+                    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                      {{group.content}}
+                    </accordion-group>
+                    <accordion-group heading="Dynamic Body Content">
+                      <p>The body of the accordion group grows to fit the contents</p>
+                      <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+                      <div ng-repeat="item in items">{{item}}</div>
+                    </accordion-group>
+                    <accordion-group is-open="status.open">
+                      <accordion-heading>
+                        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                      </accordion-heading>
+                      This is just some content to illustrate fancy headings.
+                    </accordion-group>
+                  </accordion>
+                </div>
+                <!-- Description -->
+                <div class="col-md-6">
+                  <p>The <strong>accordion directive</strong> builds on top of the collapse directive to provide a list of items, with collapsible bodies that are collapsed or expanded by clicking on the item's header.</p>
+
+                  <p>We can control whether expanding an item will cause the other items to close, using the <code>close-others</code> attribute on accordion.</p>
+
+                  <p>The body of each accordion group is transcluded in to the body of the collapsible element.</p>
+
+                  <h3>Accordion Settings</h3>
+
+                  <ul>
+                    <li><code>is-open</code> <i class="glyphicon glyphicon-eye-open"></i> (Defaults: false) :
+                      Whether accordion group is open or closed.</li>
+                  </ul>
+                </div>
+              </div>
+              <br/>
+              <tabset>
+                <tab heading="Markup">
+                  <div hljs>
+                    <div ng-controller="yourController">
+                      <p>
+                        <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+                        <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+                      </p>
+
+                      <label class="checkbox">
+                        <input type="checkbox" ng-model="oneAtATime">
+                        Open only one at a time
+                      </label>
+                      <accordion close-others="oneAtATime">
+                        <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                          This content is straight in the template.
+                        </accordion-group>
+                        <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                          {{group.content}}
+                        </accordion-group>
+                        <accordion-group heading="Dynamic Body Content">
+                          <p>The body of the accordion group grows to fit the contents</p>
+                          <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+                          <div ng-repeat="item in items">{{item}}</div>
+                        </accordion-group>
+                        <accordion-group is-open="status.open">
+                          <accordion-heading>
+                            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                          </accordion-heading>
+                          This is just some content to illustrate fancy headings.
+                        </accordion-group>
+                      </accordion>
+                    </div>
+                  </div>
+                </tab><!-- // Markup -->
+                <tab heading="JavaScript">
+                  <div hljs>
+                    $scope.oneAtATime = true;
+
+                    $scope.groups = [
+                      {
+                        title: 'Dynamic Group Header - 1',
+                        content: 'Dynamic Group Body - 1'
+                      },
+                      {
+                        title: 'Dynamic Group Header - 2',
+                        content: 'Dynamic Group Body - 2'
+                      }
+                    ];
+
+                    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+                    $scope.addItem = function() {
+                      var newItemNo = $scope.items.length + 1;
+                      $scope.items.push('Item ' + newItemNo);
+                    };
+
+                    $scope.status = {
+                      isFirstOpen: true,
+                      isFirstDisabled: false
+                    };
+                  </div>
+                </tab><!-- // Javascript -->
+              </tabset>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Alert -->
+      <section id="alert">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1>Alert</h1>
+              </div>
+              <div class="row">
+                <!-- demo  -->
+                <div class="col-md-6">
+                  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+                  <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+                </div>
+                <!-- Description -->
+                <div class="col-md-6">
+                  <p>Alert is an AngularJS-version of bootstrap's alert.</p>
+
+                  <p>This directive can be used to generate alerts from the dynamic model data (using the <code>ng-repeat</code> directive);</p>
+
+                  <p>The presence of the <code>close</code> attribute determines if a close button is displayed</p>
+                </div>
+              </div>
+              <br/>
+              <tabset>
+                <tab heading="Markup">
+<div hljs>
+  <div ng-controller="yourController">
+    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+  </div>
+</div>
+                </tab><!-- // Markup -->
+                <tab heading="JavaScript">
+<div hljs>
+  $scope.alerts = [
+    { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+  ];
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+</div>
+                </tab><!-- // Javascript -->
+              </tabset>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section id="buttons">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1>Buttons</h1>
+              </div>
+              <div class="row">
+                <!-- demo  -->
+                <div class="col-md-6">
+                  <h4>Single toggle</h4>
+                  <pre>{{singleModel}}</pre>
+                  <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                    Single Toggle
+                  </button>
+                  <h4>Checkbox</h4>
+                  <pre>{{checkModel}}</pre>
+                  <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                    <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                    <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+                  </div>
+                  <h4>Radio &amp; Uncheckable Radio</h4>
+                  <pre>{{radioModel || 'null'}}</pre>
+                  <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+                  </div>
+                  <div class="btn-group">
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+                  </div>
+                </div>
+                <!-- Description -->
+                <div class="col-md-6">
+                  <p>There are two directives that can make a group of buttons behave like a set of checkboxes, radio buttons, or a hybrid where radio buttons can be unchecked.</p>
+                </div>
+              </div>
+              <br/>
+              <tabset>
+                <tab heading="Markup">
+                  <div hljs>
+                    <div ng-controller="yourController">
+                      <h4>Single toggle</h4>
+                      <pre>{{singleModel}}</pre>
+                      <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                        Single Toggle
+                      </button>
+                      <h4>Checkbox</h4>
+                      <pre>{{checkModel}}</pre>
+                      <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                        <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                        <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+                      </div>
+                      <h4>Radio &amp; Uncheckable Radio</h4>
+                      <pre>{{radioModel || 'null'}}</pre>
+                      <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+                      </div>
+                      <div class="btn-group">
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+                      </div>
+                    </div>
+                  </div>
+                </tab><!-- // Markup -->
+                <tab heading="JavaScript">
+                  <div hljs>
+                    $scope.singleModel = 1;
+
+                    $scope.radioModel = 'Middle';
+
+                    $scope.checkModel = {
+                      left: false,
+                      middle: true,
+                      right: false
+                    };
+                  </div>
+                </tab><!-- // Javascript -->
+              </tabset>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Buttons -->
+      <section id="buttons">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1>Buttons</h1>
+              </div>
+              <div class="row">
+                <!-- demo  -->
+                <div class="col-md-6">
+                  <h4>Single toggle</h4>
+                  <pre>{{singleModel}}</pre>
+                  <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                    Single Toggle
+                  </button>
+                  <h4>Checkbox</h4>
+                  <pre>{{checkModel}}</pre>
+                  <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                    <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                    <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+                  </div>
+                  <h4>Radio &amp; Uncheckable Radio</h4>
+                  <pre>{{radioModel || 'null'}}</pre>
+                  <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+                  </div>
+                  <div class="btn-group">
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                    <label class="btn btn-success" ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+                  </div>
+                </div>
+                <!-- Description -->
+                <div class="col-md-6">
+                  <p>There are two directives that can make a group of buttons behave like a set of checkboxes, radio buttons, or a hybrid where radio buttons can be unchecked.</p>
+                </div>
+              </div>
+              <br/>
+              <tabset>
+                <tab heading="Markup">
+                  <div hljs>
+                    <div ng-controller="yourController">
+                      <h4>Single toggle</h4>
+                      <pre>{{singleModel}}</pre>
+                      <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                        Single Toggle
+                      </button>
+                      <h4>Checkbox</h4>
+                      <pre>{{checkModel}}</pre>
+                      <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                        <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                        <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+                      </div>
+                      <h4>Radio &amp; Uncheckable Radio</h4>
+                      <pre>{{radioModel || 'null'}}</pre>
+                      <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+                      </div>
+                      <div class="btn-group">
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Left'" uncheckable>Left</label>
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Middle'" uncheckable>Middle</label>
+                        <label class="btn btn-success" ng-model="radioModel" btn-radio="'Right'" uncheckable>Right</label>
+                      </div>
+                    </div>
+                  </div>
+                </tab><!-- // Markup -->
+                <tab heading="JavaScript">
+                  <div hljs>
+                    $scope.singleModel = 1;
+
+                    $scope.radioModel = 'Middle';
+
+                    $scope.checkModel = {
+                    left: false,
+                    middle: true,
+                    right: false
+                    };
+                  </div>
+                </tab><!-- // Javascript -->
+              </tabset>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div><!-- ENd left col -->
+    <!-- Right Col -->
+    <div class="col-sm-2 side-fixed-nav" vertilize>
+      <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" sticky>
+        <ul class="nav bs-docs-sidenav">
+          <li spy="accordion"><a href="#" scroll-to="accordion" offset="50">Accordion</a></li>
+          <li spy="alert"><a href="#" scroll-to="alert" offset="50">Alert</a></li>
+          <li spy="buttons"><a href="#" scroll-to="buttons" offset="50">Buttons</a></li>
+          <li spy="carousel"><a href="#" scroll-to="carousel" offset="50">Carousel</a></li>
+          <li spy="collapse"><a href="#" scroll-to="collapse" offset="50">Collapse</a></li>
+          <li spy="datepicker"><a href="#" scroll-to="datepicker" offset="50">Datepicker</a></li>
+          <li spy="dropdown"><a href="#" scroll-to="dropdown" offset="50">Dropdown</a></li>
+          <li spy="modal"><a href="#" scroll-to="modal" offset="50">Modal</a></li>
+          <li spy="pagination"><a href="#" scroll-to="pagination" offset="50">Pagination</a></li>
+          <li spy="popover"><a href="#" scroll-to="popover" offset="50">Popover</a></li>
+          <li spy="pagination"><a href="#" scroll-to="pagination" offset="50">Progressbar</a></li>
+          <li spy="rating"><a href="#" scroll-to="collapse" offset="50">Rating</a></li>
+          <li spy="collapse"><a href="#" scroll-to="rating" offset="50">Tabs</a></li>
+          <li spy="timepicker"><a href="#" scroll-to="timepicker" offset="50">Timepicker</a></li>
+          <li spy="tooltip"><a href="#" scroll-to="tooltip" offset="50">Tooltip</a></li>
+          <li spy="typeahead"><a href="#" scroll-to="typeahead" offset="50">Typeahead</a></li>
+        </ul>
+      </nav>
+    </div><!-- End right col -->
+  </div>
+</div>

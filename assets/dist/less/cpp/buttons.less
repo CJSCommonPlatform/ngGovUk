@@ -1,0 +1,67 @@
+.btn {
+  border: 0;
+  font-size: @font-size-default-text;
+  line-height: 1.25;
+  padding-top: @btn-vertical-padding-top;
+  padding-bottom: @btn-vertical-padding-bottom;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.btn-default {
+  .drop-shadow-color(0, 2px, 0, @btn-default-shadow-color);
+  &:focus {
+    background-color: @btn-default-bg;
+    border: 0;
+    outline: 3px solid @btn-default-focus-color;
+    outline-offset: initial;
+  }
+}
+
+.btn-link {
+  background: @btn-default-bg url('@{image-path}img/icon-pointer.png') no-repeat right;
+  font-weight: bold;
+  padding-right: 52px;
+  color: #fff;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: @btn-default-hover;
+  }
+}
+
+.btn-continue {
+  background-color: @link-color;
+  .drop-shadow-color(0, 2px, 0, @continue-button-shadow);
+  &:hover {
+    background-color: @link-hover-color;
+  }
+}
+
+.direction-link {
+  position: relative;
+  text-decoration: none;
+  &::after,
+  &::before {
+    text-decoration: none;
+    font-size: 2em;
+    position: absolute;
+    top: -11px;
+  }
+  &.direction-right {
+    padding-right: 30px;
+    &::after {
+      right: -20px;
+      content: '\3009';
+    }
+  }
+  &.direction-left {
+    padding-left: 30px;
+    &::before {
+      left: -20px;
+      content: '\3008';
+    }
+  }
+}
