@@ -1,5 +1,5 @@
 /*
- * cpp-ui
+ * ngGovUk
  * Author: James A B Gray
  * Version: 0.0.4 - 2015-12-17
  * License: 
