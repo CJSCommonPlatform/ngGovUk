@@ -1,9 +1,9 @@
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.footer', []);
+angular.module('ngGovUk.footer', []);
 
 // footer Service Template
-angular.module('ui.cpp.footer').factory('footerService', function() {
+angular.module('ngGovUk.footer').factory('footerService', function() {
 
   var footer = { };
 
@@ -12,14 +12,14 @@ angular.module('ui.cpp.footer').factory('footerService', function() {
 });
 
 // footer Filter Template
-angular.module('ui.cpp.footer').filter('footerFilter', function () {
+angular.module('ngGovUk.footer').filter('footerFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // footer Directive Template
-angular.module('ui.cpp.footer').directive('footerDirective', function () {
+angular.module('ngGovUk.footer').directive('footerDirective', function () {
   return {
     // name: '',
     // priority: 1,

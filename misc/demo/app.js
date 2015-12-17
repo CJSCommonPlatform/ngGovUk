@@ -52,7 +52,7 @@ angular.module('app')
 
     globalNav = {
       pageTitle: {
-        title: 'CPP UI',
+        title: 'ngGovUk',
         type: 'text',
         ref: '#'
       },

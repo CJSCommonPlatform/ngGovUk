@@ -1,9 +1,9 @@
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.tabbed-menu', []);
+angular.module('ngGovUk.tabbed-menu', []);
 
 // tabbedMenu Service Template
-angular.module('ui.cpp.tabbed-menu').factory('tabbedMenuService', function() {
+angular.module('ngGovUk.tabbed-menu').factory('tabbedMenuService', function() {
 
   var tabbedMenu = { };
 
@@ -12,14 +12,14 @@ angular.module('ui.cpp.tabbed-menu').factory('tabbedMenuService', function() {
 });
 
 // tabbedMenu Filter Template
-angular.module('ui.cpp.tabbed-menu').filter('tabbedMenuFilter', function () {
+angular.module('ngGovUk.tabbed-menu').filter('tabbedMenuFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // tabbedMenu Directive Template
-angular.module('ui.cpp.tabbed-menu').directive('tabbedMenu', function () {
+angular.module('ngGovUk.tabbed-menu').directive('tabbedMenu', function () {
   return {
     // name: '',
     // priority: 1,

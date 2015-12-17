@@ -1,9 +1,9 @@
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.nav-side', []);
+angular.module('ngGovUk.nav-side', []);
 
 // navSide Service Template
-angular.module('ui.cpp.nav-side').factory('navSideService', function() {
+angular.module('ngGovUk.nav-side').factory('navSideService', function() {
 
   var navSide = { };
 
@@ -12,14 +12,14 @@ angular.module('ui.cpp.nav-side').factory('navSideService', function() {
 });
 
 // navSide Filter Template
-angular.module('ui.cpp.nav-side').filter('navSideFilter', function () {
+angular.module('ngGovUk.nav-side').filter('navSideFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // navSide Directive Template
-angular.module('ui.cpp.nav-side').directive('navSideDirective', function () {
+angular.module('ngGovUk.nav-side').directive('navSideDirective', function () {
   return {
     // name: '',
     // priority: 1,

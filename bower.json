@@ -1,6 +1,6 @@
 {
   "name": "ngGovUk",
-  "version": "0.2.9",
+  "version": "0.0.1",
   "main": [
     "dist/*",
     "dist/less/*"

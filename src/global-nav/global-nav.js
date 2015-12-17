@@ -1,9 +1,9 @@
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.global-nav', []);
+angular.module('ngGovUk.global-nav', []);
 
 // globalNav Service Template
-angular.module('ui.cpp.global-nav').factory('globalNavService', function() {
+angular.module('ngGovUk.global-nav').factory('globalNavService', function() {
 
   var globalNav = {
     isCollapsed: true
@@ -14,14 +14,14 @@ angular.module('ui.cpp.global-nav').factory('globalNavService', function() {
 });
 
 // globalNav Filter Template
-angular.module('ui.cpp.global-nav').filter('globalNavFilter', function () {
+angular.module('ngGovUk.global-nav').filter('globalNavFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // globalNav Directive Template
-angular.module('ui.cpp.global-nav').directive('globalNav', function () {
+angular.module('ngGovUk.global-nav').directive('globalNav', function () {
   return {
     // name: '',
     // priority: 1,

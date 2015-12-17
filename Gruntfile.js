@@ -234,7 +234,7 @@ module.exports = function (grunt) {
     },
     imageEmbed: {
       dist: {
-        src: ['dist/assets/ui.cpp.demo.css'],
+        src: ['dist/assets/<%= filename %>.demo.css'],
         dest: "dist/assets/plunker.css",
         options: {
           deleteAfterEncoding: false
