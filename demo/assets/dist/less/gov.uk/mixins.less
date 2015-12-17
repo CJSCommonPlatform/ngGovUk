@@ -1,0 +1,59 @@
+.add-vertical-margins(@important: "") {
+  .add-top-margin(@important);
+  .add-bottom-margin(@important);
+}
+
+.add-top-margin(@important: "") {
+  margin-top: @default-vertical-margin @important;
+}
+
+.remove-top-margin(@important: "") {
+  margin-top: 0 @important;
+}
+
+.add-bottom-margin(@important: "") {
+  margin-bottom: @default-vertical-margin @important;
+}
+
+.remove-bottom-margin(@important: "") {
+  margin-bottom: 0 @important;
+}
+
+.add-right-margin(@important: "") {
+  margin-right: @default-horizontal-margin @important;
+}
+
+.add-left-margin(@important: "") {
+  margin-left: @default-horizontal-margin @important;
+}
+
+.add-label-margin {
+  margin-bottom: @default-label-margin;
+}
+
+.add-vertical-padding(@important: "") {
+  .add-top-padding(@important);
+  .add-bottom-padding(@important);
+}
+
+.add-top-padding(@important: "") {
+  padding-top: @default-vertical-padding @important;
+}
+
+.add-bottom-padding(@important: "") {
+  padding-bottom: @default-vertical-padding @important;
+}
+
+.box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input-md-width(@x) {
+  // Use a proportion of the widest desktop size. At smaller widths inputs
+  // will be constrained by their containers. Take into account padding
+  // from gutter
+  @single-column-width: @container-large-desktop/@grid-columns;
+  max-width: (@single-column-width * @x) - @grid-gutter-width;
+}

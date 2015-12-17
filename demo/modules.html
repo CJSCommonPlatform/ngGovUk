@@ -1,0 +1,246 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <section id="page-intro">
+        <div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <h1 class="text-uppercase">Angular Modules</h1>
+                <p class="lead">Some angular modules that can be included in any project for some global gds designs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row">
+        <div class="col-xs-12">
+          
+          <section id="footer">
+            <h1>Footer <small>(ui.cpp.footer)</small></h1>
+            <div>
+              <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>. As of now, there is no need to include any javascript code.</p>
+            </div>
+            <div class="bs-example" data-example-id="footer">
+              <div data-footer-directive>
+
+</div>
+
+            </div>
+            <tabset>
+              <tab heading="Markup">
+                <div hljs><div data-footer-directive>
+
+</div>
+</div>
+              </tab>
+              <tab heading="JavaScript">
+                <div hljs>angular.module(&#x27;app&#x27;).controller(&#x27;footerDemoCtrl&#x27;, function ($scope) {
+
+});
+</div>
+              </tab>
+            </tabset>
+          </section>
+          
+          <section id="global-nav">
+            <h1>Global-nav <small>(ui.cpp.global-nav)</small></h1>
+            <div>
+              <p>To include the header add the directive by using the data attribute <code>data-global-nav</code> in the mark up.</p>
+
+<p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
+            </div>
+            <div class="bs-example" data-example-id="global-nav">
+              <div ng-controller="globalNavDemoCtrl">
+  <header data-global-nav></header>
+</div>
+
+            </div>
+            <tabset>
+              <tab heading="Markup">
+                <div hljs><div ng-controller="globalNavDemoCtrl">
+  <header data-global-nav></header>
+</div>
+</div>
+              </tab>
+              <tab heading="JavaScript">
+                <div hljs>angular.module(&#x27;app&#x27;).controller(&#x27;globalNavDemoCtrl&#x27;, function ($scope) {
+  $scope.globalNav = {
+    pageTitle: {
+      title: &#x27;Criminal Justice System&#x27;,
+      type: &#x27;text&#x27;,
+      ref: &#x27;#&#x27;
+    },
+    navItems: [
+      {
+        title: &#x27;Getting Started&#x27;,
+        type: &#x27;href&#x27;,
+        ref: &#x27;#!/modules&#x27;
+      },
+      {
+        title: &#x27;CSS Elements&#x27;,
+        type: &#x27;href&#x27;,
+        ref: &#x27;#!/modules&#x27;
+      },
+      {
+        title: &#x27;UI Components&#x27;,
+        type: &#x27;href&#x27;,
+        ref: &#x27;#!/modules&#x27;
+      },
+      {
+        title: &#x27;Ng Modules&#x27;,
+        type: &#x27;href&#x27;,
+        ref: &#x27;#!/modules&#x27;
+      },
+      {
+        title: &#x27;API&#x27;,
+        type: &#x27;href&#x27;,
+        ref: &#x27;#!/modules&#x27;
+      }
+    ]
+  };
+});
+</div>
+              </tab>
+            </tabset>
+          </section>
+          
+          <section id="nav-side">
+            <h1>Nav-side <small>(ui.cpp.nav-side)</small></h1>
+            <div>
+              <p>This modules is used to create a navigation panel on the left side of the screen, it has been created by utilising the ng-bootstrap accordion</p>
+
+<p>In order to set up the side nav, there are a couple of things that need to be done:</p>
+
+<ol>
+<li>Add the directive as an attribute 'data-nav-side-directive'</li>
+<li>In the controller create an object with the the navigation items (See example for correct format) and assign it to the scope</li>
+<li>Add the attribute 'data-navigation-items' with an assigned value of the object created in the controller
+<ul><li>under the 'type', you have the option to add 'scrollto', 'uisref' or 'href' as a string to decide where the anchor goes.</li>
+<li>please note: if the 'scrollto' option is chosen, the 'ref' should be set to the id of the element to be scrolled to.</li>
+<li>if a 'detail' is provided to one of the child items this will sit below the list item below, please refer to the example.</li></ul></li>
+</ol>
+            </div>
+            <div class="bs-example" data-example-id="nav-side">
+              <div ng-controller="navSideDemoCtrl">
+  <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
+</div>
+
+            </div>
+            <tabset>
+              <tab heading="Markup">
+                <div hljs><div ng-controller="navSideDemoCtrl">
+  <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
+</div>
+</div>
+              </tab>
+              <tab heading="JavaScript">
+                <div hljs>angular.module(&#x27;app&#x27;).controller(&#x27;navSideDemoCtrl&#x27;, function ($scope) {
+  var items;
+
+  items = [
+    {
+      title: &#x27;Single Link&#x27;,
+      type: &#x27;ui-sref&#x27;,
+      ref: &#x27;#&#x27;
+    },
+    {
+      title: &#x27;Example Accordion Title 1&#x27;,
+      href: null,
+      children: [
+        {
+          title: &#x27;Example 1&#x27;,
+          type: &#x27;ui-sref&#x27;,
+          ref: &#x27;#&#x27;,
+          detail: &#x27;Incomplete&#x27;
+        },
+        {
+          title: &#x27;Example 2&#x27;,
+          type: &#x27;ui-sref&#x27;,
+          ref: &#x27;#&#x27;
+        },
+        {
+          title: &#x27;Example 3&#x27;,
+          type: &#x27;ui-sref&#x27;,
+          ref: &#x27;#&#x27;
+        }
+      ]
+    },
+    {
+      title: &#x27;Example Accordion Title 2&#x27;,
+      href: null,
+      children: [
+        {
+          title: &#x27;Example 1&#x27;,
+          type: &#x27;scroll-to&#x27;,
+          ref: &#x27;scroll-to-id&#x27;
+        },
+        {
+          title: &#x27;Example 2&#x27;,
+          type: &#x27;href&#x27;,
+          ref: &#x27;#&#x27;
+        }
+      ]
+    }
+  ];
+
+  $scope.navItems = items;
+
+});
+</div>
+              </tab>
+            </tabset>
+          </section>
+          
+          <section id="tabbed-menu">
+            <h1>Tabbed-menu <small>(ui.cpp.tabbed-menu)</small></h1>
+            <div>
+              <p>This directive creates a tabbed menu as a directive, creating a title infront of the items is optional and can be ommited in order to have just the tabs. In the scope add an array of item objects under the name of 'items'; each item should contain a 'title and a ref'.</p>
+            </div>
+            <div class="bs-example" data-example-id="tabbed-menu">
+              <div ng-controller="tabbedMenuDemoCtrl">
+  <section>
+    <div data-tabbed-menu data-tabbed-items="tabbedItems"></div>
+  </section>
+</div>
+
+            </div>
+            <tabset>
+              <tab heading="Markup">
+                <div hljs><div ng-controller="tabbedMenuDemoCtrl">
+  <section>
+    <div data-tabbed-menu data-tabbed-items="tabbedItems"></div>
+  </section>
+</div>
+</div>
+              </tab>
+              <tab heading="JavaScript">
+                <div hljs>angular.module(&#x27;app&#x27;).controller(&#x27;tabbedMenuDemoCtrl&#x27;, function ($scope) {
+  $scope.tabbedItems = {
+    title: &#x27;View:&#x27;,
+    items: [
+      {
+        title: &#x27;Cases added today&#x27;,
+        ref: &#x27;&#x27;
+      },
+      {
+        title: &#x27;All cases&#x27;,
+        ref: &#x27;&#x27;
+      }
+    ]
+  };
+
+});
+</div>
+              </tab>
+            </tabset>
+          </section>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
