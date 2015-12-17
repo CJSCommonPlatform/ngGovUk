@@ -1,5 +1,5 @@
 {
-  "name": "cpp-ui",
+  "name": "ngGovUk",
   "version": "0.0.4",
   "author": "James A B Gray",
   "dependencies": {},
@@ -38,5 +38,5 @@
     "underscore.string": "~2.3",
     "grunt-image-embed": "^0.3.3"
   },
-  "_ngPrefix": "ui.cpp"
+  "_ngPrefix": "ngGovUk"
 }
