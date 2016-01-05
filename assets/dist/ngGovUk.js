@@ -1,7 +1,7 @@
 /*
  * ngGovUk
  * Author: James A B Gray
- * Version: 0.0.4 - 2015-12-17
+ * Version: 0.0.1 - 2016-01-05
  * License: 
  */
 angular.module("ngGovUk", ["ngGovUk.footer","ngGovUk.global-nav","ngGovUk.nav-side","ngGovUk.tabbed-menu"]);
@@ -46,10 +46,10 @@ angular.module("footer/footer.html", []).run(["$templateCache", function($templa
 
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.footer', []);
+angular.module('ngGovUk.footer', []);
 
 // footer Service Template
-angular.module('ui.cpp.footer').factory('footerService', function() {
+angular.module('ngGovUk.footer').factory('footerService', function() {
 
   var footer = { };
 
@@ -58,14 +58,14 @@ angular.module('ui.cpp.footer').factory('footerService', function() {
 });
 
 // footer Filter Template
-angular.module('ui.cpp.footer').filter('footerFilter', function () {
+angular.module('ngGovUk.footer').filter('footerFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // footer Directive Template
-angular.module('ui.cpp.footer').directive('footerDirective', function () {
+angular.module('ngGovUk.footer').directive('footerDirective', function () {
   return {
     // name: '',
     // priority: 1,
@@ -139,10 +139,10 @@ angular.module("global-nav/global-nav.html", []).run(["$templateCache", function
 
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.global-nav', []);
+angular.module('ngGovUk.global-nav', []);
 
 // globalNav Service Template
-angular.module('ui.cpp.global-nav').factory('globalNavService', function() {
+angular.module('ngGovUk.global-nav').factory('globalNavService', function() {
 
   var globalNav = {
     isCollapsed: true
@@ -153,14 +153,14 @@ angular.module('ui.cpp.global-nav').factory('globalNavService', function() {
 });
 
 // globalNav Filter Template
-angular.module('ui.cpp.global-nav').filter('globalNavFilter', function () {
+angular.module('ngGovUk.global-nav').filter('globalNavFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // globalNav Directive Template
-angular.module('ui.cpp.global-nav').directive('globalNav', function () {
+angular.module('ngGovUk.global-nav').directive('globalNav', function () {
   return {
     // name: '',
     // priority: 1,
@@ -268,10 +268,10 @@ angular.module("nav-side/nav-side.html", []).run(["$templateCache", function($te
 
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.nav-side', []);
+angular.module('ngGovUk.nav-side', []);
 
 // navSide Service Template
-angular.module('ui.cpp.nav-side').factory('navSideService', function() {
+angular.module('ngGovUk.nav-side').factory('navSideService', function() {
 
   var navSide = { };
 
@@ -280,14 +280,14 @@ angular.module('ui.cpp.nav-side').factory('navSideService', function() {
 });
 
 // navSide Filter Template
-angular.module('ui.cpp.nav-side').filter('navSideFilter', function () {
+angular.module('ngGovUk.nav-side').filter('navSideFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // navSide Directive Template
-angular.module('ui.cpp.nav-side').directive('navSideDirective', function () {
+angular.module('ngGovUk.nav-side').directive('navSideDirective', function () {
   return {
     // name: '',
     // priority: 1,
@@ -358,10 +358,10 @@ angular.module("tabbed-menu/tabbed-menu.html", []).run(["$templateCache", functi
 
 'use strict';
 // Define module & include the cpp.ui as a dependency
-angular.module('ui.cpp.tabbed-menu', []);
+angular.module('ngGovUk.tabbed-menu', []);
 
 // tabbedMenu Service Template
-angular.module('ui.cpp.tabbed-menu').factory('tabbedMenuService', function() {
+angular.module('ngGovUk.tabbed-menu').factory('tabbedMenuService', function() {
 
   var tabbedMenu = { };
 
@@ -370,14 +370,14 @@ angular.module('ui.cpp.tabbed-menu').factory('tabbedMenuService', function() {
 });
 
 // tabbedMenu Filter Template
-angular.module('ui.cpp.tabbed-menu').filter('tabbedMenuFilter', function () {
+angular.module('ngGovUk.tabbed-menu').filter('tabbedMenuFilter', function () {
   return function (input, arg) {
     return 'output';
   };
 });
 
 // tabbedMenu Directive Template
-angular.module('ui.cpp.tabbed-menu').directive('tabbedMenu', function () {
+angular.module('ngGovUk.tabbed-menu').directive('tabbedMenu', function () {
   return {
     // name: '',
     // priority: 1,
