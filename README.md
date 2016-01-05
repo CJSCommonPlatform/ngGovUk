@@ -2,7 +2,7 @@
 
 *ALPHA - This is a new service – your feedback will help us to improve it.
 
-[![Bower version](https://badge.fury.io/bo/ngGovUk.svg)](http://badge.fury.io/bo/ngGovUk)
+[![Bower version](https://img.shields.io/bower/v/bootstrap.svg)](https://img.shields.io/bower/v/bootstrap.svg)
 
 ## Introduction
 
