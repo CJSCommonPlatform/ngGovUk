@@ -1,9 +1,9 @@
 {
   "name": "ngGovUk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": [
-    "dist/*",
-    "dist/less/*"
+    "dist/ngGovUk-tpls.min.js",
+    "dist/ngGovUk.less"
   ],
   "ignore": [
     ".jshintrc",
