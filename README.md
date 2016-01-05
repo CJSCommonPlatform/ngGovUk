@@ -2,7 +2,7 @@
 
 *ALPHA - This is a new service – your feedback will help us to improve it.
 
-[![Bower version](https://img.shields.io/bower/v/bootstrap.svg)](https://img.shields.io/bower/v/bootstrap.svg)
+[![Bower version](https://img.shields.io/bower/v/ng-gov-uk.svg)](https://img.shields.io/bower/v/ng-gov-uk.svg)
 
 ## Introduction
 
