@@ -13,5 +13,4 @@ node_modules
 
 # Code Generated Files
 demo
-dist/*
 src/*/*.html.js
