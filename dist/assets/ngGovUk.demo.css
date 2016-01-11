@@ -11747,6 +11747,7 @@ section {
   white-space: nowrap;
   font-size: 1.19em;
   overflow: hidden;
+  padding: 0;
 }
 .navbar-collapse.ng-hide-add,
 .navbar-collapse.ng-hide-remove {
