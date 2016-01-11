@@ -257,9 +257,12 @@
       <p>Click on "Help with nationality" to see how this works.</p>
 
       <div class="bs-example" data-example-id="hidden-text">
-        <details>
-          <summary><span class="summary">Help with nationality</span></summary>
-          <div class="panel-indent">
+        <div>
+          <p class="main-summary summary" data-ng-click="isOpen = !isOpen">
+            <span data-ng-class="{'arrow-right': !isOpen, 'arrow-down': isOpen}"></span>
+            Help with nationality
+          </p>
+          <div class="panel-indent summary-content" data-ng-show="isOpen">
             <p>If you’re not sure about your nationality, try to find out from an official document like a
               passport or national ID card.</p>
 
@@ -267,7 +270,7 @@
               you can’t provide your nationality, you’ll have to send copies of identity documents through the
               post.</p>
           </div>
-        </details>
+        </div>
       </div>
       <div hljs>
         <details>

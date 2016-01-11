@@ -529,7 +529,6 @@ details {
   position: relative;
   display: block;
   text-overflow: clip;
-  white-space:nowrap;
   font-size: @font-size-default-text;
   @media (max-width: @screen-sm-min) {
     font-size: @font-size-small;
@@ -548,28 +547,7 @@ details {
   max-height: 0;
 }
 
-// Data
-.data {
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .xx-large,
-  .x-large {
-    line-height: 0.8;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  > .forename {
-    font-weight: normal;
-  }
-}
-
+// Dropdown arrows for summary and details
 .detail-heading {
   color: @grey-5;
   font-weight: normal;
@@ -602,6 +580,28 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 6px solid transparent;
   margin-right: 9px;
   margin-bottom: 2px;
+}
+
+// Data
+.data {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .xx-large,
+  .x-large {
+    line-height: 0.8;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  > .forename {
+    font-weight: normal;
+  }
 }
 
 .column-title {

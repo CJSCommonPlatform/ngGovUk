@@ -8867,7 +8867,6 @@ details.formatted-details summary:hover {
   position: relative;
   display: block;
   text-overflow: clip;
-  white-space: nowrap;
   font-size: 1.19em;
 }
 @media (max-width: 768px) {
@@ -8884,29 +8883,6 @@ details.formatted-details summary:hover {
 .summary-content.ng-hide {
   opacity: 0;
   max-height: 0;
-}
-.data h1,
-.data h2,
-.data h3,
-.data h4,
-.data h5,
-.data h6 {
-  margin: 0;
-}
-.data p {
-  margin: 0;
-}
-.data .xx-large,
-.data .x-large {
-  line-height: 0.8;
-}
-h1 > .forename,
-h2 > .forename,
-h3 > .forename,
-h4 > .forename,
-h5 > .forename,
-h6 > .forename {
-  font-weight: normal;
 }
 .detail-heading {
   color: #666666;
@@ -8937,6 +8913,29 @@ h6 > .forename {
   border-left: 6px solid transparent;
   margin-right: 9px;
   margin-bottom: 2px;
+}
+.data h1,
+.data h2,
+.data h3,
+.data h4,
+.data h5,
+.data h6 {
+  margin: 0;
+}
+.data p {
+  margin: 0;
+}
+.data .xx-large,
+.data .x-large {
+  line-height: 0.8;
+}
+h1 > .forename,
+h2 > .forename,
+h3 > .forename,
+h4 > .forename,
+h5 > .forename,
+h6 > .forename {
+  font-weight: normal;
 }
 .column-title {
   color: #6f777b;
@@ -10094,6 +10093,149 @@ a.btn {
 .direction-link.direction-left::before {
   left: -20px;
   content: '\3008';
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.dropup,
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle:focus {
+  outline: 0;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 16px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 10px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #6f777b;
+  white-space: nowrap;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #636a6e;
+  background-color: #f5f5f5;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #005ea5;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #dee0e2;
+}
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.open > .dropdown-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 1em;
+  line-height: 1.428571429;
+  color: #dee0e2;
+  white-space: nowrap;
+}
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+  content: "";
+}
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+@media (min-width: 768px) {
+  .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+  .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto;
+  }
 }
 .input-group {
   position: relative;
