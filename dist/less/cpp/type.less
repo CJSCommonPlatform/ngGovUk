@@ -93,27 +93,24 @@ h6, .h6 {
 
 h1, .h1 {
   font-size: @font-size-h1;
-  margin-bottom: unit(((@font-size-h1 * @font-size-base) * 0.8), px);
+  margin-bottom: @font-size-h1-margin-bottom;
 }
 h2, .h2 {
   font-size: @font-size-h2;
-  margin-bottom: unit(((@font-size-h2 * @font-size-base) * 0.8), px);
+  margin-bottom: @font-size-h2-margin-bottom;
 }
 h3, .h3 {
   font-size: @font-size-h3;
-  margin-bottom: unit(((@font-size-h3 * @font-size-base) * 0.8), px);
+  margin-bottom: @font-size-h3-margin-bottom;
 }
 h4, .h4 {
-  margin-bottom: unit(((@font-size-h4 * @font-size-base) * 0.8), px);
-  margin-bottom: @font-size-h4 * 0.8;
+  margin-bottom: @font-size-h4-margin-bottom;
 }
 h5, .h5 {
-  margin-bottom: unit(((@font-size-h5 * @font-size-base) * 0.8), px);
-  margin-bottom: @font-size-h5 * 0.8;
+  margin-bottom: @font-size-h5-margin-bottom;
 }
 h6, .h6 {
-  margin-bottom: unit(((@font-size-h6 * @font-size-base) * 0.8), px);
-  margin-bottom: @font-size-h6 * 0.8;
+  margin-bottom: @font-size-h6-margin-bottom;
 }
 
 .page-main-title {
@@ -125,7 +122,7 @@ h6, .h6 {
 // -------------------------
 
 p {
-  margin-bottom: unit(((@font-size-default-text * @font-size-base) * 0.8), px);
+  margin-bottom: @font-size-default-text-margin-bottom;
   font-size: @font-size-default-text;
 }
 

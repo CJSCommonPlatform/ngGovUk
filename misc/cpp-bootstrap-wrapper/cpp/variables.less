@@ -118,6 +118,14 @@
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
+@font-size-h1-margin-bottom:            unit(((@font-size-h1 * @font-size-base) * 0.8), px);
+@font-size-h2-margin-bottom:            unit(((@font-size-h2 * @font-size-base) * 0.8), px);
+@font-size-h3-margin-bottom:            unit(((@font-size-h3 * @font-size-base) * 0.8), px);
+@font-size-h4-margin-bottom:            unit(((@font-size-h4 * @font-size-base) * 0.8), px);
+@font-size-h5-margin-bottom:            unit(((@font-size-h5 * @font-size-base) * 0.8), px);
+@font-size-h6-margin-bottom:            unit(((@font-size-h6 * @font-size-base) * 0.8), px);
+@font-size-default-text-margin-bottom:  unit(((@font-size-default-text * @font-size-base) * 0.8), px);
+
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    @font-family-sans-serif;
 @headings-font-weight:    700;
