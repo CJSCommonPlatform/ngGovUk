@@ -1,6 +1,6 @@
 {
   "name": "ng-gov-uk",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": [
     "dist/ngGovUk-tpls.min.js",
     "dist/ngGovUk.less"

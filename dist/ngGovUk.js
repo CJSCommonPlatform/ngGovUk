@@ -1,7 +1,7 @@
 /*
  * ngGovUk
  * Author: James A B Gray
- * Version: 0.0.1 - 2016-01-11
+ * Version: 0.0.1 - 2016-01-12
  * License: 
  */
 angular.module("ngGovUk", ["ngGovUk.footer","ngGovUk.global-nav","ngGovUk.nav-side","ngGovUk.tabbed-menu"]);
