@@ -112,7 +112,7 @@ module.exports = function (grunt) {
       },
       mainLess: {
         expand: true,
-        cwd: 'misc/cpp-bootstrap-wrapper/',
+        cwd: 'misc/ng-gov-uk-bootstrap-wrapper/',
         src: '**',
         dest: 'dist/less/'
       },
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
       ui: {
         files: [
           {
-            append: '// CPP WRAPPER\n<%= meta.lessMainCopy %>\n// MODULES\n<%= meta.lessCopy %>',
+            append: '// NG GOV UK WRAPPER\n<%= meta.lessMainCopy %>\n// MODULES\n<%= meta.lessCopy %>',
             input: '<%= dist %>/<%= filename %>.less',
           }
         ]
@@ -191,7 +191,7 @@ module.exports = function (grunt) {
       demo: {
         files: [
           {
-            append: '// CPP UI LESS\n@import "dist/<%= filename %>.less";\n',
+            append: '// NG GOV UK UI LESS\n@import "dist/<%= filename %>.less";\n',
             input: 'demo/assets/app.less',
           }
         ]
@@ -243,7 +243,7 @@ module.exports = function (grunt) {
     },
   });
 
-  //Common ui.cpp module containing all modules for src and templates
+  //Common ui.ngGovUk module containing all modules for src and templates
   //findModule: Adds a given module to config
   var foundModules = {};
 
@@ -406,7 +406,7 @@ module.exports = function (grunt) {
     grunt.file.write(grunt.config('meta.lessFile'));
 
     // Write the import for main style guide less files
-    var mainLessFiles = grunt.file.expand('misc/cpp-bootstrap-wrapper/*.less');
+    var mainLessFiles = grunt.file.expand('misc/ng-gov-uk-bootstrap-wrapper/*.less');
     grunt.config('meta.lessMainCopy', getLessFileNames(mainLessFiles, true));
 
 
