@@ -1,10 +1,9 @@
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('ngGovUk.footer')
     .directive('footerDirective', footerDirective);
-
 
   function footerDirective () {
     var directive = {
@@ -15,9 +14,8 @@
 
     return directive;
 
-    function link(scope, element, attrs, fn) {
+    function link (scope, element, attrs, fn) {
 
     }
   };
 })();
-
