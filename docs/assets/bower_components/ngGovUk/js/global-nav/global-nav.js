@@ -1,0 +1,1 @@
+angular.module('global-nav/global-nav',['global-nav/global-nav.html']);

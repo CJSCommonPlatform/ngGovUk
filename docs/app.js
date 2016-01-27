@@ -2,7 +2,7 @@ angular.module('app', [
   'ngAnimate',
   'ui.router',
   'angularSmoothscroll',
-  'ngGovUk',
+  'ngGovUk.global-nav',
   'ui.bootstrap',
   'hljs',
   'angular.vertilize',

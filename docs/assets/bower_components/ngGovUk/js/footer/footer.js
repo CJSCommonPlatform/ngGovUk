@@ -1,0 +1,1 @@
+angular.module('footer/footer',['footer/footer.html']);

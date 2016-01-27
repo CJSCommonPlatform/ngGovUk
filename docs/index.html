@@ -7,7 +7,7 @@
   <title><%= pkg.name %></title>
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic" type="text/css">
-  <link rel="stylesheet" href="assets/ngGovUk.demo.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/bower_components/ngGovUk/ngGovUk.css" type="text/css"/>
 
   <!-- Hightlight JS -->
   <link rel="stylesheet" href="assets/bower_components/highlightjs/styles/github.css">
@@ -39,7 +39,9 @@
   <script src="assets/bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
 
   <!--ngGovUk-->
-  <script src="assets/dist/<%= pkg._ngPrefix %>-tpls.min.js"></script>
+  <script src="assets/bower_components/ngGovUk/ngGovUk.js"></script>
+
+  <!-- app.js -->
   <script src="app.js"></script>
 
   <!-- Directive -->
