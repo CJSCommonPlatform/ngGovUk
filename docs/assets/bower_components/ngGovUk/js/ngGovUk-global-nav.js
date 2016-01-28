@@ -1,1 +1,0 @@
-angular.module('ngGovUk.global-nav',[]);

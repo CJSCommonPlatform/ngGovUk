@@ -9,13 +9,15 @@
         path: './src',
         bootstrapWrapperPath: './src/bootstrap-wrapper',
         modulesPath: './src/modules',
-        assetPath: './src/assets'
+        assetPath: './src/assets',
+        modulesFile: 'modules.js'
       },
       dev: {
         path: './dev',
         lessPath: './dev/less',
         lessModulesPath: './dev/less/modules',
-        assetPath: './dev/assets'
+        assetPath: './dev/assets',
+        templateCachePath: './dev/templates'
       },
       docs: {
         path: './docs',

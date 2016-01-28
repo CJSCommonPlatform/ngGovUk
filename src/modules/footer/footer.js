@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngGovUk.footer')
+    .module('ngGovUk.footer', [])
     .directive('footerDirective', footerDirective);
 
   function footerDirective () {

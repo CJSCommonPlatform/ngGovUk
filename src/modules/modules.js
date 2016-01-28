@@ -1,6 +1,10 @@
-angular.module('ngGovUk', [
-  'ngGovUk.footer',
-  'ngGovUk.global-nav',
-  'ngGovUk.nav-side',
-  'ngGovUk.tabbed-menu'
-]);
+(function () {
+  'use strict';
+
+  angular.module('ngGovUk', [
+    'ngGovUk.footer',
+    'ngGovUk.global-nav',
+    'ngGovUk.nav-side',
+    'ngGovUk.tabbed-menu'
+  ]);
+})();

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngGovUk.nav-side')
+    .module('ngGovUk.nav-side', [])
     .directive('navSideDirective', navSideDirective);
 
   function navSideDirective () {

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngGovUk.global-nav')
+    .module('ngGovUk.global-nav', [])
     .directive('globalNav', globalNav);
 
   function globalNav () {
