@@ -8,9 +8,8 @@
 .gitconfig
 
 # Third Party Components
-misc/demo/assets/bower_components/*
+docs/assets/bower_components/*
 node_modules
 
 # Code Generated Files
-demo
-src/*/*.html.js
+dev/*

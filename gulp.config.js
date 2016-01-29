@@ -17,14 +17,19 @@
         lessPath: './dev/less',
         lessModulesPath: './dev/less/modules',
         assetPath: './dev/assets',
-        templateCachePath: './dev/templates'
+        templateCachePath: './dev/templates',
+        templateName: 'templates.js'
       },
       docs: {
         path: './docs',
         bowerComponentsPath: './docs/assets/bower_components',
+        bowerBootstrapLessPath: './docs/assets/bower_components/bootstrap/less',
       },
       dist: {
         name: 'ngGovUk'
+      },
+      vendor: {
+
       }
     };
 
