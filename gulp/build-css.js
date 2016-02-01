@@ -32,4 +32,4 @@ module.exports = function(config, log){
       .pipe($.flatten())
       .pipe(gulp.dest(config.dev.lessModulesPath));
   });
-}
+};
