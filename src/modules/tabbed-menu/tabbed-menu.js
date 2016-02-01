@@ -16,6 +16,6 @@
 
     function link (scope, element, attrs, fn) {
     }
-  };
+  }
 })();
 

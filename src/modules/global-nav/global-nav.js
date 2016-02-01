@@ -17,5 +17,5 @@
     function link (scope, element, attrs, fn) {
       scope.globalNav.isCollapsed = true;
     }
-  };
+  }
 })();
