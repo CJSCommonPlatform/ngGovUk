@@ -26,6 +26,7 @@
         bowerBootstrapLessPath: './docs/assets/bower_components/bootstrap/less',
       },
       dist: {
+        path: './dist',
         name: 'ngGovUk'
       }
     };

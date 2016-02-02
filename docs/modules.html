@@ -23,7 +23,7 @@
               <p>To include the header add the directive by using the data attribute <code>data-global-nav</code> in the mark up.</p>
               <p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
             </div>
-            <div class="bs-example" data-example-id="<%= module.name %>">
+            <div class="bs-example" data-example-id="global-nav">
               <div ng-controller="globalNavDemoCtrl">
                 <header data-global-nav></header>
               </div>
@@ -80,7 +80,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
             <div>
               <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>. As of now, there is no need to include any javascript code.</p>
             </div>
-            <div class="bs-example" data-example-id="<%= module.name %>">
+            <div class="bs-example" data-example-id="footer">
               <div data-footer-directive></div>
             </div>
             <div data-tabset>
@@ -113,7 +113,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
                 </li>
               </ol>
             </div>
-            <div class="bs-example" data-example-id="<%= module.name %>">
+            <div class="bs-example" data-example-id="nav-side">
               <div ng-controller="navSideDemoCtrl">
                 <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
               </div>
@@ -187,7 +187,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
             <div>
               <p>This directive creates a tabbed menu as a directive, creating a title infront of the items is optional and can be ommited in order to have just the tabs. In the scope add an array of item objects under the name of 'items'; each item should contain a 'title and a ref'.</p>
             </div>
-            <div class="bs-example" data-example-id="<%= module.name %>">
+            <div class="bs-example" data-example-id="tabbed-menu">
               <div data-ng-controller="tabbedMenuDemoCtrl">
                 <div>
                   <div data-tabbed-menu data-tabbed-items="tabbedItems"></div>

@@ -1,0 +1,47 @@
+header {
+  .row {
+    margin-bottom: 0;
+  }
+}
+.content-wrapper {
+  margin-top: 40px;
+}
+
+.header-logo {
+  img {
+    float: left;
+    margin: 0 6px 0 0;
+    visibility: hidden;
+    width: 35px;
+    height: 31px;
+  }
+
+  .navbar-brand {
+    background: url('@{image-path}gov.uk_logotype_crown.png') no-repeat;
+    background-size: 35px 31px;
+    background-position: 0 0;
+    border-bottom: 1px solid transparent;
+    font-size: @font-size-logo;
+    height: 31px;
+    padding: 6px 0 1px 0;
+    &:hover {
+      border-color: @navbar-default-toggle-border-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.navbar-title {
+  color: #fff;
+}
+
+.global-header-bar {
+  height: 10px;
+  background-color: @cpp-header-bar;
+
+  .global-header-bar {
+    @media (max-width: @grid-float-breakpoint-max) {
+      margin: 0 @navbar-padding-horizontal;
+    }
+  }
+}

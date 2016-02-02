@@ -7,10 +7,20 @@ var gutil       = require('gulp-util');
 // create standalone build
 module.exports = function () {
   gulp.task('build', ['clean-dev'], function (cb) {
-    runSequence([
+    if (gutil.env.dist) {
+      runSequence([
+        'build-css',
+        'copy-assets',
+        'build-js'
+      ], 'move-to-docs',
+        'create-dist',
+        'uglify-dist', cb);
+    } else {
+      runSequence([
       'build-css',
-      'copy-assets',
-      'build-js'
-    ], 'move-to-docs', cb);
+        'copy-assets',
+        'build-js'
+      ], 'move-to-docs', cb);
+    }
   });
 };
