@@ -29,10 +29,6 @@ angular.module('app')
         templateUrl:'css.html',
         controller: 'CssController'
       })
-      .state('layouts', {
-        url:'/layouts',
-        templateUrl:'layouts.html'
-      })
       .state('angularui', {
         url:'/angularui',
         templateUrl:'angularui.html',

@@ -7,24 +7,25 @@
             <h1>Introduction</h1>
           </div>
           <p>
-            <img src="https://badge.fury.io/bo/ng-gov-uk.svg" alt="Bower version" height="18">
+            <img src="https://badge.fury.io/bo/ng-gov-uk.svg" alt="Bower version" height="18" />
           </p>
           <p>
-            The <%= pkg.name %> is designed to be a platform wide <strong>Bootstrap</strong> wrapper that applies the <strong>GOV.UK</strong> styling requirements to your <strong>Angualr JS</strong> project.
+            The ngGovUk module is designed to be a platform wide <strong>Bootstrap</strong> wrapper that applies the <strong>GOV.UK</strong> styling requirements to your <strong>Angualr JS</strong> project.
           </p>
           <p>
             Also included are a number of <strong>Angular JS</strong> modules that have common functionality that may be useful in your project.
           </p>
           <p>
-            There are two options for using the <%= pkg.name %>:
+            There are two options for using the ngGovUk module:
           </p>
           <ol>
             <li>
-              <a  smooth-scroll-jquery
-                  class="smooth-scroll"
-                  target="getting_started"
-                  speed="500"
-                  offset="30">Use the CPP Angular Yeoman Generator (Recommended)</a></li>
+              <a data-smooth-scroll-jquery
+                class="smooth-scroll"
+                target="getting_started"
+                data-speed="500"
+                data-offset="30">Use the CPP Angular Yeoman Generator (Recommended)</a>
+            </li>
             <li><a href="">Include and compile manually</a></li>
           </ol>
           <h3>Browser Support</h3>
@@ -45,7 +46,7 @@
           </p>
           <h3>Contribute</h3>
           <p>
-            To contribute to this project and create <stronmg>Modules</stronmg> for the CPP teams to utilise <a href="">follow this guide</a>.
+            To contribute to this project and create <strong>Modules</strong> for the CPP teams to utilise <a href="">follow this guide</a>.
           </p>
         </section>
 
@@ -81,26 +82,30 @@
 
           <h3>Installation</h3>
 
-          <p>As soon as you've got all the files downloaded and included in your page you just need to declare
-            a dependency on the <code><%= pkg.name %></code> <a href="http://docs.angularjs.org/guide/module">module</a>:<br>
+          <p>
+            As soon as you've got all the files downloaded and included in your page you just need to declare
+            a dependency on <code>ngGovUk</code> <a href="http://docs.angularjs.org/guide/module">module</a>:
+          </p>
 
-          <pre rainbow-block><code data-language="javascript">angular.module('myApp', ['<strong><%= pkg.name %></strong>']);</code></pre>
+          <pre data-rainbow-block><code data-language="javascript">angular.module('myApp', ['<strong>ngGovUk</strong>']);</code></pre>
 
           <h3>CSS</h3>
 
-          <p>Original Bootstrap's CSS depends on empty <code>href</code> attributes to style cursors for several
+          <p>
+            Original Bootstrap's CSS depends on empty <code>href</code> attributes to style cursors for several
             components (pagination, tabs etc.).
             But in AngularJS adding empty <code>href</code> attributes to link tags will cause unwanted route changes.
             This is why we need to remove empty <code>href</code> attributes from directive templates and as a result
             styling is not applied correctly. The remedy is simple, just add the following styling to your application:
-          <pre><code>.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }</code></pre>
+            .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
           </p>
+
           <h3>Issues</h3>
 
-          <p>Please report any bugs/problems to <a href="https://bitbucket.org/BBCMobileDelivery/bbc-ui/issues" target="_blank">our issue page</a>.</p>
+          <p>
+            Please report any bugs/problems to <a href="https://bitbucket.org/BBCMobileDelivery/bbc-ui/issues" target="_blank">our issue page</a>.
+          </p>
         </section>
-
-
       </div>
     </div>
   </div>

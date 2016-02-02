@@ -17,28 +17,66 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <% demoModules.forEach(function(module) { %>
-          <section id="<%= module.name %>">
-            <h1><%= module.displayName %> <small>(<%= module.libraryPrefix %>.<%= module.name %>)</small></h1>
+          <div id="global-nav">
+            <h2>global-nav</h2>
             <div>
-              <%= module.docs.md %>
+              <p>To include the header add the directive by using the data attribute <code>data-global-nav</code> in the mark up.</p>
+              <p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
             </div>
             <div class="bs-example" data-example-id="<%= module.name %>">
-              <%= module.docs.html %>
+              <div ng-controller="globalNavDemoCtrl">
+                <header data-global-nav></header>
+              </div>
             </div>
-            <tabset>
-              <tab heading="Markup">
-                <div hljs><%= module.docs.html %></div>
-              </tab>
-              <tab heading="JavaScript">
-                <div hljs><%- module.docs.js %></div>
-              </tab>
-            </tabset>
-          </section>
-          <% }); %>
+            <div data-tabset>
+              <div data-tab data-heading="Markup">
+                <div ng-controller="globalNavDemoCtrl">
+                  <div data-hljs><header data-global-nav></header></div>
+                </div>
+              </div>
+              <div data-tab data-heading="JavaScript">
+                <div data-hljs>
+angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
+  $scope.globalNav = {
+    pageTitle: {
+      title: 'Criminal Justice System',
+      type: 'text',
+      ref: '#'
+    },
+    navItems: [
+      {
+        title: 'Getting Started',
+        type: 'href',
+        ref: '#!/modules'
+      },
+      {
+        title: 'CSS Elements',
+        type: 'href',
+        ref: '#!/modules'
+      },
+      {
+        title: 'UI Components',
+        type: 'href',
+        ref: '#!/modules'
+      },
+      {
+        title: 'Ng Modules',
+        type: 'href',
+        ref: '#!/modules'
+      },
+      {
+        title: 'API',
+        type: 'href',
+        ref: '#!/modules'
+      }
+    ]
+  };
+});</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -35,7 +35,10 @@ module.exports = function(config, log) {
       }
     };
 
-    gulp.src(config.src.modulesPath + '/**/*.html')
+    gulp.src([
+      config.src.modulesPath + '/**/*.html',
+      config.docs.path + '/*.html'
+    ])
       .pipe($.arialinter({
         level: 'AA'
       }))

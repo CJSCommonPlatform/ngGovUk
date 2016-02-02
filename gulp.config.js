@@ -27,9 +27,6 @@
       },
       dist: {
         name: 'ngGovUk'
-      },
-      vendor: {
-
       }
     };
 
