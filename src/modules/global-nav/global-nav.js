@@ -5,7 +5,7 @@
     .module('ngGovUk.global-nav', [])
     .directive('globalNav', globalNav);
 
-  function globalNav () {
+  function globalNav() {
     var directive = {
       link: link,
       templateUrl: 'global-nav/global-nav.html',
@@ -14,7 +14,7 @@
 
     return directive;
 
-    function link (scope, element, attrs, fn) {
+    function link(scope, element, attrs, fn) {
       scope.globalNav.isCollapsed = true;
     }
   }

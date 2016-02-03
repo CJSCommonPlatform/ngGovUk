@@ -10,8 +10,13 @@ module.exports = function (config, log) {
       .pipe($.clean());
   });
 
-  gulp.task('clean-docs', function () {
+  gulp.task('clean-docs', ['clean-dist'], function () {
     return gulp.src(config.docs.bowerComponentsPath + '/' + config.dist.name, {read: false})
+      .pipe($.clean());
+  });
+
+  gulp.task('clean-dist', function () {
+    return gulp.src(config.dist.path, {read: false})
       .pipe($.clean());
   });
 };

@@ -5,7 +5,7 @@
     .module('ngGovUk.nav-side', [])
     .directive('navSideDirective', navSideDirective);
 
-  function navSideDirective () {
+  function navSideDirective() {
     var directive = {
       link: link,
       templateUrl: 'nav-side/nav-side.html',
@@ -19,10 +19,10 @@
 
     return directive;
 
-    function link (scope, element, attrs, fn) {
+    function link(scope, element, attrs, fn) {
       scope.isCollapsed = false;
 
-      scope.isOpen = function(item) {
+      scope.isOpen = function (item) {
         var result = false;
 
         if (item && item.children && scope.currentState && scope.currentState.name) {
@@ -41,7 +41,7 @@
       window.onresize = updateCollapsedStatus(scope);
     }
 
-    function updateCollapsedStatus (scope) {
+    function updateCollapsedStatus(scope) {
       var windowWidth = window.innerWidth;
 
       if (windowWidth < 768) {

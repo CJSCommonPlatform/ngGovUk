@@ -5,16 +5,16 @@
     .module('ngGovUk.footer', [])
     .directive('footerDirective', footerDirective);
 
-  function footerDirective () {
+  function footerDirective() {
     var directive = {
       link: link,
       templateUrl: 'footer/footer.html',
       restrict: 'EA'
     };
 
-    return directive;
+    return directive;;
 
-    function link (scope, element, attrs, fn) {
+    function link(scope, element, attrs, fn) {
 
     }
   }
