@@ -1,7 +1,8 @@
 'use strict';
 
-var gulp = require('gulp');
-var $    = require('gulp-load-plugins')({ lazy: true });
+var gulp        = require('gulp');
+var $           = require('gulp-load-plugins')({ lazy: true });
+var browserSync = require('browser-sync');
 
 module.exports = function(config, log) {
   gulp.task('build-js', ['build-partials'], function () {
@@ -15,6 +16,7 @@ module.exports = function(config, log) {
   });
 
   gulp.task('build-partials', function () {
+    log('build partials');
     return gulp.src(config.src.modulesPath + '/*/*.html')
       .pipe($.ngHtml2js({moduleName: config.dist.name}))
       .pipe($.concat(config.dev.templateName))

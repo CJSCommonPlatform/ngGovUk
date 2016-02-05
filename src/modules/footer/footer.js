@@ -12,10 +12,10 @@
       restrict: 'EA'
     };
 
-    return directive;;
+    return directive;
 
     function link(scope, element, attrs, fn) {
-
+      console.log('hello');
     }
   }
 })();

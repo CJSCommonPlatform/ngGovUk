@@ -9,6 +9,7 @@
   },
   "private": true,
   "devDependencies": {
+    "browser-sync": "^2.11.1",
     "del": "^2.2.0",
     "exec": "^0.1.0",
     "grunt": "~0.4.1",
