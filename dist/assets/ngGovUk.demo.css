@@ -11146,7 +11146,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .alert-danger .alert-link {
   color: #843534;
 }
-.icon-alert {
+.icon-alert,
+.icon-notification {
   position: relative;
   margin: 20px 0;
   border: 0;
@@ -11154,17 +11155,20 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   vertical-align: middle;
   min-height: 48px;
 }
-.icon-alert .fa {
+.icon-alert .fa,
+.icon-notification .fa {
   position: absolute;
   left: 0;
   top: 0;
   font-size: 3em;
 }
-.icon-alert > :not(.fa) {
+.icon-alert > :not(.fa),
+.icon-notification > :not(.fa) {
   padding: 0 0 0 60px;
   margin: 0;
 }
-.icon-alert .subtext {
+.icon-alert .subtext,
+.icon-notification .subtext {
   font-size: 1em;
 }
 .warning-panel {
@@ -11175,7 +11179,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 1.5em;
   font-weight: 900;
 }
-.icon-alert-success {
+.icon-notification-success {
   background: #85994b;
   color: #fff;
   border-top: 10px solid #85994b;
@@ -11183,7 +11187,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   border-bottom: 16px solid #85994b;
   padding-top: 14px;
 }
-.icon-alert-invalid {
+.icon-notification-invalid {
   background: #b10e1e;
   color: #fff;
   border-top: 10px solid #b10e1e;
@@ -11192,11 +11196,11 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding-top: 14px;
   padding-bottom: 4px;
 }
-.icon-alert-invalid .fa {
+.icon-notification-invalid .fa {
   font-size: 1.5em;
   top: 13px;
 }
-.icon-alert-invalid > :not(.fa) {
+.icon-notification-invalid > :not(.fa) {
   padding-left: 30px;
 }
 .phase-banner {

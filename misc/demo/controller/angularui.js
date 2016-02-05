@@ -26,6 +26,21 @@ angular.module('app').controller('angularui', function ($scope, $modal, $log) {
           ref: 'success-alert'
         }
       ]
+    },
+    {
+      title: 'Notifications',
+      children: [
+        {
+          title: 'Success Notification',
+          type: 'scroll-to',
+          ref: 'success-notification'
+        },
+        {
+          title: 'Invalid Notification',
+          type: 'scroll-to',
+          ref: 'invalid-notification'
+        }
+      ]
     }
   ];
 

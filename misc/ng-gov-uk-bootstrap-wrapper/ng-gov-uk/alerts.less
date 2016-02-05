@@ -104,7 +104,11 @@
   font-weight: 900;
 }
 
-.icon-alert-success {
+.icon-notification {
+  &:extend(.icon-alert all);
+}
+
+.icon-notification-success {
   background: @brand-success;
   color: #fff;
   border-top: 10px solid @brand-success;
@@ -113,7 +117,7 @@
   padding-top: 14px;
 }
 
-.icon-alert-invalid {
+.icon-notification-invalid {
   background: @brand-danger;
   color: #fff;
   border-top: 10px solid @brand-danger;
