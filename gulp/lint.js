@@ -5,13 +5,11 @@ var $    = require('gulp-load-plugins')({ lazy: true });
 
 module.exports = function(config, log){
   gulp.task('lint', function() {
-    log('Analysing source with ESLint');
-
-   lint(false);
+    return lint(false);
   });
 
   gulp.task('lint-break', function () {
-    lint(true);
+    return lint(true);
   });
 
   function lint (breakOnError) {

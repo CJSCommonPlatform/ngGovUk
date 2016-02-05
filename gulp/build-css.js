@@ -9,7 +9,6 @@ module.exports = function(config, log){
   gulp.task('create-css', ['create-main-less'], function () {
     return gulp.src(config.dev.path + '/*.less')
       .pipe($.less())
-      //.pipe($.rename(config.dist.name + '.css'))
       .pipe(gulp.dest(config.dev.path));
   });
 

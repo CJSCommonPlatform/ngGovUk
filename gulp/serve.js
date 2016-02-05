@@ -13,6 +13,22 @@ module.exports = function (config, log) {
       }
     });
 
-    gulp.watch(config.src.modulesPath + '/**/*.js', ['lint', 'build-js', 'move-to-docs', browserSync.reload]);
+    // watch js files in module
+    gulp.watch(config.src.modulesPath + '/**/*.js', function () {
+      runSequence('lint', 'build-js', 'move-to-docs', browserSync.reload);
+    });
+
+    // watch all less files
+    gulp.watch([config.src.modulesPath + '/**/*.less', config.src.bootstrapWrapperPath + '/**/*.less'], function () {
+      runSequence('build-css', 'move-to-docs', browserSync.reload);
+    });
+
+    //watch modules files
+    gulp.watch(config.src.modulesPath + '/**/*.html', function () {
+      runSequence('html-lint', 'build-js', 'move-to-docs', browserSync.reload);
+    });
+
+    //watch docs files
+    gulp.watch(config.docs.path + '/**/*.html', browserSync.reload);
   });
 };
