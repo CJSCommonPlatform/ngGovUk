@@ -13,6 +13,7 @@ module.exports = function () {
         'copy-assets',
         'build-js'
       ], 'move-to-docs',
+        'create-demo-css',
         'create-dist',
         'uglify-dist', cb);
     } else {
@@ -20,7 +21,8 @@ module.exports = function () {
       'build-css',
         'copy-assets',
         'build-js'
-      ], 'move-to-docs', cb);
+      ], 'move-to-docs',
+        'create-demo-css', cb);
     }
   });
 };

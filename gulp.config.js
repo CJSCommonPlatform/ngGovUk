@@ -21,6 +21,8 @@
       },
       docs: {
         path: './docs',
+        assetsPath: './docs/assets',
+        cssPath: './docs/assets/css',
         bowerComponentsPath: './docs/assets/bower_components',
         bowerBootstrapLessPath: './docs/assets/bower_components/bootstrap/less',
       },

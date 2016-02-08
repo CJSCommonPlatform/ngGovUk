@@ -49,7 +49,6 @@
       } else {
         scope.isCollapsed = false;
       }
-      scope.$apply();
     }
   }
 })();

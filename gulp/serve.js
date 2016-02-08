@@ -23,6 +23,10 @@ module.exports = function (config, log) {
       runSequence('build-css', 'move-to-docs', browserSync.reload);
     });
 
+    gulp.watch(config.docs.assetsPath + '/**/*.less', function () {
+      runSequence('create-demo-css', browserSync.reload);
+    });
+
     //watch modules files
     gulp.watch(config.src.modulesPath + '/**/*.html', function () {
       runSequence('html-lint', 'build-js', 'move-to-docs', browserSync.reload);

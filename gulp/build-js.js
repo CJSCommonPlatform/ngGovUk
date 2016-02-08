@@ -2,7 +2,6 @@
 
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')({ lazy: true });
-var browserSync = require('browser-sync');
 
 module.exports = function(config, log) {
   gulp.task('build-js', ['build-partials'], function () {

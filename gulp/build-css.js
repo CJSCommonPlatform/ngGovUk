@@ -3,8 +3,14 @@
 var gulp = require('gulp');
 var $    = require('gulp-load-plugins')({ lazy: true });
 
-module.exports = function(config, log){
+module.exports = function(config, log) {
   gulp.task('build-css', ['create-css']);
+
+  gulp.task('create-demo-css', function () {
+    return gulp.src(config.docs.assetsPath + '/app.less')
+      .pipe($.less())
+      .pipe(gulp.dest(config.docs.cssPath));
+  });
 
   gulp.task('create-css', ['create-main-less'], function () {
     return gulp.src(config.dev.path + '/*.less')

@@ -11,7 +11,7 @@ module.exports = function (config, log) {
   });
 
   gulp.task('clean-docs', ['clean-dist'], function () {
-    return gulp.src(config.docs.bowerComponentsPath + '/' + config.dist.name, {read: false})
+    return gulp.src([config.docs.bowerComponentsPath + '/' + config.dist.name, config.docs.cssPath], {read: false})
       .pipe($.clean());
   });
 
