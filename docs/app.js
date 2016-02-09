@@ -8,12 +8,11 @@ angular.module('app', [
   'angular.vertilize',
   'smoothScroll'
 ]);
+
 angular.module('app')
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, hljsServiceProvider){
 
   $locationProvider.hashPrefix('!');
-
-
   $stateProvider
       .state('playground', {
         url:'/playground',
@@ -86,6 +85,7 @@ angular.module('app')
 angular.module('app').controller('footerDemoCtrl', function ($scope) {
 
 });
+
 angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
   $scope.globalNav = {
     pageTitle: {
@@ -122,10 +122,9 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
     ]
   };
 });
-angular.module('app').controller('navSideDemoCtrl', function ($scope) {
-  var items;
 
-  items = [
+angular.module('app').controller('navSideDemoCtrl', function ($scope) {
+  $scope.navItems = [
     {
       title: 'Single Link',
       type: 'ui-sref',
@@ -170,10 +169,8 @@ angular.module('app').controller('navSideDemoCtrl', function ($scope) {
       ]
     }
   ];
-
-  $scope.navItems = items;
-
 });
+
 angular.module('app').controller('tabbedMenuDemoCtrl', function ($scope) {
   $scope.tabbedItems = {
     title: 'View:',
@@ -188,5 +185,4 @@ angular.module('app').controller('tabbedMenuDemoCtrl', function ($scope) {
       }
     ]
   };
-
 });
