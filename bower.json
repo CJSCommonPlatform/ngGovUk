@@ -1,6 +1,6 @@
 {
   "name": "ng-gov-uk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": [
     "dist/ngGovUk.min.js",
     "dist/ngGovUk.less"
