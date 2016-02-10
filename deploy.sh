@@ -1,4 +1,4 @@
-cd demo
+cd docs
 git init
 
 # inside this git repo create Travis user

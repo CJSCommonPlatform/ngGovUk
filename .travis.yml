@@ -1,15 +1,16 @@
-# language: node_js
-# node_js:
-#   - "4.0"
-# install:
-#   - npm install
-#   - npm install -g bower
-#   - npm install -g grunt-cli
-#   - bower install
-# script:
-#   - grunt build
-#   - bash ./deploy.sh
-# env:
-#   global:
-#   - GH_REF: github.com/CJSCommonPlatform/ngGovUk.git
-#   - secure: "p19pS6H7TR0beugV7YW7HW/pHPsbIC8FOFm4qKShsY6iSa+abFuTKVvXLQtaLWJpqbvLE1gAKIi3O14r11mQo1WPReRyM4qdtq7gL+/2dGN73xfYQCo2y0qlIX7V7w9T86EzFWc16e1LIemA4Sp9ej1axINRjADrEffP2P3+b/VtrbGjLXCt1F1PewE2DS6cYVdVBfvtGNyyzRKW+DYw8EEi7dy+YeUvXrAva+82hmdcwPBNDtmqwAhMSfUQGMV8VedQCRBsWqZvah162mPn1s45a9HuoCT8Aa/y4lY0G4gzqZeozruSAtp15vgmcyHnYrQdLjsHdJPvVw9zwp0JbYOSMuOGVRTgl4o0YQX/XwrPMAsOxlNhOp3e499ZeRa7VAETrbuUbMIiBXdXbpa2L1ppYIu8+bA5VEGOUNVv2L4tPzKhbTYApRFKxbrmVitj1qyP2SogmqK5ErXuhr0MY1CODHwzBl8zMPw7bLZpxBEwznK+ed9XwnUGNOZXvLxf+Nph50ysPjH/4ZFCX1oTj4sFLB0VBvhPH4XPJDq8P3eNxSy00h/dh/g0kvq4a78phsoRkus5yXxSUkAEx7ISOTA5bRrP6AOvFqufCGo8/aSe+WmSWAayHiL2k8UpwdmKivrdMw1NExyT1SUQk8aRD5EZAvW098pC6ONUAXRcbmE="
+language: node_js
+node_js:
+  - "4.0"
+install:
+  - npm install
+  - npm install -g bower
+  - npm install -g gulp
+  - bower install
+script:
+  - gulp html-lint
+  - gulp
+  - bash ./deploy.sh
+env:
+  global:
+  - GH_REF: github.com/CJSCommonPlatform/ngGovUk.git
+  - secure: "p19pS6H7TR0beugV7YW7HW/pHPsbIC8FOFm4qKShsY6iSa+abFuTKVvXLQtaLWJpqbvLE1gAKIi3O14r11mQo1WPReRyM4qdtq7gL+/2dGN73xfYQCo2y0qlIX7V7w9T86EzFWc16e1LIemA4Sp9ej1axINRjADrEffP2P3+b/VtrbGjLXCt1F1PewE2DS6cYVdVBfvtGNyyzRKW+DYw8EEi7dy+YeUvXrAva+82hmdcwPBNDtmqwAhMSfUQGMV8VedQCRBsWqZvah162mPn1s45a9HuoCT8Aa/y4lY0G4gzqZeozruSAtp15vgmcyHnYrQdLjsHdJPvVw9zwp0JbYOSMuOGVRTgl4o0YQX/XwrPMAsOxlNhOp3e499ZeRa7VAETrbuUbMIiBXdXbpa2L1ppYIu8+bA5VEGOUNVv2L4tPzKhbTYApRFKxbrmVitj1qyP2SogmqK5ErXuhr0MY1CODHwzBl8zMPw7bLZpxBEwznK+ed9XwnUGNOZXvLxf+Nph50ysPjH/4ZFCX1oTj4sFLB0VBvhPH4XPJDq8P3eNxSy00h/dh/g0kvq4a78phsoRkus5yXxSUkAEx7ISOTA5bRrP6AOvFqufCGo8/aSe+WmSWAayHiL2k8UpwdmKivrdMw1NExyT1SUQk8aRD5EZAvW098pC6ONUAXRcbmE="
