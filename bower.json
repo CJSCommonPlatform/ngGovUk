@@ -1,14 +1,30 @@
 {
   "name": "ng-gov-uk",
-  "version": "0.1.1",
+  "description": "an AngularJS Bootstrap wrapper that applies the GOV.UK styling requirements",
   "main": [
     "dist/ngGovUk.min.js",
     "dist/ngGovUk.less"
   ],
   "ignore": [
-    ".jshintrc",
-    ".editorconfig"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dev",
+    "docs",
+    "gulp",
+    "reports",
+    "src",
+    "deploy.sh",
+    "gulp.config.js",
+    "gulpfile.js",
+    "LICENSE.md",
+    "package.json",
   ],
+  "keywords": "nggovuk gov nggov angular bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CJSCommonPlatform/ngGovUk.git"
+  },
   "devDependencies": {
     "angular": "~1.2.0",
     "angular-ui-router": "~0.2",
