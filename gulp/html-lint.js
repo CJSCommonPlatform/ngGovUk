@@ -5,10 +5,10 @@ var $    = require('gulp-load-plugins')({ lazy: true });
 
 module.exports = function(config, log) {
   gulp.task('html-lint', function () {
-    var options = {
-      tmplext: 'tpl.html',
+    var angularValidateOptions = {
       customtags: [],
       customattrs: [],
+      tmplext: 'tpl.html',
       relaxerror: [
         "Start tag seen without seeing a doctype first. Expected e.g. “<!DOCTYPE html>”.",
         "Element “head” is missing a required instance of child element “title”.",
@@ -19,7 +19,7 @@ module.exports = function(config, log) {
       reportCheckstylePath: 'reports/html-angular-validate-report-checkstyle.xml',
       reportpath: 'reports/html-angular-validate-report.json',
       emitError: true,
-      reportFn:function(fileFailures){
+      reportFn: function(fileFailures) {
         for (var i = 0; i < fileFailures.length; i++) {
           var fileResult = fileFailures[i];
           $.util.log(fileResult.filepath);
@@ -37,11 +37,12 @@ module.exports = function(config, log) {
 
     gulp.src([
       config.src.modulesPath + '/**/*.html',
-      config.docs.path + '/*.html'
+      config.docs.path + '/*.html',
+      config.docs.path + '/templates/**/*.html'
     ])
+      .pipe($.htmlAngularValidate(angularValidateOptions))
       .pipe($.arialinter({
         level: 'AA'
-      }))
-      .pipe($.htmlAngularValidate(options));
+      }));
   });
 };
