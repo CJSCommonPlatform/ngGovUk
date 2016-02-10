@@ -18,7 +18,7 @@
     "gulp.config.js",
     "gulpfile.js",
     "LICENSE.md",
-    "package.json",
+    "package.json"
   ],
   "keywords": "nggovuk gov nggov angular bootstrap",
   "repository": {
