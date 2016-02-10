@@ -1,7 +1,6 @@
 angular.module('app', [
   'ngAnimate',
   'ui.router',
-  'angularSmoothscroll',
   'ngGovUk',
   'ui.bootstrap',
   'hljs',

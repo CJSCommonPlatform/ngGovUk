@@ -13,6 +13,8 @@ module.exports = function (config, log) {
       }
     });
 
+    // -- Watch src files -- //
+
     // watch js files in module
     gulp.watch(config.src.modulesPath + '/**/*.js', function () {
       runSequence('lint', 'build-js', 'move-to-docs', browserSync.reload);
@@ -23,16 +25,22 @@ module.exports = function (config, log) {
       runSequence('build-css', 'move-to-docs', browserSync.reload);
     });
 
-    gulp.watch(config.docs.assetsPath + '/**/*.less', function () {
-      runSequence('create-demo-css', browserSync.reload);
-    });
-
-    //watch modules files
+    // watch module files
     gulp.watch(config.src.modulesPath + '/**/*.html', function () {
       runSequence('html-lint', 'build-js', 'move-to-docs', browserSync.reload);
     });
 
-    //watch docs files
+    // -- watch doc files -- //
+
+    // watch less
+    gulp.watch(config.docs.assetsPath + '/**/*.less', function () {
+      runSequence('create-demo-css', browserSync.reload);
+    });
+
+    // html files
     gulp.watch(config.docs.path + '/**/*.html', browserSync.reload);
+
+    // watch js files
+    gulp.watch(config.docs.path + '/**/*.js', browserSync.reload);
   });
 };

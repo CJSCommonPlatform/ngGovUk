@@ -28,6 +28,8 @@
       },
       dist: {
         path: './dist',
+        lessPath: './dist/less',
+        lessModulesPath: './dist/less/modules',
         name: 'ngGovUk'
       }
     };
