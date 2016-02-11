@@ -1,7 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
-var $    = require('gulp-load-plugins')({ lazy: true });
+var gulp   = require('gulp');
+var $      = require('gulp-load-plugins')({ lazy: true });
+var source = require('vinyl-source-stream');
+var path   = require('path');
+var lessImportString = require('./helpers/lessImportString')();
 
 module.exports = function(config, log) {
   gulp.task('build-css', ['create-css']);
@@ -19,9 +22,22 @@ module.exports = function(config, log) {
   });
 
   gulp.task('create-main-less', ['copy-less'], function () {
-    return gulp.src([config.docs.bowerBootstrapLessPath + '/bootstrap.less', config.dev.lessPath + '/*.less', config.dev.lessModulesPath + '/*.less'])
-      .pipe($.lessImport(config.dist.name + '.less'))
-      .pipe(gulp.dest(config.dev.path));
+    var stream = source(config.dist.name + '.less');
+
+    gulp.src([config.docs.bowerBootstrapLessPath + '/bootstrap.less', config.dev.lessPath + '/*.less', config.dev.lessModulesPath + '/*.less'])
+      .pipe($.tap(function (file, t) {
+        var filePath;
+
+        if (path.basename(file.path) === 'bootstrap.less') {
+          filePath = path.dirname(file.path);
+        } else {
+          filePath = 'less' + path.dirname(file.path).split('less')[1];
+        }
+
+        stream.write(lessImportString(filePath, path.basename(file.path)));
+      }));
+
+    stream.pipe(gulp.dest(config.dev.path));
   });
 
   gulp.task('copy-less', ['copy-less-theme', 'copy-less-modules']);
