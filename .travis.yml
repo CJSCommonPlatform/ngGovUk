@@ -8,7 +8,7 @@ install:
   - bower install
 script:
   - gulp html-lint
-  - gulp
+  - gulp --travis
   - bash ./deploy.sh
 env:
   global:

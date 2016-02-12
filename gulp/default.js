@@ -6,7 +6,7 @@ var runSequence = require('run-sequence');
 
 module.exports = function (config, log) {
   gulp.task('default', function (cb) {
-    if ($.util.env.dist) {
+    if ($.util.env.dist || $.util.env.travis) {
       runSequence(['lint', 'build'], cb);
     } else {
       runSequence(['lint', 'build'], 'serve', cb);
