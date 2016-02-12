@@ -10,7 +10,7 @@ module.exports = function(config, log) {
   gulp.task('build-css', ['create-css']);
 
   gulp.task('create-demo-css', function () {
-    return gulp.src(config.docs.assetsPath + '/app.less')
+    return gulp.src(config.docs.lessPath + '/app.less')
       .pipe($.less())
       .pipe(gulp.dest(config.docs.cssPath));
   });

@@ -8,7 +8,7 @@
 .gitconfig
 
 # Third Party Components
-docs/assets/bower_components/*
+docs/bower_components/*
 node_modules
 
 # Code Generated Files

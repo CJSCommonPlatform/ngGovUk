@@ -22,9 +22,10 @@
       docs: {
         path: './docs',
         assetsPath: './docs/assets',
+        lessPath: './docs/assets/less',
         cssPath: './docs/assets/css',
-        bowerComponentsPath: './docs/assets/bower_components',
-        bowerBootstrapLessPath: './docs/assets/bower_components/bootstrap/less',
+        bowerComponentsPath: './docs/bower_components',
+        bowerBootstrapLessPath: './docs/bower_components/bootstrap/less',
       },
       dist: {
         path: './dist',

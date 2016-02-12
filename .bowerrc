@@ -1,5 +1,5 @@
 {
-  "directory": "docs/assets/bower_components/",
+  "directory": "docs/bower_components/",
   "registry": {
     "search": [
       "https://bower.herokuapp.com"
