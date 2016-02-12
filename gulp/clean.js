@@ -16,7 +16,9 @@ module.exports = function (config, log) {
   });
 
   gulp.task('clean-dist', function () {
-    return gulp.src(config.dist.path, {read: false})
-      .pipe($.clean());
+    if ($.util.env.dist) {
+      return gulp.src(config.dist.path, {read: false})
+        .pipe($.clean());
+    }
   });
 };
