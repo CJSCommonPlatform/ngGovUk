@@ -24,13 +24,13 @@
               <p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
             </div>
             <div class="bs-example" data-example-id="global-nav">
-              <div ng-controller="globalNavDemoCtrl">
+              <div data-ng-controller="globalNavDemoCtrl">
                 <header data-global-nav></header>
               </div>
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div ng-controller="globalNavDemoCtrl">
+                <div data-ng-controller="globalNavDemoCtrl">
                   <div data-hljs><header data-global-nav></header></div>
                 </div>
               </div>
@@ -85,7 +85,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div ng-controller="globalNavDemoCtrl">
+                <div data-ng-controller="globalNavDemoCtrl">
                   <div data-hljs><div data-footer-directive></div></div>
                 </div>
               </div>
@@ -99,7 +99,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
           <div id="nav-side">
             <h2>nav-side</h2>
             <div>
-              <p>This modules is used to create a navigation panel on the left side of the screen, it has been created by utilising the ng-bootstrap accordion</p>
+              <p>This modules is used to create a navigation panel on the left side of the screen, it has been created by utilising the data-ng-bootstrap accordion</p>
               <p>In order to set up the side nav, there are a couple of things that need to be done:</p>
               <ol>
                 <li>Add the directive as an attribute 'data-nav-side-directive'</li>
@@ -114,14 +114,14 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
               </ol>
             </div>
             <div class="bs-example" data-example-id="nav-side">
-              <div ng-controller="navSideDemoCtrl">
+              <div data-ng-controller="navSideDemoCtrl">
                 <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
               </div>
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div ng-controller="globalNavDemoCtrl">
-                  <div data-hljs><div ng-controller="navSideDemoCtrl">
+                <div data-ng-controller="globalNavDemoCtrl">
+                  <div data-hljs><div data-ng-controller="navSideDemoCtrl">
   <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
 </div></div>
                 </div>
@@ -196,7 +196,7 @@ angular.module('app').controller('globalNavDemoCtrl', function ($scope) {
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div ng-controller="globalNavDemoCtrl">
+                <div data-ng-controller="globalNavDemoCtrl">
                   <div data-hljs><div data-ng-controller="tabbedMenuDemoCtrl">
   <div>
     <div data-tabbed-menu data-tabbed-items="tabbedItems"></div>

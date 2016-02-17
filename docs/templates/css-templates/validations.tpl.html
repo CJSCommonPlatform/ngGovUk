@@ -42,8 +42,8 @@
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" ng-controller="ScrollToAnchorController">
-              <li><a ng-click="scrollTo('example-personal-details')">Descriptive link to the question with
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
+              <li><a data-ng-click="scrollTo('example-personal-details-1')">Descriptive link to the question with
                 an error</a></li>
             </ul>
           </div>
@@ -55,25 +55,21 @@
             Look at your name, signature and other details.
           </p>
 
-          <div class="form-group" ng-class="{'cpp-form-error': true}">
+          <div class="form-group" data-ng-class="{'cpp-form-error': true}">
             <fieldset>
-              <legend id="example-personal-details">
+              <legend id="example-personal-details-1">
                 Are your personal details correct and up-to-date?
-                <div>
-                  <h6 class="cpp-form-error-message">
-                    Error message about personal details goes here
-                  </h6>
-                </div>
+                <span class="cpp-form-error-message h6">Error message about personal details goes here</span>
               </legend>
-              <label class="radio block-background" for="personal_details_yes"
-                     ng-class="{selected: isChecked == 'Yes'}">
-                <input id="personal_details_yes" type="radio" name="inputName" ng-model="isChecked"
+              <label class="radio block-background" for="personal_details_yes-1"
+                     data-ng-class="{selected: isChecked == 'Yes'}">
+                <input id="personal_details_yes-1" type="radio" name="inputName" data-ng-model="isChecked"
                        value="Yes" required/>
                 <span></span> Yes, my personal details are correct
               </label>
-              <label class="radio block-background" for="personal_details_no"
-                     ng-class="{selected: isChecked == 'No'}">
-                <input id="personal_details_no" type="radio" name="inputName" ng-model="isChecked"
+              <label class="radio block-background" for="personal_details_no-1"
+                     data-ng-class="{selected: isChecked == 'No'}">
+                <input id="personal_details_no-1" type="radio" name="inputName" data-ng-model="isChecked"
                        value="No" required/>
                 <span></span> No, some details are wrong or have changed
               </label>
@@ -82,11 +78,11 @@
           <input class="btn btn-default" type="submit" value="Continue">
         </form>
       </div>
-      <div hljs>
-        <form name="formName" ng-submit="submitForm()" novalidate ng-controller="FormSubmitController">
+      <div data-hljs>
+        <form name="formName" data-ng-submit="submitForm()" novalidate data-ng-controller="FormSubmitController">
           <div class="cpp-form-error-summary" role="group"
-               aria-labelledby="error-summary-heading-example-1" ng-show="!formName.$valid">
-            <h3 id="error-summary-heading-example-1">
+               aria-labelledby="error-summary-heading-example-1" data-ng-show="!formName.$valid">
+            <h3 id="error-summary-heading-example-01">
               Message to alert the user to a problem goes here
             </h3>
 
@@ -94,8 +90,8 @@
               Optional description of the error(s) and how to correct them
             </p>
             <ul class="cpp-form-error-summary-list">
-              <li ng-if="formName.inputName.$error.required"><a
-                ng-click="scrollTo('example-personal-details')">Descriptive link to the question with an
+              <li data-ng-if="formName.inputName.$error.required"><a
+                data-ng-click="scrollTo('example-personal-details')">Descriptive link to the question with an
                 error</a></li>
             </ul>
           </div>
@@ -107,25 +103,25 @@
             Look at your name, signature and other details.
           </p>
 
-          <div class="form-group" ng-class="{'cpp-form-error': !formName.$valid}">
+          <div class="form-group" data-ng-class="{'cpp-form-error': !formName.$valid}">
             <fieldset>
               <legend id="example-personal-details">
-<span class="form-label-bold">
-    Are your personal details correct and up-to-date?
-  </span>
-  <span class="form-label-bold cpp-form-error-message" ng-if="formName.inputName.$error.required">
-    Error message about personal details goes here
-  </span>
+              <span class="form-label-bold">
+                  Are your personal details correct and up-to-date?
+                </span>
+                <span class="form-label-bold cpp-form-error-message" data-ng-if="formName.inputName.$error.required">
+                  Error message about personal details goes here
+                </span>
               </legend>
               <label class="radio block-background" for="personal_details_yes"
-                     ng-class="{selected: isChecked == 'Yes'}">
-                <input id="personal_details_yes" type="radio" name="inputName" ng-model="isChecked"
+                     data-ng-class="{selected: isChecked == 'Yes'}">
+                <input id="personal_details_yes" type="radio" name="inputName" data-ng-model="isChecked"
                        value="Yes" required/>
                 <span></span> Yes, my personal details are correct
               </label>
               <label class="radio block-background" for="personal_details_no"
-                     ng-class="{selected: isChecked == 'No'}">
-                <input id="personal_details_no" type="radio" name="inputName" ng-model="isChecked"
+                     data-ng-class="{selected: isChecked == 'No'}">
+                <input id="personal_details_no" type="radio" name="inputName" data-ng-model="isChecked"
                        value="No" required/>
                 <span></span> No, some details are wrong or have changed
               </label>
@@ -167,22 +163,22 @@
       </p>
 
       <div class="bs-example example-error">
-        <form name="anotherForm" ng-submit="submitForm()" novalidate ng-controller="FormSubmitController">
+        <form name="anotherForm" data-ng-submit="submitForm()" novalidate data-ng-controller="FormSubmitController">
           <div class="cpp-form-error-summary" role="group"
-               aria-labelledby="error-summary-heading-example-2"
-               ng-show="!anotherForm.$valid && submitted">
-            <h3 id="error-summary-heading-example-2">
+               aria-labelledby="error-summary-heading-example-02"
+               data-ng-show="!anotherForm.$valid && submitted">
+            <h3 id="error-summary-heading-example-02">
               Message to alert the user to a problem goes here
             </h3>
 
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" ng-controller="ScrollToAnchorController">
-              <li ng-if="anotherForm.fullName.$error.required"><a
-                ng-click="scrollTo('example-full-name')">Descriptive link to the question with an
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
+              <li data-ng-if="anotherForm.fullName.$error.required"><a
+                data-ng-click="scrollTo('example-full-name-1')">Descriptive link to the question with an
                 error</a></li>
-              <li ng-if="anotherForm.niNo.$error.required"><a ng-click="scrollTo('example-ni-number')">Descriptive
+              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="scrollTo('example-ni-number-1')">Descriptive
                 link to the question with an error</a></li>
             </ul>
           </div>
@@ -191,23 +187,23 @@
           </h2>
 
           <div class="form-group"
-               ng-class="{'cpp-form-error': anotherForm.fullName.$error.required && submitted}">
-            <label for="example-full-name">
+               data-ng-class="{'cpp-form-error': anotherForm.fullName.$error.required && submitted}">
+            <label for="example-full-name-1" id="example-full-name-label">
               <span class="form-label-bold">Full name</span>
               <span class="form-hint-text">As shown on your birth certificate or passport</span>
             </label>
 
-            <div ng-if="anotherForm.fullName.$error.required && submitted">
+            <div data-ng-if="anotherForm.fullName.$error.required && submitted">
               <h6 class="cpp-form-error-message">
                 Error message about full name goes here
               </h6>
             </div>
-            <input class="form-control" id="example-full-name" type="text" name="fullName"
-                   ng-model="user.fullName" aria-describedby="error-message-full-name" required/>
+            <input class="form-control" id="example-full-name-1" type="text" name="fullName"
+                   data-ng-model="user.fullName" aria-describedby="example-full-name-label" required/>
           </div>
           <div class="form-group"
-               ng-class="{'cpp-form-error': anotherForm.niNo.$error.required && submitted}">
-            <label for="example-ni-number">
+               data-ng-class="{'cpp-form-error': anotherForm.niNo.$error.required && submitted}">
+            <label for="example-ni-number-1" id="example-ni-number-label-1">
               <span class="form-label-bold">National Insurance number</span>
 <span class="form-hint-text">
 It's on your National Insurance card, benefit letter, payslip or P60.
@@ -216,22 +212,22 @@ For example, 'VO 12 34 56 D'.
 </span>
             </label>
 
-            <div ng-if="anotherForm.niNo.$error.required && submitted">
+            <div data-ng-if="anotherForm.niNo.$error.required && submitted">
               <h6 class="cpp-form-error-message">
                 Error message about full name goes here
               </h6>
             </div>
-            <input class="form-control" id="example-ni-number" type="text" name="niNo"
-                   ng-model="user.niNo" aria-describedby="error-message-ni-number" required/>
+            <input class="form-control" id="example-ni-number-1" type="text" name="niNo"
+                   data-ng-model="user.niNo" aria-describedby="example-ni-number-label-1" required/>
           </div>
           <input class="btn btn-default" type="submit" value="Continue">
         </form>
       </div>
-      <div hljs>
-        <form name="anotherForm" ng-submit="submitForm()" novalidate ng-controller="FormSubmitController">
+      <div data-hljs>
+        <form name="anotherForm" data-ng-submit="submitForm()" novalidate data-ng-controller="FormSubmitController">
           <div class="cpp-form-error-summary" role="group"
                aria-labelledby="error-summary-heading-example-2"
-               ng-show="!anotherForm.$valid && submitted">
+               data-ng-show="!anotherForm.$valid && submitted">
             <h3 id="error-summary-heading-example-2">
               Message to alert the user to a problem goes here
             </h3>
@@ -239,11 +235,11 @@ For example, 'VO 12 34 56 D'.
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" ng-controller="ScrollToAnchorController">
-              <li ng-if="anotherForm.fullName.$error.required"><a
-                ng-click="scrollTo('example-full-name')">Descriptive link to the question with an
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
+              <li data-ng-if="anotherForm.fullName.$error.required"><a
+                data-ng-click="scrollTo('example-full-name')">Descriptive link to the question with an
                 error</a></li>
-              <li ng-if="anotherForm.niNo.$error.required"><a ng-click="scrollTo('example-ni-number')">Descriptive
+              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="scrollTo('example-ni-number')">Descriptive
                 link to the question with an error</a></li>
             </ul>
           </div>
@@ -252,23 +248,23 @@ For example, 'VO 12 34 56 D'.
           </h2>
 
           <div class="form-group"
-               ng-class="{'cpp-form-error': anotherForm.fullName.$error.required && submitted}">
-            <label for="example-full-name">
+               data-ng-class="{'cpp-form-error': anotherForm.fullName.$error.required && submitted}">
+            <label for="example-full-name" id="error-message-full-name-label">
               <span class="form-label-bold">Full name</span>
               <span class="form-hint-text">As shown on your birth certificate or passport</span>
             </label>
 
-            <div ng-if="anotherForm.fullName.$error.required && submitted">
+            <div data-ng-if="anotherForm.fullName.$error.required && submitted">
               <h6 class="cpp-form-error-message">
                 Error message about full name goes here
               </h6>
             </div>
             <input class="form-control" id="example-full-name" type="text" name="fullName"
-                   ng-model="user.fullName" aria-describedby="error-message-full-name" required/>
+                   data-ng-model="user.fullName" aria-describedby="error-message-full-name-label" required/>
           </div>
           <div class="form-group"
-               ng-class="{'cpp-form-error': anotherForm.niNo.$error.required && submitted}">
-            <label for="example-ni-number">
+               data-ng-class="{'cpp-form-error': anotherForm.niNo.$error.required && submitted}">
+            <label for="example-ni-number" id="example-ni-number-label">
               <span class="form-label-bold">National Insurance number</span>
 <span class="form-hint-text">
 It's on your National Insurance card, benefit letter, payslip or P60.
@@ -277,13 +273,13 @@ For example, 'VO 12 34 56 D'.
 </span>
             </label>
 
-            <div ng-if="anotherForm.niNo.$error.required && submitted">
+            <div data-ng-if="anotherForm.niNo.$error.required && submitted">
               <h6 class="cpp-form-error-message">
                 Error message about full name goes here
               </h6>
             </div>
             <input class="form-control" id="example-ni-number" type="text" name="niNo"
-                   ng-model="user.niNo" aria-describedby="error-message-ni-number" required/>
+                   data-ng-model="user.niNo" aria-describedby="example-ni-number-label" required/>
           </div>
           <input class="btn btn-default" type="submit" value="Continue">
         </form>

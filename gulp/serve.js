@@ -22,7 +22,7 @@ module.exports = function (config, log) {
 
     // watch all less files
     gulp.watch([config.src.modulesPath + '/**/*.less', config.src.bootstrapWrapperPath + '/**/*.less'], function () {
-      runSequence('build-css', 'move-to-docs', browserSync.reload);
+      runSequence('build-css', 'move-to-docs', 'create-demo-css', browserSync.reload);
     });
 
     // watch module files

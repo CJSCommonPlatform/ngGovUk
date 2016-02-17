@@ -18,7 +18,7 @@ module.exports = function () {
         'uglify-dist', cb);
     } else {
       runSequence([
-      'build-css',
+        'build-css',
         'copy-assets',
         'build-js'
       ], 'move-to-docs',
