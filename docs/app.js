@@ -5,7 +5,8 @@ angular.module('app', [
   'ui.bootstrap',
   'hljs',
   'angular.vertilize',
-  'smoothScroll'
+  'smoothScroll',
+  'ngSanitize'
 ]);
 
 angular.module('app')

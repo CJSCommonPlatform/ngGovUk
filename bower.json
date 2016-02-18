@@ -41,6 +41,9 @@
   },
   "resolutions": {
     "jquery": "2.1.1",
-    "angular": "~1.2.0"
+    "angular": "1.2.29"
+  },
+  "dependencies": {
+    "angular-sanitize": "^1.5.0"
   }
 }

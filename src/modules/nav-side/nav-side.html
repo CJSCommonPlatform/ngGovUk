@@ -35,10 +35,10 @@
 
 
               <!-- If Permissions -->
-              <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+<!--               <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
                 <span class="list-item-title">{{subNavItem.title}}</span>
                 <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
+              </a> -->
               <!-- If no permissions -->
               <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-hide="subNavItem.permissions" ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
                 <span class="list-item-title">{{subNavItem.title}}</span>
