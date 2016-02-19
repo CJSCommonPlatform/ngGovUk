@@ -128,7 +128,8 @@ angular.module('app').controller('navSideDemoCtrl', function ($scope) {
     {
       title: 'Single Link',
       type: 'ui-sref',
-      ref: '#'
+      ref: '#',
+      detail: 'Incomplete'
     },
     {
       title: 'Example Accordion Title 1',
