@@ -70,15 +70,15 @@
             <h4 data-ng-hide="navItem.permissions" class="panel-title">
               <a data-ng-if="navItem.type === 'scroll-to'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">
                 {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>
+                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
               </a>
               <a data-ng-if="navItem.type === 'ui-sref'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active" data-ng-class="{'parent-with-detail' : !!navItem.detail}">
                 {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>
+                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
               </a>
               <a data-ng-if="navItem.type === 'href'" href="{{navItem.href}}" data-offset="20">
                 {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>
+                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
               </a>
             </h4>
           </div>
