@@ -277,10 +277,10 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '\n' +
     '              <!-- If Permissions -->\n' +
-    '<!--               <a data-ng-if="subNavItem.type === \'ui-sref\'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{\'has-detail\' : !!subNavItem.detail}">\n' +
+    '              <a data-ng-if="subNavItem.type === \'ui-sref\'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{\'has-detail\' : !!subNavItem.detail}">\n' +
     '                <span class="list-item-title">{{subNavItem.title}}</span>\n' +
     '                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>\n' +
-    '              </a> -->\n' +
+    '              </a>\n' +
     '              <!-- If no permissions -->\n' +
     '              <a data-ng-if="subNavItem.type === \'ui-sref\'" data-ng-hide="subNavItem.permissions" ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-data-offset="20" class="subnav-link clearfix" data-ng-class="{\'has-detail\' : !!subNavItem.detail}">\n' +
     '                <span class="list-item-title">{{subNavItem.title}}</span>\n' +
@@ -310,9 +310,18 @@ module.run(['$templateCache', function($templateCache) {
     '            </h4>\n' +
     '            <!-- If no permissions -->\n' +
     '            <h4 data-ng-hide="navItem.permissions" class="panel-title">\n' +
-    '              <a data-ng-if="navItem.type === \'scroll-to\'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">{{navItem.title}}</a>\n' +
-    '              <a data-ng-if="navItem.type === \'ui-sref\'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active">{{navItem.title}}</a>\n' +
-    '              <a data-ng-if="navItem.type === \'href\'" href="{{navItem.href}}" data-offset="20">{{navItem.title}}</a>\n' +
+    '              <a data-ng-if="navItem.type === \'scroll-to\'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">\n' +
+    '                {{navItem.title}}<br data-ng-if="!!navItem.detail">\n' +
+    '                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>\n' +
+    '              </a>\n' +
+    '              <a data-ng-if="navItem.type === \'ui-sref\'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active" data-ng-class="{\'parent-with-detail\' : !!navItem.detail}">\n' +
+    '                {{navItem.title}}<br data-ng-if="!!navItem.detail">\n' +
+    '                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>\n' +
+    '              </a>\n' +
+    '              <a data-ng-if="navItem.type === \'href\'" href="{{navItem.href}}" data-offset="20">\n' +
+    '                {{navItem.title}}<br data-ng-if="!!navItem.detail">\n' +
+    '                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.title"></span>\n' +
+    '              </a>\n' +
     '            </h4>\n' +
     '          </div>\n' +
     '        </li>\n' +
