@@ -28,6 +28,7 @@ module.exports = function(config, log) {
 
   gulp.task('uglify-dist', function () {
     return gulp.src(config.dist.path + '/*.js')
+      .pipe($.ngAnnotate())
       .pipe($.uglify())
       .pipe($.rename({extname: '.min.js'}))
       .pipe(gulp.dest(config.dist.path));

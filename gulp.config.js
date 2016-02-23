@@ -21,6 +21,8 @@
       },
       docs: {
         path: './docs',
+        appPath: './docs/app',
+        appControllerPath: './docs/app/controller',
         assetsPath: './docs/assets',
         lessPath: './docs/assets/less',
         cssPath: './docs/assets/css',
