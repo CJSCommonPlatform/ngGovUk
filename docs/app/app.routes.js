@@ -1,32 +1,39 @@
 (function () {
+  'use strict';
+
   angular.module('app')
     .config(function($stateProvider, $urlRouterProvider, $locationProvider, hljsServiceProvider) {
 
+    var viewsPath = 'app/views/';
+
     $locationProvider.hashPrefix('!');
+
     $stateProvider
         .state('playground', {
           url:'/playground',
-          templateUrl:'playground.html',
+          templateUrl: viewsPath + 'playground.html',
           controller: 'playground'
         })
         .state('modules', {
           url:'/modules',
-          templateUrl:'modules.html'
+          templateUrl: viewsPath + 'modules.html'
         })
         .state('css', {
           url:'/css',
-          templateUrl:'css.html',
-          controller: 'CssController'
+          templateUrl: viewsPath + 'css.html',
+          controller: 'css',
+          controllerAs: 'vm'
         })
-        .state('angularui', {
-          url:'/angularui',
-          templateUrl:'angularui.html',
-          controller: 'angularui'
+        .state('components', {
+          url:'/components',
+          templateUrl: viewsPath + 'components.html',
+          controller: 'components'
         })
         .state('getting-started', {
           url: '/',
-          templateUrl:'getting-started.html'
+          templateUrl: viewsPath + 'getting-started.html'
         });
+
       $urlRouterProvider.otherwise('/');
   });
 })();

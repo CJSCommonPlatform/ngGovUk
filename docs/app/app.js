@@ -28,7 +28,7 @@
           {
             title: 'UI Components',
             type: 'href',
-            ref: '#!/angularui'
+            ref: '#!/components'
           },
           {
             title: 'Ng Modules',

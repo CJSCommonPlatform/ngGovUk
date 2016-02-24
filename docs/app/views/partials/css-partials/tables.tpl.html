@@ -194,7 +194,7 @@
             </thead>
             <tbody>
             <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
-                data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in defendants">
+                data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
               <td>{{defendant.caseNumber}}</td>
               <td>{{defendant.name}}</td>
               <td>{{defendant.nextCourtDate}}</td>
@@ -221,12 +221,12 @@
             <tr>
               <th>Case no./URN</th>
               <th>Defendant's name</th>
-              <th class="sortable" data-ng-click="sort($event)">Next court date</th>
+              <th class="sortable" data-ng-click="vm.sort($event)">Next court date</th>
             </tr>
             </thead>
             <tbody>
             <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
-                data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in defendants">
+                data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
               <td>{{defendant.caseNumber}}</td>
               <td>{{defendant.name}}</td>
               <td>{{defendant.nextCourtDate}}</td>

@@ -1,4 +1,4 @@
-angular.module('app').controller('angularui', function ($scope, $modal, $log) {
+angular.module('app').controller('components', function ($scope, $modal, $log) {
   // Nav
   var navItems;
   navItems = [
