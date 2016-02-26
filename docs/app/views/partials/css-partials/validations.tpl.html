@@ -42,8 +42,8 @@
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
-              <li><a data-ng-click="scrollTo('example-personal-details-1')">Descriptive link to the question with
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController as sta">
+              <li><a data-ng-click="sta.scrollTo('example-personal-details-1')">Descriptive link to the question with
                 an error</a></li>
             </ul>
           </div>
@@ -91,7 +91,7 @@
             </p>
             <ul class="cpp-form-error-summary-list">
               <li data-ng-if="formName.inputName.$error.required"><a
-                data-ng-click="scrollTo('example-personal-details')">Descriptive link to the question with an
+                data-ng-click="sta.scrollTo('example-personal-details')">Descriptive link to the question with an
                 error</a></li>
             </ul>
           </div>
@@ -174,11 +174,11 @@
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController as sta">
               <li data-ng-if="anotherForm.fullName.$error.required"><a
-                data-ng-click="scrollTo('example-full-name-1')">Descriptive link to the question with an
+                data-ng-click="sta.scrollTo('example-full-name-1')">Descriptive link to the question with an
                 error</a></li>
-              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="scrollTo('example-ni-number-1')">Descriptive
+              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="sta.scrollTo('example-ni-number-1')">Descriptive
                 link to the question with an error</a></li>
             </ul>
           </div>
@@ -235,11 +235,11 @@ For example, 'VO 12 34 56 D'.
             <p>
               Optional description of the error(s) and how to correct them
             </p>
-            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController">
+            <ul class="cpp-form-error-summary-list" data-ng-controller="ScrollToAnchorController as sta">
               <li data-ng-if="anotherForm.fullName.$error.required"><a
-                data-ng-click="scrollTo('example-full-name')">Descriptive link to the question with an
+                data-ng-click="sta.scrollTo('example-full-name')">Descriptive link to the question with an
                 error</a></li>
-              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="scrollTo('example-ni-number')">Descriptive
+              <li data-ng-if="anotherForm.niNo.$error.required"><a data-ng-click="sta.scrollTo('example-ni-number')">Descriptive
                 link to the question with an error</a></li>
             </ul>
           </div>
