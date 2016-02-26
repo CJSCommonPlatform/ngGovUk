@@ -16,7 +16,7 @@ module.exports = function (config, log) {
   });
 
   gulp.task('clean-dist', function () {
-    if ($.util.env.dist) {
+    if ($.util.env.dist || $.util.env.travis) {
       return gulp.src(config.dist.path, {read: false})
         .pipe($.clean());
     }
