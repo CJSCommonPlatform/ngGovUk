@@ -2,6 +2,8 @@
 
 BRANCH_NAME=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
+echo $BRANCH_NAME;
+
 if [ $BRANCH_NAME = "master" ]; then
   cd docs
   git init
