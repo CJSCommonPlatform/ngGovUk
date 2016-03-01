@@ -8,10 +8,13 @@ var browserSync = require('browser-sync').create();
 module.exports = function (config, log) {
   gulp.task('serve', function () {
     browserSync.init({
-      server: {
-        baseDir: config.docs.path
-      }
+      server: './',
+      startPath: config.docs.path
     });
+
+    // browserSync.init({
+
+    // });
 
     // -- Watch src files -- //
 
