@@ -9,7 +9,11 @@
     var directive = {
       link: link,
       templateUrl: 'tabbed-menu/tabbed-menu.html',
-      restrict: 'EA'
+      restrict: 'EA',
+      scope: {
+        title: '=',
+        tabbedItems: '='
+      }
     };
 
     return directive;
