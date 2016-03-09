@@ -214,7 +214,7 @@ For example, 'VO 12 34 56 D'.
 
             <div data-ng-if="anotherForm.niNo.$error.required && submitted">
               <h6 class="cpp-form-error-message">
-                Error message about full name goes here
+                Error message about National Insurance number goes here
               </h6>
             </div>
             <input class="form-control" id="example-ni-number-1" type="text" name="niNo"
@@ -275,7 +275,7 @@ For example, 'VO 12 34 56 D'.
 
             <div data-ng-if="anotherForm.niNo.$error.required && submitted">
               <h6 class="cpp-form-error-message">
-                Error message about full name goes here
+                Error message about National Insurance number goes here
               </h6>
             </div>
             <input class="form-control" id="example-ni-number" type="text" name="niNo"
@@ -285,6 +285,53 @@ For example, 'VO 12 34 56 D'.
         </form>
       </div>
     </section>
+    <section id="warning-message">
+      <h2>Warning message on form elements</h2>
+      <div class="bs-example example-error">
+        <form name="warningForm" data-ng-submit="submitForm()" novalidate data-ng-controller="formSubmit">
+          <h2>
+            Your personal details
+          </h2>
+          <div class="form-group" data-ng-class="'cpp-form-warning'">
+            <label for="example-age" id="warning-message-age-label-1">
+              <span class="form-label-bold">Age</span>
+            </label>
+
+            <div>
+              <h6 class="cpp-form-warning-message">
+                Warning message about age goes here
+              </h6>
+            </div>
+            <input class="form-control" id="example-age-1" type="number" name="age"
+                   data-ng-model="user.age" aria-describedby="warning-message-age-label" required/>
+          </div>
+          <input class="btn btn-default" type="submit" value="Continue">
+        </form>
+      </div>
+      <div data-hljs>
+        <h2>Warning message on form elements</h2>
+        <div class="bs-example example-error">
+          <form name="warningForm" data-ng-submit="submitForm()" novalidate data-ng-controller="formSubmit">
+            <h2>
+              Your personal details
+            </h2>
+            <div class="form-group" data-ng-class="'cpp-form-warning'">
+              <label for="example-age" id="warning-message-age-label">
+                <span class="form-label-bold">Age</span>
+              </label>
+
+              <div>
+                <h6 class="cpp-form-warning-message">
+                  Warning message about age goes here
+                </h6>
+              </div>
+              <input class="form-control" id="example-age" type="number" name="age"
+                     data-ng-model="user.age" aria-describedby="warning-message-age-label" required/>
+            </div>
+            <input class="btn btn-default" type="submit" value="Continue">
+          </form>
+      </div>
+    </section>
   </div>
-  <!-- ENd left col -->
+  <!-- End left col -->
 </div>
