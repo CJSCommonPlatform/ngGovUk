@@ -26,6 +26,7 @@
         assetsPath: './docs/assets',
         lessPath: './docs/assets/less',
         cssPath: './docs/assets/css',
+        cssName: 'app',
         bowerComponentsPath: './docs/bower_components',
         bowerBootstrapLessPath: './docs/bower_components/bootstrap/less',
       },

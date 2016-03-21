@@ -8,7 +8,7 @@ var lessImportString = require('./helpers/lessImportString')();
 
 module.exports = function(config, log) {
   // copies files from dev and creates the dev version of the less import file
-  gulp.task('create-dist', ['copy-dev'], function () {
+  gulp.task('create-dist', ['copy-dev-less', 'copy-docs-css'], function () {
     var stream = source(config.dist.name + '.less');
 
     gulp.src([config.dist.lessPath + '/*.less', config.dist.lessModulesPath + '/*.less'])
@@ -21,7 +21,13 @@ module.exports = function(config, log) {
     stream.pipe(gulp.dest(config.dist.path));
   });
 
-  gulp.task('copy-dev', function () {
+  gulp.task('copy-docs-css', function () {
+    return gulp.src(config.docs.cssPath + '/' + config.docs.cssName + '.css')
+      .pipe($.rename({basename: config.dist.name}))
+      .pipe(gulp.dest(config.dist.path));
+  });
+
+  gulp.task('copy-dev-less', function () {
     return gulp.src([config.dev.path + '/**', !config.dev.path + config.dist.name + '.less'])
       .pipe(gulp.dest(config.dist.path));
   });

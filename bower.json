@@ -3,7 +3,8 @@
   "description": "an AngularJS Bootstrap wrapper that applies the GOV.UK styling requirements",
   "main": [
     "dist/ngGovUk.min.js",
-    "dist/ngGovUk.less"
+    "dist/ngGovUk.less",
+    "dist/ngGovUk.css"
   ],
   "ignore": [
     "**/.*",
