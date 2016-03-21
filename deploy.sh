@@ -2,7 +2,7 @@
 
 # BRANCH_NAME=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
-# if [ $BRANCH_NAME = "master" ]; then
+if [ '$TRAVIS_PULL_REQUEST' == 'false' ]; then
   cd docs
   git init
 
@@ -20,4 +20,4 @@
   # will be lost, since we are overwriting it.) We redirect any output to
   # /dev/null to hide any sensitive credential data that might otherwise be exposed.
   git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
-# fi
+fi
