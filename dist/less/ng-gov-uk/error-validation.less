@@ -1,23 +1,30 @@
 
-.cpp-form-error {
+.cpp-form-error-or-warning (@colour: @error-colour) {
   margin-right: 15px;
-  border-left: 4px solid @error-colour;
+  border-left: 4px solid @colour;
   padding-left: 10px;
 
-    .cpp-form-error-message {
-    color: @error-colour;
+  .cpp-form-error-message, .cpp-form-warning-message {
+    color: @colour;
     font-weight: bold;
   }
 
   .form-control {
-    border: 4px solid @error-colour;
+    border: 4px solid @colour;
   }
 
   .form-hint {
     margin-bottom: 0;
-
   }
 
+}
+
+.cpp-form-error {
+  .cpp-form-error-or-warning(@error-colour);
+}
+
+.cpp-form-warning {
+  .cpp-form-error-or-warning(@warning-colour);
 }
 
 .cpp-form-error-summary {
@@ -26,7 +33,7 @@
   margin-bottom: 15px;
   padding: 15px 10px;
 
-    .cpp-form-error-summary-list a {
+  .cpp-form-error-summary-list a {
     color: @error-colour;
     font-weight: bold;
     text-decoration: underline;

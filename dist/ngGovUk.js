@@ -13,6 +13,76 @@
   'use strict';
 
   angular
+    .module('ngGovUk.global-nav', [])
+    .directive('globalNav', globalNav);
+
+  function globalNav() {
+    var directive = {
+      link: link,
+      templateUrl: 'global-nav/global-nav.html',
+      restrict: 'EA'
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+      scope.globalNav.isCollapsed = true;
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [])
+    .directive('footerDirective', footerDirective);
+
+  function footerDirective() {
+    var directive = {
+      link: link,
+      templateUrl: 'footer/footer.html',
+      restrict: 'EA'
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.tabbed-menu', [])
+    .directive('tabbedMenu', tabbedMenu);
+
+  function tabbedMenu() {
+    var directive = {
+      link: link,
+      templateUrl: 'tabbed-menu/tabbed-menu.html',
+      restrict: 'EA',
+      scope: {
+        title: '=',
+        tabbedItems: '='
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+    }
+  }
+})();
+
+
+(function () {
+  'use strict';
+
+  angular
     .module('ngGovUk.nav-side', [])
     .directive('navSideDirective', navSideDirective);
 
@@ -64,72 +134,6 @@
   }
 })();
 
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.tabbed-menu', [])
-    .directive('tabbedMenu', tabbedMenu);
-
-  function tabbedMenu() {
-    var directive = {
-      link: link,
-      templateUrl: 'tabbed-menu/tabbed-menu.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-    }
-  }
-})();
-
-
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.global-nav', [])
-    .directive('globalNav', globalNav);
-
-  function globalNav() {
-    var directive = {
-      link: link,
-      templateUrl: 'global-nav/global-nav.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-      scope.globalNav.isCollapsed = true;
-    }
-  }
-})();
-
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.footer', [])
-    .directive('footerDirective', footerDirective);
-
-  function footerDirective() {
-    var directive = {
-      link: link,
-      templateUrl: 'footer/footer.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-
-    }
-  }
-})();
-
 (function(module) {
 try {
   module = angular.module('ngGovUk');
@@ -172,6 +176,62 @@ module.run(['$templateCache', function($templateCache) {
     '    </div>\n' +
     '  </div>\n' +
     '</footer>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('global-nav/global-nav.html',
+    '<header class="navbar navbar-default">\n' +
+    '  <div class="navbar-content">\n' +
+    '    <div class="navbar-inner">\n' +
+    '      <div class="container">\n' +
+    '        <div class="row">\n' +
+    '          <div class="navbar-header col-md-4">\n' +
+    '            <div class="header-logo clearfix">\n' +
+    '              <a href="#!/" role="button" class="navbar-brand text-uppercase">\n' +
+    '                <img width="35" height="31" alt="" src="assets/img/gov.uk_logotype_crown_invert_trans.png" /> GOV.UK\n' +
+    '              </a>\n' +
+    '            </div>\n' +
+    '          </div>\n' +
+    '          <div class="col-md-8">\n' +
+    '            <h3 class="navbar-title" data-ng-if="globalNav.pageTitle">\n' +
+    '              <a data-ng-if="globalNav.pageTitle.type === \'href\'" href="#">{{globalNav.pageTitle.title}}</a>\n' +
+    '              <a data-ng-if="globalNav.pageTitle.type === \'ui-sref\'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>\n' +
+    '              <span data-ng-if="globalNav.pageTitle.type === \'text\'">{{globalNav.pageTitle.title}}</span>\n' +
+    '            </h3>\n' +
+    '            <button data-ng-if="globalNav.navItems" type="button" class="navbar-toggle" data-toggle="collapse"\n' +
+    '                    data-ng-click="globalNav.isCollapsed = !globalNav.isCollapsed"\n' +
+    '                    data-ng-class="{\'nav-open\': globalNav.isCollapsed}">\n' +
+    '              <span class="sr-only">Toggle navigation</span>\n' +
+    '              Menu\n' +
+    '            </button>\n' +
+    '          </div>\n' +
+    '        </div>\n' +
+    '\n' +
+    '        <div class="row" data-ng-if="globalNav.navItems">\n' +
+    '          <nav class="navbar-right col-md-8 col-md-offset-4">\n' +
+    '            <ul class="nav navbar-nav proposition-links" id="props" data-collapse="!globalNav.isCollapsed">\n' +
+    '              <li data-ng-repeat="item in globalNav.navItems">\n' +
+    '                <a data-ng-if="item.type === \'href\'" href="{{item.ref}}">{{item.title}}</a>\n' +
+    '                <a data-ng-if="item.type === \'ui-sref\'" data-ui-sref="{{item.ref}}">{{item.title}}</a>\n' +
+    '              </li>\n' +
+    '            </ul>\n' +
+    '          </nav>\n' +
+    '        </div>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '  </div>\n' +
+    '  <div class="container">\n' +
+    '    <div class="global-header-bar"></div>\n' +
+    '  </div>\n' +
+    '</header>\n' +
     '');
 }]);
 })();
@@ -284,68 +344,12 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('global-nav/global-nav.html',
-    '<header class="navbar navbar-default">\n' +
-    '  <div class="navbar-content">\n' +
-    '    <div class="navbar-inner">\n' +
-    '      <div class="container">\n' +
-    '        <div class="row">\n' +
-    '          <div class="navbar-header col-md-4">\n' +
-    '            <div class="header-logo clearfix">\n' +
-    '              <a href="#!/" role="button" class="navbar-brand text-uppercase">\n' +
-    '                <img width="35" height="31" alt="" src="assets/img/gov.uk_logotype_crown_invert_trans.png" /> GOV.UK\n' +
-    '              </a>\n' +
-    '            </div>\n' +
-    '          </div>\n' +
-    '          <div class="col-md-8">\n' +
-    '            <h3 class="navbar-title" data-ng-if="globalNav.pageTitle">\n' +
-    '              <a data-ng-if="globalNav.pageTitle.type === \'href\'" href="#">{{globalNav.pageTitle.title}}</a>\n' +
-    '              <a data-ng-if="globalNav.pageTitle.type === \'ui-sref\'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>\n' +
-    '              <span data-ng-if="globalNav.pageTitle.type === \'text\'">{{globalNav.pageTitle.title}}</span>\n' +
-    '            </h3>\n' +
-    '            <button data-ng-if="globalNav.navItems" type="button" class="navbar-toggle" data-toggle="collapse"\n' +
-    '                    data-ng-click="globalNav.isCollapsed = !globalNav.isCollapsed"\n' +
-    '                    data-ng-class="{\'nav-open\': globalNav.isCollapsed}">\n' +
-    '              <span class="sr-only">Toggle navigation</span>\n' +
-    '              Menu\n' +
-    '            </button>\n' +
-    '          </div>\n' +
-    '        </div>\n' +
-    '\n' +
-    '        <div class="row" data-ng-if="globalNav.navItems">\n' +
-    '          <nav class="navbar-right col-md-8 col-md-offset-4">\n' +
-    '            <ul class="nav navbar-nav proposition-links" id="props" data-collapse="!globalNav.isCollapsed">\n' +
-    '              <li data-ng-repeat="item in globalNav.navItems">\n' +
-    '                <a data-ng-if="item.type === \'href\'" href="{{item.ref}}">{{item.title}}</a>\n' +
-    '                <a data-ng-if="item.type === \'ui-sref\'" data-ui-sref="{{item.ref}}">{{item.title}}</a>\n' +
-    '              </li>\n' +
-    '            </ul>\n' +
-    '          </nav>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '  <div class="container">\n' +
-    '    <div class="global-header-bar"></div>\n' +
-    '  </div>\n' +
-    '</header>\n' +
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngGovUk');
-} catch (e) {
-  module = angular.module('ngGovUk', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('tabbed-menu/tabbed-menu.html',
     '<div class="tabbedMenu">\n' +
     '  <nav>\n' +
     '    <ul class="nav nav-tabs">\n' +
-    '      <li class="nav-title" data-ng-if="tabbedItems.title" data-ng-bind="tabbedItems.title"></li>\n' +
-    '      <li data-ng-repeat="item in tabbedItems.items">\n' +
+    '      <li class="nav-title" data-ng-if="title" data-ng-bind="title"></li>\n' +
+    '      <li data-ng-repeat="item in tabbedItems">\n' +
     '        <a ui-sref="item.ref" data-ng-bind="item.title"></a>\n' +
     '      </li>\n' +
     '    </ul>\n' +

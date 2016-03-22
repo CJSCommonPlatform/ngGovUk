@@ -61,6 +61,7 @@
 @discovery-colour:      #912B88;
 @live-colour:           #85994B;
 @error-colour:          #B10E1E;
+@warning-colour:        #E97637;
 
 
 
@@ -70,7 +71,7 @@
 @brand-primary:         @link-color;
 @brand-success:         @live-colour;
 @brand-info:            @discovery-colour;
-@brand-warning:         @beta-colour;
+@brand-warning:         @warning-colour;
 @brand-danger:          @error-colour;
 
 // Other Colours
@@ -81,7 +82,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@nta-font-family-path:            "/assets/fonts/";
+@nta-font-family-path:            "../../assets/fonts/";
 @nta-light-font-name:             "NTA-Light-20130221";
 @nta-bold-font-name:              "NTA-Bold-20130221";
 @nta-tabular-light-font-name:     "NTATabularNumbers-Light";
@@ -138,7 +139,7 @@
 //
 //## Specify custom locations of the include Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
-@icon-font-path:          "/assets/bower_components/bootstrap/fonts/";
+@icon-font-path:          "../fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 @icon-font-svg-id:        "glyphicons_halflingsregular";
 
@@ -901,8 +902,8 @@
 //** Horizontal offset for forms and lists.
 @component-offset-horizontal: 180px;
 
-@image-path: '/assets/img/';
+@image-path: '../../assets/img/';
 
 
-@warning-panel-border: #e97637;
+@warning-panel-border: @warning-colour;
 @warning-panel-background: #fae4d4;

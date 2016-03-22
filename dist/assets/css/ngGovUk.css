@@ -314,8 +314,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot");
-  src: url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format('embedded-opentype'), url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2") format('woff2'), url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff") format('woff'), url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf") format('truetype'), url("assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format('svg');
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format('embedded-opentype'), url("../fonts/glyphicons-halflings-regular.woff2") format('woff2'), url("../fonts/glyphicons-halflings-regular.woff") format('woff'), url("../fonts/glyphicons-halflings-regular.ttf") format('truetype'), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format('svg');
 }
 
 .glyphicon {
@@ -8412,27 +8412,27 @@ hr {
 
 @font-face {
   font-family: 'nta';
-  src: url("assets/fonts/NTA-Light-20130221.eot");
-  src: url("assets/fonts/NTA-Light-20130221.eot?#iefix") format('embedded-opentype'), url("assets/fonts/NTA-Light-20130221.woff2") format('woff2'), url("assets/fonts/NTA-Light-20130221.woff") format('woff'), url("assets/fonts/NTA-Light-20130221.ttf") format('truetype'), url("assets/fonts/NTA-Light-20130221.svg#svgNTA") format('svg');
+  src: url("../fonts/NTA-Light-20130221.eot");
+  src: url("../fonts/NTA-Light-20130221.eot?#iefix") format('embedded-opentype'), url("../fonts/NTA-Light-20130221.woff2") format('woff2'), url("../fonts/NTA-Light-20130221.woff") format('woff'), url("../fonts/NTA-Light-20130221.ttf") format('truetype'), url("../fonts/NTA-Light-20130221.svg#svgNTA") format('svg');
 }
 
 @font-face {
   font-family: 'nta';
-  src: url("assets/fonts/NTA-Bold-20130221.eot");
-  src: url("assets/fonts/NTA-Bold-20130221.eot?#iefix") format('embedded-opentype'), url("assets/fonts/NTA-Bold-20130221.woff2") format('woff2'), url("assets/fonts/NTA-Bold-20130221.woff") format('woff'), url("assets/fonts/NTA-Bold-20130221.ttf") format('truetype'), url("assets/fonts/NTA-Bold-20130221.svg#svgNTABold") format('svg');
+  src: url("../fonts/NTA-Bold-20130221.eot");
+  src: url("../fonts/NTA-Bold-20130221.eot?#iefix") format('embedded-opentype'), url("../fonts/NTA-Bold-20130221.woff2") format('woff2'), url("../fonts/NTA-Bold-20130221.woff") format('woff'), url("../fonts/NTA-Bold-20130221.ttf") format('truetype'), url("../fonts/NTA-Bold-20130221.svg#svgNTABold") format('svg');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'ntatabular';
-  src: url("assets/fonts/NTATabularNumbers-Light.eot");
-  src: url("assets/fonts/NTATabularNumbers-Light.eot?#iefix") format('embedded-opentype'), url("assets/fonts/NTATabularNumbers-Light.woff2") format('woff2'), url("assets/fonts/NTATabularNumbers-Light.woff") format('woff'), url("assets/fonts/NTATabularNumbers-Light.ttf") format('truetype'), url("assets/fonts/NTATabularNumbers-Light.svg#svgNTATabular") format('svg');
+  src: url("../fonts/NTATabularNumbers-Light.eot");
+  src: url("../fonts/NTATabularNumbers-Light.eot?#iefix") format('embedded-opentype'), url("../fonts/NTATabularNumbers-Light.woff2") format('woff2'), url("../fonts/NTATabularNumbers-Light.woff") format('woff'), url("../fonts/NTATabularNumbers-Light.ttf") format('truetype'), url("../fonts/NTATabularNumbers-Light.svg#svgNTATabular") format('svg');
 }
 
 @font-face {
   font-family: 'ntatabular';
-  src: url("assets/fonts/NTATabularNumbers-Bold.eot");
-  src: url("assets/fonts/NTATabularNumbers-Bold.eot?#iefix") format('embedded-opentype'), url("assets/fonts/NTATabularNumbers-Bold.woff2") format('woff2'), url("assets/fonts/NTATabularNumbers-Bold.woff") format('woff'), url("assets/fonts/NTATabularNumbers-Bold.ttf") format('truetype'), url("assets/fonts/NTATabularNumbers-Bold.svg#svgNTATabularBold") format('svg');
+  src: url("../fonts/NTATabularNumbers-Bold.eot");
+  src: url("../fonts/NTATabularNumbers-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/NTATabularNumbers-Bold.woff2") format('woff2'), url("../fonts/NTATabularNumbers-Bold.woff") format('woff'), url("../fonts/NTATabularNumbers-Bold.ttf") format('truetype'), url("../fonts/NTATabularNumbers-Bold.svg#svgNTATabularBold") format('svg');
   font-weight: bold;
 }
 
@@ -8932,7 +8932,7 @@ address {
 }
 
 a[rel="external"] {
-  background: url("assets/img/external-link.png") no-repeat right 6px;
+  background: url("../img/external-link.png") no-repeat right 6px;
 }
 
 a[rel="external"]:hover {
@@ -10710,7 +10710,7 @@ a.btn {
 }
 
 .btn-link {
-  background: #00823b url("assets/img/icon-pointer.png") no-repeat right;
+  background: #00823b url("../img/icon-pointer.png") no-repeat right;
   font-weight: bold;
   padding-right: 52px;
   color: #fff;
@@ -12759,13 +12759,13 @@ section {
   display: block;
   width: 41px;
   height: 17px;
-  background: url("assets/img/ogl.png") no-repeat;
+  background: url("../img/ogl.png") no-repeat;
   overflow: hidden;
   text-indent: -999em;
 }
 
 #crown-copy-cont .logo {
-  background: url("assets/img/govuk-crest.png") no-repeat;
+  background: url("../img/govuk-crest.png") no-repeat;
   height: 105px;
   position: absolute;
   width: 130px;
@@ -12794,7 +12794,7 @@ header .row {
 }
 
 .header-logo .navbar-brand {
-  background: url("assets/img/gov.uk_logotype_crown.png") no-repeat;
+  background: url("../img/gov.uk_logotype_crown.png") no-repeat;
   background-size: 35px 31px;
   background-position: 0 0;
   border-bottom: 1px solid transparent;
