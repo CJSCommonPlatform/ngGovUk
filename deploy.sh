@@ -2,7 +2,8 @@
 
 # BRANCH_NAME=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
-if [ '$TRAVIS_PULL_REQUEST' == 'false' ]; then
+
+if [ $TRAVIS_PULL_REQUEST == 'false' ]; then
   cd docs
   git init
 
