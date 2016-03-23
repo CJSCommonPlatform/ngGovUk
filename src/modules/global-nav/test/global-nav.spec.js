@@ -1,6 +1,6 @@
 describe('globalNav', function () {
 
-  beforeEach(module('globalNav'));
+  beforeEach(module('ngGovUk.global-nav'));
 
   var scope, compile;
 

@@ -1,6 +1,6 @@
 describe('tabbedMenu', function () {
 
-  beforeEach(module('tabbedMenu'));
+  beforeEach(module('ngGovUk.tabbed-menu'));
 
   var scope, compile;
 
