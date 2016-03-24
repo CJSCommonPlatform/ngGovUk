@@ -6,7 +6,6 @@
     'ui.router',
     'ngGovUk',
     'ui.bootstrap',
-    'hljs',
     'angular.vertilize',
     'smoothScroll',
     'ngSanitize'

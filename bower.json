@@ -3,8 +3,7 @@
   "description": "an AngularJS Bootstrap wrapper that applies the GOV.UK styling requirements",
   "main": [
     "dist/ngGovUk.min.js",
-    "dist/ngGovUk.less",
-    "dist/ngGovUk.css"
+    "dist/ngGovUk.less"
   ],
   "ignore": [
     "**/.*",
@@ -35,10 +34,10 @@
     "bootstrap": "~3.3",
     "angular-bootstrap": "~0.10",
     "angular-route": "~1.3.0",
-    "angular-highlightjs": "~0.4.1",
     "angular-vertilize": "~1.0.0",
     "angular-animate": "~1.2.0",
-    "highlightjs": "~8.8.0"
+    "prism": "^1.4.1",
+    "lodash": "^4.6.1"
   },
   "resolutions": {
     "jquery": "2.1.1",

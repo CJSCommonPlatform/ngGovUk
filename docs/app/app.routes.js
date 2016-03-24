@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider, hljsServiceProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     var viewsPath = 'app/views/';
 
