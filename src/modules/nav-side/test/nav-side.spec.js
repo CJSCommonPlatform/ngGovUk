@@ -1,6 +1,6 @@
 describe('navSide', function () {
 
-  beforeEach(module('navSide'));
+  beforeEach(module('ngGovUk.nav-side'));
 
   var scope, compile;
 

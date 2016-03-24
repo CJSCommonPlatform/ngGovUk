@@ -1,6 +1,6 @@
 describe('footer', function () {
 
-  beforeEach(module('footer'));
+  beforeEach(module('ngGovUk.footer'));
 
   var scope, compile;
 

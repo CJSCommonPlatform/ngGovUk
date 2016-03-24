@@ -47,7 +47,21 @@
     "underscore": "~1.5",
     "underscore.string": "~2.3",
     "vinyl-source-stream": "^1.1.0",
-    "wrench": "^1.5.8"
+    "wrench": "^1.5.8",
+    "jasmine-sinon": "^0.4.0",
+    "jshint-stylish": "^1.0.2",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-coverage": "^0.5.0",
+    "karma-jasmine": "^0.3.5",
+    "karma-junit-reporter": "^0.3.8",
+    "karma-ng-html2js-preprocessor": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sinon": "^1.0.4",
+    "wiredep": "^2.2.2",
+    "phantomjs": "1.9.18",
+    "sinon": "^1.15.3",
+    "jasmine-core": "^2.4.1"
   },
   "_ngPrefix": "ngGovUk"
 }
