@@ -28,53 +28,54 @@
                 <header data-global-nav></header>
               </div>
             </div>
+
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div data-ng-controller="globalNavDemo">
-                  <div data-hljs><header data-global-nav></header></div>
-                </div>
+                <div data-syntax-highlighter data-source='
+                  <header data-global-nav></header>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
-                <div data-hljs>
-angular.module('app').controller('globalNavDemo', function ($scope) {
-  $scope.globalNav = {
-    pageTitle: {
-      title: 'Criminal Justice System',
-      type: 'text',
-      ref: '#'
-    },
-    navItems: [
-      {
-        title: 'Getting Started',
-        type: 'href',
-        ref: '#!/modules'
-      },
-      {
-        title: 'CSS Elements',
-        type: 'href',
-        ref: '#!/modules'
-      },
-      {
-        title: 'UI Components',
-        type: 'href',
-        ref: '#!/modules'
-      },
-      {
-        title: 'Ng Modules',
-        type: 'href',
-        ref: '#!/modules'
-      },
-      {
-        title: 'API',
-        type: 'href',
-        ref: '#!/modules'
-      }
-    ]
-  };
-});</div>
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('globalNavDemo', function ($scope) {
+                    $scope.globalNav = {
+                      pageTitle: {
+                        title: 'Criminal Justice System',
+                        type: 'text',
+                        ref: '#'
+                      },
+                      navItems: [
+                        {
+                          title: 'Getting Started',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'CSS Elements',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'UI Components',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'Ng Modules',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'API',
+                          type: 'href',
+                          ref: '#!/modules'
+                        }
+                      ]
+                    };
+                  });"></div>
               </div>
             </div>
           </div>
+
           <div id="footer">
             <h2>footer</h2>
             <div>
@@ -85,17 +86,17 @@ angular.module('app').controller('globalNavDemo', function ($scope) {
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div>
-                  <div data-hljs><div data-footer-directive></div></div>
-                </div>
+                <div data-syntax-highlighter data-source='
+                  <div data-footer-directive></div>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
-                <div data-hljs>angular.module('app').controller('footerDemo', function ($scope) {
-
-});</div>
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('footerDemo', function ($scope) {
+                  });"></div>
               </div>
             </div>
           </div>
+
           <div id="nav-side">
             <h2>nav-side</h2>
             <div>
@@ -118,70 +119,65 @@ angular.module('app').controller('globalNavDemo', function ($scope) {
                 <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
               </div>
             </div>
+
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div>
-                  <div data-hljs><div data-ng-controller="navSideDemo">
-  <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
-</div></div>
-                </div>
+                <div data-syntax-highlighter data-source='
+                  <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="&apos;Case Structure&apos;"></div>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
-                <div data-hljs>angular.module('app').controller('navSideDemo', function ($scope) {
-  var items;
-
-  items = [
-    {
-      title: 'Single Link',
-      type: 'ui-sref',
-      ref: '#'
-    },
-    {
-      title: 'Example Accordion Title 1',
-      href: null,
-      children: [
-        {
-          title: 'Example 1',
-          type: 'ui-sref',
-          ref: '#',
-          detail: 'Incomplete'
-        },
-        {
-          title: 'Example 2',
-          type: 'ui-sref',
-          ref: '#'
-        },
-        {
-          title: 'Example 3',
-          type: 'ui-sref',
-          ref: '#'
-        }
-      ]
-    },
-    {
-      title: 'Example Accordion Title 2',
-      href: null,
-      children: [
-        {
-          title: 'Example 1',
-          type: 'scroll-to',
-          ref: 'scroll-to-id'
-        },
-        {
-          title: 'Example 2',
-          type: 'href',
-          ref: '#'
-        }
-      ]
-    }
-  ];
-
-  $scope.navItems = items;
-
-});</div>
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('navSideDemo', function ($scope) {
+                    $scope.navItems = [
+                      {
+                        title: 'Single Link',
+                        type: 'ui-sref',
+                        ref: '#'
+                      },
+                      {
+                        title: 'Example Accordion Title 1',
+                        href: null,
+                        children: [
+                          {
+                            title: 'Example 1',
+                            type: 'ui-sref',
+                            ref: '#',
+                            detail: 'Incomplete'
+                          },
+                          {
+                            title: 'Example 2',
+                            type: 'ui-sref',
+                            ref: '#'
+                          },
+                          {
+                            title: 'Example 3',
+                            type: 'ui-sref',
+                            ref: '#'
+                          }
+                        ]
+                      },
+                      {
+                        title: 'Example Accordion Title 2',
+                        href: null,
+                        children: [
+                          {
+                            title: 'Example 1',
+                            type: 'scroll-to',
+                            ref: 'scroll-to-id'
+                          },
+                          {
+                            title: 'Example 2',
+                            type: 'href',
+                            ref: '#'
+                          }
+                        ]
+                      }
+                    ];
+                });"></div>
               </div>
             </div>
           </div>
+
           <div id="tabbed-menu">
             <h2>tabbed-menu</h2>
             <div>
@@ -189,37 +185,31 @@ angular.module('app').controller('globalNavDemo', function ($scope) {
             </div>
             <div class="bs-example" data-example-id="tabbed-menu">
               <div data-ng-controller="tabbedMenuDemo">
-                <div>
-                  <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>
-                </div>
+                <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>
               </div>
             </div>
             <div data-tabset>
               <div data-tab data-heading="Markup">
-                <div>
-                  <div data-hljs><div data-ng-controller="tabbedMenuDemo">
-  <div>
-    <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>
-  </div>
-</div></div>
-                </div>
+                <div data-syntax-highlighter data-source='
+                  <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
-                <div data-hljs>angular.module('app').controller('tabbedMenuDemo', function ($scope) {
-  $scope.tabbedItems = {
-    title: 'View:',
-    items: [
-      {
-        title: 'Cases added today',
-        ref: ''
-      },
-      {
-        title: 'All cases',
-        ref: ''
-      }
-    ]
-  };
-});</div>
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('tabbedMenuDemo', function ($scope) {
+                    $scope.tabbedItems = {
+                      title: 'View:',
+                      items: [
+                        {
+                          title: 'Cases added today',
+                          ref: ''
+                        },
+                        {
+                          title: 'All cases',
+                          ref: ''
+                        }
+                      ]
+                    };
+                  });"></div>
               </div>
             </div>
           </div>

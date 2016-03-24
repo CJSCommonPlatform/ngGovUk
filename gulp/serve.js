@@ -44,6 +44,8 @@ module.exports = function (config, log) {
     gulp.watch(config.docs.path + '/**/*.html', browserSync.reload);
 
     // watch js files
-    gulp.watch(config.docs.path + '/**/*.js', browserSync.reload);
+    gulp.watch(config.docs.path + '/**/*.js', function () {
+      runSequence('build-demo', browserSync.reload);
+    });
   });
 };
