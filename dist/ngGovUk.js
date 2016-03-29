@@ -5,30 +5,9 @@
     'ngGovUk.footer',
     'ngGovUk.global-nav',
     'ngGovUk.nav-side',
-    'ngGovUk.tabbed-menu'
+    'ngGovUk.tabbed-menu',
+    'ngGovUk.form-validation'
   ]);
-})();
-
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.global-nav', [])
-    .directive('globalNav', globalNav);
-
-  function globalNav() {
-    var directive = {
-      link: link,
-      templateUrl: 'global-nav/global-nav.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-      scope.globalNav.isCollapsed = true;
-    }
-  }
 })();
 
 (function () {
@@ -57,27 +36,120 @@
   'use strict';
 
   angular
-    .module('ngGovUk.tabbed-menu', [])
-    .directive('tabbedMenu', tabbedMenu);
+    .module('ngGovUk.form-validation', [
+      'ngGovUk.form-validation.lazy-validation',
+      'ngGovUk.form-validation.lazy-validation-on-click'
+    ]);
+})();
+(function () {
+  'use strict';
 
-  function tabbedMenu() {
+  angular
+      .module('ngGovUk.form-validation.lazy-validation-on-click', [
+        'ngGovUk.form-validation.lazy-validation'
+      ])
+      .directive('lazyValidationOnClick', lazyValidationOnClick);
+
+  /**
+   * This directive triggers revalidation of a form on a click event
+   *
+   * <form lazy-validation="scopePropertyToBindFormValidation">
+   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
+   * </form>
+   */
+  function lazyValidationOnClick() {
+    return {
+      restrict: 'A',
+      require: '^^lazyValidation',
+      /** Makes sure postLink runs before ng-click */
+      priority: '-1',
+      link: function ($scope, element, attrs, lazyValidationController) {
+        var revalidateAndRunCallbackIfDefined = function () {
+          lazyValidationController.revalidate();
+
+          if (lazyValidationController.isValid() && $scope.ifValidCallback) {
+            $scope.ifValidCallback();
+          }
+        };
+
+        element.bind('click', function () {
+          $scope.$apply(revalidateAndRunCallbackIfDefined);
+        });
+      },
+      scope: {
+        ifValidCallback: '&?lazyValidationOnClick'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.form-validation.lazy-validation', [])
+    .directive('lazyValidation', lazyValidation);
+
+  /**
+   * Lazy Validation
+   *
+   * It wraps default angular validation which is dynamic in it's nature
+   * and delays its execution till it's explicitly required
+   * (eg. when user clicks on a form's 'Submit' button)
+   *
+   * <form lazy-validation="formName">
+   *   <span ng-if="formName.name.$error.required">Name is required</span>
+   *   <input type=text name="name">
+   *
+   *   <button lazy-validation-on-click></button>
+   * </form>
+   */
+  function lazyValidation() {
+    function createDeepCopy(validationData) {
+      return angular.copy(validationData);
+    }
+
+    return {
+      restrict: 'A',
+      require: 'form',
+      controller: ['$scope', function ($scope) {
+        this.revalidate = function () {
+          $scope.validation = createDeepCopy($scope.angularFormController);
+        };
+
+        this.isValid = function () {
+          return $scope.angularFormController.$valid;
+        };
+      }],
+      link: function ($scope, element, attrs, angularFormController) {
+        $scope.angularFormController = angularFormController;
+      },
+      scope: {
+        validation: '=lazyValidation'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.global-nav', [])
+    .directive('globalNav', globalNav);
+
+  function globalNav() {
     var directive = {
       link: link,
-      templateUrl: 'tabbed-menu/tabbed-menu.html',
-      restrict: 'EA',
-      scope: {
-        title: '=',
-        tabbedItems: '='
-      }
+      templateUrl: 'global-nav/global-nav.html',
+      restrict: 'EA'
     };
 
     return directive;
 
     function link(scope, element, attrs, fn) {
+      scope.globalNav.isCollapsed = true;
     }
   }
 })();
-
 
 (function () {
   'use strict';
@@ -133,6 +205,32 @@
     }
   }
 })();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.tabbed-menu', [])
+    .directive('tabbedMenu', tabbedMenu);
+
+  function tabbedMenu() {
+    var directive = {
+      link: link,
+      templateUrl: 'tabbed-menu/tabbed-menu.html',
+      restrict: 'EA',
+      scope: {
+        title: '=',
+        tabbedItems: '='
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+    }
+  }
+})();
+
 
 (function(module) {
 try {

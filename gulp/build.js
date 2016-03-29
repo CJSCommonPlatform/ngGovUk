@@ -9,6 +9,7 @@ module.exports = function () {
   gulp.task('build', ['clean-dev'], function (cb) {
     if (gutil.env.dist) {
       runSequence([
+        'test',
         'build-css',
         'copy-assets',
         'build-js'
@@ -19,6 +20,7 @@ module.exports = function () {
         'uglify-dist', cb);
     } else {
       runSequence([
+        'test',
         'build-css',
         'copy-assets',
         'build-js'

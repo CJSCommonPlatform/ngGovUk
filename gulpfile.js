@@ -7,9 +7,9 @@
 
   var $ = require('gulp-load-plugins')({ lazy: true });
 
-  wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+  wrench.readdirSyncRecursive('./gulp').filter(function (file) {
     return (/\.(js)$/i).test(file);
-  }).map(function(file) {
+  }).map(function (file) {
     require('./gulp/' + file)(config, log);
   });
 

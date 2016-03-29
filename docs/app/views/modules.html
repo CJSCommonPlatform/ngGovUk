@@ -214,170 +214,136 @@
             </div>
           </div>
           <div id="lazy-validation">
-              <h2>lazy-validation</h2>
+            <h2>lazy-validation</h2>
               <div>
-                  <p>This directives makes angular validation be evaluated lazilly when specific event occurs (such as clicking on submit button)</p>
+                <p>This module enables angular validation to be triggered lazily, when a specific event occurs (such as clicking on a submit button)</p>
               </div>
               <div class="bs-example" data-example-id="lazy-validation-example">
+                <div data-ng-controller="lazyValidationDemo">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <form data-lazy-validation="form" novalidate>
+                          <div class="cpp-form-error-summary"
+                          role="group"
+                          aria-labelledby="error-summary-heading-example-2"
+                          data-ng-show="form.$invalid">
+                          <h3 id="error-summary-heading-example-2">Required fields are blank</h3>
 
-                  <div data-ng-controller="lazyValidationDemo">
-                      <div class="container">
-                          <div class="row">
-                              <div class="col-xs-12">
-                                  <form data-lazy-validation="form" novalidate>
-                                      <div class="cpp-form-error-summary"
-                                           role="group"
-                                           aria-labelledby="error-summary-heading-example-2"
-                                           data-ng-show="form.$invalid">
-                                          <h3 id="error-summary-heading-example-2">
-                                              Required fields are blank
-                                          </h3>
-
-                                          <p>
-                                              Optional description of the error(s) and how to correct them
-                                          </p>
-                                          <ul class="cpp-form-error-summary-list">
-                                              <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
-                                              <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
-                                          </ul>
-                                      </div>
-                                      <h2>
-                                          Your personal details
-                                      </h2>
-
-                                      <div class="form-group" data-ng-class="{'cpp-form-error': form.fullName.$invalid }">
-                                          <label for="example-full-name"
-                                                 id="error-message-full-name-label">
-                                              <span class="form-label-bold">Full name</span>
-                                              <span class="form-hint-text">As shown on your birth certificate or passport</span>
-                                          </label>
-
-                                          <div data-ng-if="form.fullName.$error.required">
-                                              <h6 class="cpp-form-error-message">
-                                                  Full name must be entered
-                                              </h6>
-                                          </div>
-                                          <div data-ng-if="form.fullName.$error.minlength">
-                                              <h6 class="cpp-form-error-message">
-                                                  Full name must be at least 5 characters long
-                                              </h6>
-                                          </div>
-                                          <input class="form-control"
-                                                 id="example-full-name"
-                                                 type="text"
-                                                 name="fullName"
-                                                 data-ng-model="vm.fullName"
-                                                 aria-describedby="error-message-full-name-label"
-                                                 data-ng-required="true"
-                                                 data-ng-minlength="5">
-                                      </div>
-                                      <input class="btn btn-default"
-                                             type="submit"
-                                             value="Submit form"
-                                             data-lazy-validation-on-click="submitForm()">
-
-                                      <input class="btn btn-default"
-                                             type="submit"
-                                             value="Submit form (manual validation check)"
-                                             data-lazy-validation-on-click
-                                             data-ng-click="checkValidationManually()">
-                                  </form>
-                              </div>
-                          </div>
+                          <p>Optional description of the error(s) and how to correct them</p>
+                          <ul class="cpp-form-error-summary-list">
+                            <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
+                            <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
+                          </ul>
+                        </div>
+                        <h2>Your personal details</h2>
+                        <div class="form-group" data-ng-class="{'cpp-form-error': form.fullName.$invalid }">
+                          <label for="example-full-name"
+                          id="error-message-full-name-label">
+                          <span class="form-label-bold">Full name</span>
+                          <span class="form-hint-text">As shown on your birth certificate or passport</span>
+                        </label>
+                        <div data-ng-if="form.fullName.$error.required">
+                          <h6 class="cpp-form-error-message">Full name must be entered</h6>
+                        </div>
+                        <div data-ng-if="form.fullName.$error.minlength">
+                          <h6 class="cpp-form-error-message">Full name must be at least 5 characters long</h6>
+                        </div>
+                        <input class="form-control"
+                          id="example-full-name"
+                          type="text"
+                          name="fullName"
+                          data-ng-model="vm.fullName"
+                          aria-describedby="error-message-full-name-label"
+                          data-ng-required="true"
+                          data-ng-minlength="5">
                       </div>
+                      <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form"
+                      data-lazy-validation-on-click="submitForm()">
+                      <input class="btn btn-default"
+                        type="submit"
+                        value="Submit form (manual validation check)"
+                        data-lazy-validation-on-click
+                        data-ng-click="checkValidationManually()">
+                    </form>
                   </div>
+                </div>
               </div>
-
-              <div data-tabset>
-                  <div data-tab data-heading="Markup">
-                      <div>
-                          <div data-hljs><form data-lazy-validation="form" novalidate>
-  <div class="cpp-form-error-summary"
-       role="group"
-       aria-labelledby="error-summary-heading-example-2"
-       data-ng-show="form.$invalid">
-      <h3 id="error-summary-heading-example-2">
-          Required fields are blank
-      </h3>
-
-      <p>
-          Optional description of the error(s) and how to correct them
-      </p>
-      <ul class="cpp-form-error-summary-list">
-          <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
-          <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
-      </ul>
-  </div>
-  <h2>
-      Your personal details
-  </h2>
-
-  <div class="form-group" data-ng-class="{'cpp-form-error': form.fullName.$invalid }">
-      <label for="example-full-name"
-             id="error-message-full-name-label">
-          <span class="form-label-bold">Full name</span>
-          <span class="form-hint-text">As shown on your birth certificate or passport</span>
-      </label>
-
-      <div data-ng-if="form.fullName.$error.required">
-          <h6 class="cpp-form-error-message">
-              Full name must be entered
-          </h6>
-      </div>
-      <div data-ng-if="form.fullName.$error.minlength">
-          <h6 class="cpp-form-error-message">
-              Full name must be at least 5 characters long
-          </h6>
-      </div>
-      <input class="form-control"
-             id="example-full-name"
-             type="text"
-             name="fullName"
-             data-ng-model="vm.fullName"
-             aria-describedby="error-message-full-name-label"
-             data-ng-required="true"
-             data-ng-minlength="5">
-  </div>
-  <input class="btn btn-default"
-         type="submit"
-         value="Submit form"
-         data-lazy-validation-on-click="submitForm()">
-
-  <input class="btn btn-default"
-         type="submit"
-         value="Submit form (manual validation check)"
-         data-lazy-validation-on-click
-         data-ng-click="checkValidationManually()">
-</form></div>
+            </div>
+          </div>
+          <div data-tabset>
+            <div data-tab data-heading="Markup">
+              <div data-syntax-highlighter data-source='
+                <div data-ng-controller="lazyValidationDemo">
+                  <form data-lazy-validation="form" novalidate>
+                    <div class="cpp-form-error-summary"
+                      role="group"
+                      aria-labelledby="error-summary-heading-example-2"
+                      data-ng-show="form.$invalid">
+                      <h3 id="error-summary-heading-example-2">Required fields are blank</h3>
+                      <p>Optional description of the error(s) and how to correct them</p>
+                      <ul class="cpp-form-error-summary-list">
+                        <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
+                        <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
+                      </ul>
+                    </div>
+                    <h2>Your personal details</h2>
+                    <div class="form-group" data-ng-class="{&apos;cpp-form-error&apos;: form.fullName.$invalid }">
+                      <label for="example-full-name"
+                        id="error-message-full-name-label">
+                        <span class="form-label-bold">Full name</span>
+                        <span class="form-hint-text">As shown on your birth certificate or passport</span>
+                      </label>
+                      <div data-ng-if="form.fullName.$error.required">
+                        <h6 class="cpp-form-error-message">Full name must be entered</h6>
                       </div>
-                  </div>
-                  <div data-tab data-heading="JavaScript">
-                      <div data-hljs>(function() {
-'use strict';
-
-angular
-    .module('app')
-    .controller('lazyValidationDemo', LazyValidationDemo);
-
-    function LazyValidationDemo($scope) {
-        $scope.submitForm = function () {
-            alert('Submit form: This gets called only when form is valid');
-        };
-
-        $scope.checkValidationManually = function () {
-            // Check additional criteria before submitting the form
-            if ($scope.form.$valid) {
-                $scope.submitForm();
-            }
-        };
-    }
-})();</div>
-                  </div>
-              </div>
-
-
-        </div>
-
+                      <div data-ng-if="form.fullName.$error.minlength">
+                        <h6 class="cpp-form-error-message">Full name must be at least 5 characters long</h6>
+                      </div>
+                      <input class="form-control"
+                        id="example-full-name"
+                        type="text"
+                        name="fullName"
+                        data-ng-model="vm.fullName"
+                        aria-describedby="error-message-full-name-label"
+                        data-ng-required="true"
+                        data-ng-minlength="5">
+                    </div>
+                    <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form"
+                      data-lazy-validation-on-click="submitForm()">
+                    <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form (manual validation check)"
+                      data-lazy-validation-on-click
+                      data-ng-click="checkValidationManually()">
+                  </form>
+                </div>'></div>
+            </div>
+            <div data-tab data-heading="JavaScript">
+              <div data-syntax-highlighter data-language="javascript" data-source="
+                (function() {
+                  'use strict';
+                  angular
+                    .module('app')
+                    .controller('lazyValidationDemo', LazyValidationDemo);
+                    function LazyValidationDemo($scope) {
+                      $scope.submitForm = function () {
+                        alert('Submit form: This gets called only when form is valid');
+                      };
+                      $scope.checkValidationManually = function () {
+                        // Check additional criteria before submitting the form
+                        if ($scope.form.$valid) {
+                          $scope.submitForm();
+                        }
+                      };
+                    }
+                })();"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
