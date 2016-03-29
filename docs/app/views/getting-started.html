@@ -85,9 +85,9 @@
           <p>
             As soon as you've got all the files downloaded and included in your page you just need to declare
             a dependency on <code>ngGovUk</code> <a href="http://docs.angularjs.org/guide/module">module</a>:
+            <div data-syntax-highlighter data-language="javascript" data-source="
+              angular.module('myApp', ['ngGovUk']);"></div>
           </p>
-
-          <pre data-rainbow-block><code data-language="javascript">angular.module('myApp', ['<strong>ngGovUk</strong>']);</code></pre>
 
           <h3>CSS</h3>
 
@@ -97,7 +97,8 @@
             But in AngularJS adding empty <code>href</code> attributes to link tags will cause unwanted route changes.
             This is why we need to remove empty <code>href</code> attributes from directive templates and as a result
             styling is not applied correctly. The remedy is simple, just add the following styling to your application:
-            .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+            <div data-syntax-highlighter data-language="css" data-source="
+              .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }"></div>
           </p>
 
           <h3>Issues</h3>

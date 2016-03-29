@@ -11,6 +11,10 @@
 docs/bower_components/*
 node_modules
 
+# Test coverage
+coverage/*
+TESTS*.xml
+
 # Code Generated Files
 dev/*
 reports/*
