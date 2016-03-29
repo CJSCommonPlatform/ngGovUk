@@ -5,6 +5,7 @@
     'ngGovUk.footer',
     'ngGovUk.global-nav',
     'ngGovUk.nav-side',
-    'ngGovUk.tabbed-menu'
+    'ngGovUk.tabbed-menu',
+    'ngGovUk.form-validation'
   ]);
 })();
