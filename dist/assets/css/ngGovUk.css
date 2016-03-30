@@ -4031,29 +4031,29 @@ fieldset[disabled] .btn-primary.focus {
 
 .btn-success {
   color: #fff;
-  background-color: #85994B;
-  border-color: #768843;
+  background-color: #28a197;
+  border-color: #238d84;
 }
 
 .btn-success:focus,
 .btn-success.focus {
   color: #fff;
-  background-color: #67773a;
-  border-color: #2c3219;
+  background-color: #1e7871;
+  border-color: #0a2624;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #67773a;
-  border-color: #525f2e;
+  background-color: #1e7871;
+  border-color: #175c56;
 }
 
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: #67773a;
-  border-color: #525f2e;
+  background-color: #1e7871;
+  border-color: #175c56;
 }
 
 .btn-success:active:hover,
@@ -4066,8 +4066,8 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #fff;
-  background-color: #525f2e;
-  border-color: #2c3219;
+  background-color: #175c56;
+  border-color: #0a2624;
 }
 
 .btn-success:active,
@@ -4085,12 +4085,12 @@ fieldset[disabled] .btn-success:focus,
 .btn-success.disabled.focus,
 .btn-success[disabled].focus,
 fieldset[disabled] .btn-success.focus {
-  background-color: #85994B;
-  border-color: #768843;
+  background-color: #28a197;
+  border-color: #238d84;
 }
 
 .btn-success .badge {
-  color: #85994B;
+  color: #28a197;
   background-color: #fff;
 }
 
@@ -6055,12 +6055,12 @@ a.label:focus {
 }
 
 .label-success {
-  background-color: #85994B;
+  background-color: #28a197;
 }
 
 .label-success[href]:hover,
 .label-success[href]:focus {
-  background-color: #67773a;
+  background-color: #1e7871;
 }
 
 .label-info {
@@ -6383,7 +6383,7 @@ a.thumbnail.active {
 }
 
 .progress-bar-success {
-  background-color: #85994B;
+  background-color: #28a197;
 }
 
 .progress-striped .progress-bar-success {
@@ -8979,7 +8979,7 @@ a[rel="external"]:after {
 }
 
 .panel-indent.success {
-  border-color: #85994B;
+  border-color: #28a197;
 }
 
 .panel-indent.info {
@@ -9179,7 +9179,7 @@ h6 > .forename {
 }
 
 .success-color {
-  color: #85994B;
+  color: #28a197;
 }
 
 .info-color {
@@ -12199,12 +12199,21 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .icon-notification-success {
-  background: #85994B;
+  background: #28a197;
   color: #fff;
-  border-top: 10px solid #85994B;
-  border-left: 20px solid #85994B;
-  border-bottom: 16px solid #85994B;
+  border-top: 10px solid #28a197;
+  border-left: 20px solid #28a197;
+  border-bottom: 16px solid #28a197;
   padding-top: 14px;
+}
+
+.icon-notification-success .fa {
+  font-size: 1.5em;
+  top: 13px;
+}
+
+.icon-notification-success > :not(.fa) {
+  padding-left: 30px;
 }
 
 .icon-notification-invalid {
