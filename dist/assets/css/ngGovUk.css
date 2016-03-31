@@ -9054,6 +9054,7 @@ details.formatted-details summary:hover {
 
 .main-summary .arrow-right {
   margin-right: 11px;
+  margin-bottom: 0;
 }
 
 .main-summary .arrow-down {
