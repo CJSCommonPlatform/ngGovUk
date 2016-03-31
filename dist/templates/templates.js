@@ -30,11 +30,9 @@ module.run(['$templateCache', function($templateCache) {
     '          </div>\n' +
     '        </div>\n' +
     '      </div>\n' +
-    '      <div class="col-md-2 text-right">\n' +
-    '        <div id="crown-copy-cont" class="text-center">\n' +
-    '          <div class="logo">\n' +
-    '              <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
-    '          </div>\n' +
+    '      <div class="col-md-2 text-center">\n' +
+    '        <div class="footer-logo">\n' +
+    '          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +

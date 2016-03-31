@@ -19,6 +19,9 @@
 
 .footer-meta-inner {
   margin-top: 54px;
+  @media (max-width: @screen-sm-max) {
+    margin-top: 0;
+  }
 }
 
 .crown-copy {
@@ -52,16 +55,12 @@
   }
 }
 
-#crown-copy-cont {
-  .logo {
-      background: url('@{image-path}govuk-crest.png') no-repeat;
-      height: 105px;
-      position: absolute;
-      width: 130px;
-      a {
-        float: left;
-        top: 105px;
-        position: relative;
-      }
-  }
+.footer-logo {
+    background: url('@{image-path}govuk-crest.png') no-repeat center;
+    height: 105px;
+    text-align: center;
+    a {
+      top: 105px;
+      position: relative;
+    }
 }

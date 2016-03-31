@@ -14,28 +14,6 @@
   'use strict';
 
   angular
-    .module('ngGovUk.footer', [])
-    .directive('footerDirective', footerDirective);
-
-  function footerDirective() {
-    var directive = {
-      link: link,
-      templateUrl: 'footer/footer.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-
-    }
-  }
-})();
-
-(function () {
-  'use strict';
-
-  angular
     .module('ngGovUk.form-validation', [
       'ngGovUk.form-validation.lazy-validation',
       'ngGovUk.form-validation.lazy-validation-on-click'
@@ -232,6 +210,28 @@
 })();
 
 
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [])
+    .directive('footerDirective', footerDirective);
+
+  function footerDirective() {
+    var directive = {
+      link: link,
+      templateUrl: 'footer/footer.html',
+      restrict: 'EA'
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+
+    }
+  }
+})();
+
 (function(module) {
 try {
   module = angular.module('ngGovUk');
@@ -264,11 +264,9 @@ module.run(['$templateCache', function($templateCache) {
     '          </div>\n' +
     '        </div>\n' +
     '      </div>\n' +
-    '      <div class="col-md-2 text-right">\n' +
-    '        <div id="crown-copy-cont" class="text-center">\n' +
-    '          <div class="logo">\n' +
-    '              <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
-    '          </div>\n' +
+    '      <div class="col-md-2 text-center">\n' +
+    '        <div class="footer-logo">\n' +
+    '          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +

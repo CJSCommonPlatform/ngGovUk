@@ -12738,6 +12738,12 @@ section {
   margin-top: 54px;
 }
 
+@media (max-width: 991px) {
+  .footer-meta-inner {
+    margin-top: 0;
+  }
+}
+
 .crown-copy {
   text-decoration: none;
 }
@@ -12773,15 +12779,13 @@ section {
   text-indent: -999em;
 }
 
-#crown-copy-cont .logo {
-  background: url("../img/govuk-crest.png") no-repeat;
+.footer-logo {
+  background: url("../img/govuk-crest.png") no-repeat center;
   height: 105px;
-  position: absolute;
-  width: 130px;
+  text-align: center;
 }
 
-#crown-copy-cont .logo a {
-  float: left;
+.footer-logo a {
   top: 105px;
   position: relative;
 }
