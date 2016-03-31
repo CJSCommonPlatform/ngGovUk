@@ -10771,6 +10771,11 @@ a.btn {
   text-decoration: underline;
 }
 
+.btn-plain:hover {
+  color: #2e8aca;
+  text-decoration: underline;
+}
+
 .caret {
   display: inline-block;
   width: 0;
