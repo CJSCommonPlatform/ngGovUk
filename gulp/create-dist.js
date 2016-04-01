@@ -4,12 +4,11 @@ var gulp = require('gulp');
 var $    = require('gulp-load-plugins')({ lazy: true });
 var source = require('vinyl-source-stream');
 var path   = require('path');
-var rebaseUrls = require('gulp-css-rebase-urls');
 var lessImportString = require('./helpers/lessImportString')();
 
 module.exports = function (config, log) {
   // copies files from dev and creates the dev version of the less import file
-  gulp.task('create-dist', ['copy-dev-js', 'copy-dev-fonts', 'copy-dev-images', 'copy-dev-less', 'copy-docs-css'], function () {
+  gulp.task('create-dist', ['copy-dev-js', 'copy-dev-fonts', 'copy-dev-images', 'copy-dev-less', 'copy-dev-css'], function () {
     var stream = source(config.dist.name + '.less');
 
     gulp.src([config.dist.lessPath + '/*.less', config.dist.lessModulesPath + '/*.less'])
@@ -21,12 +20,8 @@ module.exports = function (config, log) {
     stream.pipe(gulp.dest(config.dist.path));
   });
 
-  gulp.task('copy-docs-css', function () {
-    return gulp.src(config.docs.cssPath + '/' + config.docs.cssName)
-      .pipe($.rename({basename: config.dist.name}))
-      .pipe(rebaseUrls({
-        'root': config.docs.cssPath
-      }))
+  gulp.task('copy-dev-css', function () {
+    return gulp.src(config.dev.path + '/' + config.dist.name + '.css')
       .pipe(gulp.dest(config.dist.cssPath));
   });
 

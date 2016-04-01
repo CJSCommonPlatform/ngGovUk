@@ -19,7 +19,6 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.0",
-    "gulp-css-rebase-urls": "0.0.5",
     "gulp-eslint": "^1.1.1",
     "gulp-file": "^0.2.0",
     "gulp-flatten": "^0.2.0",
