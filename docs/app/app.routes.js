@@ -11,8 +11,7 @@
     $stateProvider
         .state('playground', {
           url:'/playground',
-          templateUrl: viewsPath + 'playground.html',
-          controller: 'playground'
+          templateUrl: viewsPath + 'playground.html'
         })
         .state('modules', {
           url:'/modules',

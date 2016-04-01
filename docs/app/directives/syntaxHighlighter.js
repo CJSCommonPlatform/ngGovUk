@@ -20,7 +20,6 @@ angular.module('app').directive('syntaxHighlighter', function () {
         .compact()
         .thru(function (lines) {
           var firstLineIndentation = _getIndentation(lines[0]);
-          console.log(firstLineIndentation);
           var currentLineIndentation;
           return _.map(lines, function (line) {
             currentLineIndentation = _getIndentation(line);
