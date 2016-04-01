@@ -1,0 +1,17 @@
+.breadcrumb {
+  padding: 8px 0;
+  > li {
+    + li:before {
+      content: "@{breadcrumb-separator}";
+      font-family: "FontAwesome";
+      text-align: center;
+    }
+    > a {
+      color: @breadcrumb-link-color;
+      &:hover {
+        color: @breadcrumb-link-hover-color;
+      }
+    }
+  }
+
+}

@@ -3,6 +3,11 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
   var navItems;
   navItems = [
     {
+      title: 'Breadcrumbs',
+      type: 'scroll-to',
+      ref: 'breadcrumbs'
+    },
+    {
       title: 'Search',
       type: 'scroll-to',
       ref: 'search'
