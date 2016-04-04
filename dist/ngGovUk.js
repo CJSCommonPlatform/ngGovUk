@@ -14,6 +14,28 @@
   'use strict';
 
   angular
+    .module('ngGovUk.footer', [])
+    .directive('footerDirective', footerDirective);
+
+  function footerDirective() {
+    var directive = {
+      link: link,
+      templateUrl: 'footer/footer.html',
+      restrict: 'EA'
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
     .module('ngGovUk.form-validation', [
       'ngGovUk.form-validation.lazy-validation',
       'ngGovUk.form-validation.lazy-validation-on-click'
@@ -111,28 +133,6 @@
   'use strict';
 
   angular
-    .module('ngGovUk.global-nav', [])
-    .directive('globalNav', globalNav);
-
-  function globalNav() {
-    var directive = {
-      link: link,
-      templateUrl: 'global-nav/global-nav.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-      scope.globalNav.isCollapsed = true;
-    }
-  }
-})();
-
-(function () {
-  'use strict';
-
-  angular
     .module('ngGovUk.nav-side', [])
     .directive('navSideDirective', navSideDirective);
 
@@ -214,20 +214,20 @@
   'use strict';
 
   angular
-    .module('ngGovUk.footer', [])
-    .directive('footerDirective', footerDirective);
+    .module('ngGovUk.global-nav', [])
+    .directive('globalNav', globalNav);
 
-  function footerDirective() {
+  function globalNav() {
     var directive = {
       link: link,
-      templateUrl: 'footer/footer.html',
+      templateUrl: 'global-nav/global-nav.html',
       restrict: 'EA'
     };
 
     return directive;
 
     function link(scope, element, attrs, fn) {
-
+      scope.globalNav.isCollapsed = true;
     }
   }
 })();
