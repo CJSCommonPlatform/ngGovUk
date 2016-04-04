@@ -3,11 +3,24 @@ legend {
   font-weight: @legend-font-weight;
 }
 
+legend.small {
+  margin-bottom: 0;
+  font-size: @font-size-default-text;
+}
+
 .swatch-yellow {
   height:25px;
   width: 25px;
   border-radius: 50px;
   background-color: @link-focus-color-bg;
+}
+
+.form-horizontal {
+  .control-label.control-label-plain {
+    text-align: left;
+    font-weight: normal;
+    font-size: @font-size-default-text;
+  }
 }
 
 .form-control:focus {

@@ -10552,11 +10552,22 @@ legend {
   font-weight: bold;
 }
 
+legend.small {
+  margin-bottom: 0;
+  font-size: 1.19em;
+}
+
 .swatch-yellow {
   height: 25px;
   width: 25px;
   border-radius: 50px;
   background-color: #ffbf47;
+}
+
+.form-horizontal .control-label.control-label-plain {
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.19em;
 }
 
 .form-control:focus {
