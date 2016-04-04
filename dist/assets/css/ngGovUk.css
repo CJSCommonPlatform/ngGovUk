@@ -1691,7 +1691,7 @@ mark,
 }
 
 .text-muted {
-  color: #DEE0E2;
+  color: #6F777B;
 }
 
 .text-primary {
@@ -2966,7 +2966,7 @@ table {
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #DEE0E2;
+  color: #6F777B;
   text-align: left;
 }
 
@@ -6101,7 +6101,7 @@ a.label:focus {
   vertical-align: middle;
   white-space: nowrap;
   text-align: center;
-  background-color: #DEE0E2;
+  background-color: #6F777B;
   border-radius: 10px;
 }
 
@@ -8680,7 +8680,7 @@ mark,
 }
 
 .text-muted {
-  color: #DEE0E2;
+  color: #6F777B;
 }
 
 .text-primary {
@@ -10206,7 +10206,7 @@ table {
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #DEE0E2;
+  color: #6F777B;
   text-align: left;
 }
 
@@ -10780,6 +10780,11 @@ a.btn {
 .btn-plain:hover {
   color: #2e8aca;
   text-decoration: underline;
+}
+
+.badge {
+  padding-top: 5px;
+  font-size: 0.75em;
 }
 
 .breadcrumb {
