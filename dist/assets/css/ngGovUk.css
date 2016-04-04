@@ -12914,6 +12914,7 @@ header .row {
 
 .accordion .panel-title {
   font-weight: normal;
+  font-size: 1em;
 }
 
 .accordion .panel-title a.active {
