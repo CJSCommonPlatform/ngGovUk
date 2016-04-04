@@ -10564,6 +10564,12 @@ legend.small {
   background-color: #ffbf47;
 }
 
+.form-horizontal .control-label.control-label-plain {
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.19em;
+}
+
 .form-control:focus {
   outline: none;
   box-shadow: none !important;
