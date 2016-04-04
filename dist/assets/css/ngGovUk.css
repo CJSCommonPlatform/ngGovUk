@@ -8994,6 +8994,10 @@ a[rel="external"]:after {
   border-color: #B10E1E;
 }
 
+.panel-indent p {
+  margin-bottom: 0px;
+}
+
 details.main-details {
   color: #0b0c0c;
 }
