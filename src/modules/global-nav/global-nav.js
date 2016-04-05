@@ -39,7 +39,7 @@
           displaySettings: {
             showUnderline: true
           }
-        }
+        };
       }
 
     }
