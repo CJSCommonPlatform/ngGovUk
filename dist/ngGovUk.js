@@ -325,7 +325,7 @@ module.run(['$templateCache', function($templateCache) {
     '    </div>\n' +
     '  </div>\n' +
     '  <div class="container">\n' +
-    '    <div class="global-header-bar"></div>\n' +
+    '    <div ng-class="{\'global-header-bar\':globalNav.displaySettings.showUnderline}" ></div>\n' +
     '  </div>\n' +
     '</header>\n' +
     '');
