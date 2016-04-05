@@ -43,7 +43,10 @@
             type: 'href',
             ref: '#!/modules'
           }
-        ]
+        ],
+        displaySettings:{
+          showUnderline: true
+        }
       };
     }
   }
