@@ -10797,6 +10797,11 @@ a.btn {
   text-decoration: underline;
 }
 
+.vertical-spacer {
+  display: block;
+  margin-bottom: 22px;
+}
+
 .badge {
   padding-top: 5px;
   font-size: 0.75em;
