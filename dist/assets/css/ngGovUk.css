@@ -12735,6 +12735,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   border-bottom-color: #ebccd1;
 }
 
+.stripe {
+  background-color: #2e358b;
+  color: #fff;
+  padding: 14px 0 9px;
+  font-size: 1.19em;
+}
+
+.stripe .stripe-subtext {
+  color: #dedff4;
+}
+
 .tab-content {
   display: block;
 }
