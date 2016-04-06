@@ -8,6 +8,11 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
       ref: 'breadcrumbs'
     },
     {
+      title: 'Stripe',
+      type: 'scroll-to',
+      ref: 'stripe'
+    },
+    {
       title: 'Search',
       type: 'scroll-to',
       ref: 'search'
