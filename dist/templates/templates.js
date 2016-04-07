@@ -197,8 +197,27 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>\n' +
-    '');
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('progress-list/progress-list.html',
+    '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
+    '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
+    '              <span ng-if="item.access && item.complete">\n' +
+    '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
+    '              </span>\n' +
+    '        <span ng-if="item.access && !item.complete">Incomplete</span>\n' +
+    '    </li>\n' +
+    '</ul>');
 }]);
 })();
 

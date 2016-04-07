@@ -6,7 +6,8 @@
     'ngGovUk.global-nav',
     'ngGovUk.nav-side',
     'ngGovUk.tabbed-menu',
-    'ngGovUk.form-validation'
+    'ngGovUk.form-validation',
+    'ngGovUk.progress-list'
   ]);
 })();
 
@@ -227,6 +228,62 @@
         scope.isCollapsed = true;
       } else {
         scope.isCollapsed = false;
+      }
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.progress-list', [])
+    .directive('progressListDirective', progressListDirective);
+
+  function progressListDirective() {
+
+    var directive = {
+      link: link,
+      templateUrl: 'progress-list/progress-list.html',
+      restrict: 'EA',
+      replace: true,
+      scope: {
+        progressListItems: '=',
+        currentState: '='
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+      if(!scope.progressListItems) {
+
+        scope.progressListItems = [
+          {
+            title: 'Item 1',
+            active: false,  // for applying active css class
+            access: true, // for displaying complete/incomplete messages
+            complete: true // for  displaying complete/incomplete corresponding  message
+          },
+          {
+            title: 'Item 2',
+            active: true,
+            access: true,
+            complete: false
+          },
+          {
+            title: 'Item 3',
+            active:false,
+            access: false,
+            complete:false
+          },
+          {
+            title: 'Item 4',
+            active:false,
+            access: false,
+            complete: false
+          }
+        ];
       }
     }
   }
@@ -457,8 +514,27 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>\n' +
-    '');
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('progress-list/progress-list.html',
+    '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
+    '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
+    '              <span ng-if="item.access && item.complete">\n' +
+    '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
+    '              </span>\n' +
+    '        <span ng-if="item.access && !item.complete">Incomplete</span>\n' +
+    '    </li>\n' +
+    '</ul>');
 }]);
 })();
 
