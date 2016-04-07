@@ -6,7 +6,8 @@
     'ngGovUk.global-nav',
     'ngGovUk.nav-side',
     'ngGovUk.tabbed-menu',
-    'ngGovUk.form-validation'
+    'ngGovUk.form-validation',
+    'ngGovUk.progress-list'
   ]);
 })();
 
@@ -188,6 +189,61 @@
     var directive = {
       link: link,
       templateUrl: 'nav-side/nav-side.html',
+      restrict: 'EA',
+      scope: {
+        collapseTitle: '=',
+        navigationItems: '=',
+        currentState: '='
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+      scope.isCollapsed = false;
+
+      scope.isOpen = function (item) {
+        var result = false;
+
+        if (item && item.children && scope.currentState && scope.currentState.name) {
+          for (var i = 0; i < item.children.length; i++) {
+            if (item.children[i].ref.indexOf(scope.currentState.name) !== -1){
+              result = true;
+              break;
+            }
+          }
+        }
+
+        return result;
+      };
+
+      window.onload = updateCollapsedStatus(scope);
+      window.onresize = updateCollapsedStatus(scope);
+    }
+
+    function updateCollapsedStatus(scope) {
+      var windowWidth = window.innerWidth;
+
+      if (windowWidth < 768) {
+        scope.isCollapsed = true;
+      } else {
+        scope.isCollapsed = false;
+      }
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.progress-list', [])
+    .directive('progressListDirective', progressListDirective);
+
+  function progressListDirective() {
+    var directive = {
+      link: link,
+      templateUrl: 'progress-list/progress-list.html',
       restrict: 'EA',
       scope: {
         collapseTitle: '=',
@@ -457,8 +513,53 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>\n' +
-    '');
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('progress-list/progress-list.html',
+    '<div class="progress-list">\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">1. Welcome</h3>\n' +
+    '            Complete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
+    '            Incomplete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">3. Create password</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 

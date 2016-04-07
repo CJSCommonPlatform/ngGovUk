@@ -23,6 +23,11 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
       ref: 'accordion'
     },
     {
+      title: 'Progress List',
+      type: 'scroll-to',
+      ref: 'progress-list'
+    },
+    {
       title: 'Alerts',
       children: [
         {
@@ -276,5 +281,4 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
     templateUrl: 'myPopoverTemplate.html',
     title: 'Title'
   };
-
 });
