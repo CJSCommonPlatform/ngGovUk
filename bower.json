@@ -37,7 +37,10 @@
     "angular-vertilize": "~1.0.0",
     "angular-animate": "~1.2.0",
     "prism": "^1.4.1",
-    "lodash": "^4.6.1"
+    "lodash": "^4.6.1",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "es5-shim": "^4.5.7"
   },
   "resolutions": {
     "jquery": "2.1.1",
