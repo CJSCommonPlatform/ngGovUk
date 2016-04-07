@@ -197,8 +197,53 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>\n' +
-    '');
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('progress-list/progress-list.html',
+    '<div class="progress-list">\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">1. Welcome</h3>\n' +
+    '            Complete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
+    '            Incomplete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">3. Create password</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
