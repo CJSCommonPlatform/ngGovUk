@@ -15,7 +15,7 @@ angular.module('app').directive('syntaxHighlighter', function () {
         return match ? match[0].length : 0;
       }
       //formatting html attribute to avoid angular to bypass angular's trimming
-      var formattedSource = _.chain(element.attr('data-source') || lement.attr('source'))
+      var formattedSource = _.chain(element.attr('data-source') || element.attr('source'))
         .split('\n')
         .compact()
         .thru(function (lines) {
