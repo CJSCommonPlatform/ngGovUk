@@ -1,5 +1,5 @@
 describe('progressList', function () {
-
+  
   beforeEach(angular.mock.module('ngGovUk'));
   beforeEach(module('ngGovUk.progress-list','progress-list/progress-list.html'));
 
@@ -58,5 +58,4 @@ describe('progressList', function () {
     });
 
   });
-
 });

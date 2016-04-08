@@ -6,7 +6,6 @@
     .directive('progressListDirective', progressListDirective);
 
   function progressListDirective() {
-
     var directive = {
       link: link,
       templateUrl: 'progress-list/progress-list.html',
@@ -22,7 +21,6 @@
 
     function link(scope, element, attrs, fn) {
       if(!scope.progressListItems) {
-
         scope.progressListItems = [
           {
             title: 'Item 1',
