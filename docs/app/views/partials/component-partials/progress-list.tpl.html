@@ -1,0 +1,78 @@
+<section id="progress-list">
+  <h1>Progress List</h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>By adding <code>progress-list</code> to a list-group you can
+        create a read only menu  to reflect a progress. You can then add <code>active</code> class to reflect the
+        step in which you currently are. Optionally you can add a status and a stats icon.
+    </div>
+  </div>
+  <div class="bs-example" data-example-id="lists">
+      <div data-ng-controller="progressListDemo">
+          <div data-progress-list  data-progress-list-items="progressListDemo">
+              <ul class="progress-list list-group" data-ng-repeat="item in progressListDemo">
+                  <li ng-class="item.active ? 'list-group-item active' : 'list-group-item'">
+                      <h4>{{$index + 1}}. {{item.title}}</h4>
+                      <span ng-if="item.state && item.complete">
+                        <span class="glyphicon glyphicon-ok success-color"></span>Complete
+                      </span>
+                        <span ng-if="item.state && !item.complete">Incomplete</span>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <br>
+  <div data-tabset>
+    <div data-tab data-heading="Markup">
+      <div data-syntax-highlighter data-source='
+        <div data-ng-controller="progressListDemo">
+            <div data-progress-list  data-progress-list-items="progressListDemo">
+                <ul class="progress-list list-group" data-ng-repeat="item in progressListDemo">
+                    <li ng-class="item.active ? &#39;list-group-item active&#39; : &#39;list-group-item&#39;">
+                        <h4>{{$index + 1}}. {{item.title}}</h4>
+                        <span ng-if="item.state && item.complete">
+                            <span class="glyphicon glyphicon-ok success-color"></span>Complete
+                        </span>
+                        <span ng-if="item.state && !item.complete">Incomplete</span>
+                    </li>
+                </ul>
+            </div>
+        </div>'></div>
+    </div>
+    <div data-tab data-heading="JavaScript">
+        <div data-syntax-highlighter data-language="javascript" data-source="
+            angular.module('app').controller('progressListDemo', function ($scope) {
+                $scope.progressListDemo = [
+                    {
+                        title: 'Welcome',
+                        active: false,  // for applying active css class
+                        state: true, // for displaying complete/incomplete messages
+                        complete: true // for  displaying complete/incomplete corresponding  message
+                    },
+                    {
+                        title: 'One-time passcode',
+                        active: true,
+                        state: true,
+                        complete: false
+                    },
+                    {
+                        title: 'Create password',
+                        active:false,
+                        state: false,
+                        complete:false
+                    },
+                    {
+                        title: 'Complete registration',
+                        active:false,
+                        state: false,
+                        complete: false
+                    }
+                ];
+            });">
+        </div>
+    </div>
+
+
+  </div>
+</section>
