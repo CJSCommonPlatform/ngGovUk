@@ -8,6 +8,7 @@
     'ui.bootstrap',
     'angular.vertilize',
     'smoothScroll',
+    'sticky',
     'ngSanitize'
   ]);
 })();
