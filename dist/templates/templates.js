@@ -5,7 +5,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.html',
+  $templateCache.put('modules/footer/footer.tpl.html',
     '<footer id="footer" class="cpp-footer">\n' +
     '  <div class="container">\n' +
     '    <div class="row">\n' +
@@ -49,7 +49,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('global-nav/global-nav.html',
+  $templateCache.put('modules/global-nav/global-nav.tpl.html',
     '<div>\n' +
     '    <header class="navbar navbar-default">\n' +
     '        <div class="navbar-content">\n' +
@@ -108,7 +108,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-side/nav-side.html',
+  $templateCache.put('modules/nav-side/nav-side.tpl.html',
     '<div class="nav-side">\n' +
     '  <nav>\n' +
     '    <div class="navbar-header">\n' +
@@ -208,42 +208,16 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('progress-list/progress-list.html',
-    '<div class="progress-list">\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">1. Welcome</h3>\n' +
-    '            Complete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
-    '            Incomplete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">3. Create password</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '</div>');
+  $templateCache.put('modules/progress-list/progress-list.tpl.html',
+    '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
+    '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
+    '              <span ng-if="item.access && item.complete">\n' +
+    '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
+    '              </span>\n' +
+    '        <span ng-if="item.access && !item.complete">Incomplete</span>\n' +
+    '    </li>\n' +
+    '</ul>');
 }]);
 })();
 
@@ -254,7 +228,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tabbed-menu/tabbed-menu.html',
+  $templateCache.put('modules/tabbed-menu/tabbed-menu.tpl.html',
     '<div class="tabbedMenu">\n' +
     '  <nav>\n' +
     '    <ul class="nav nav-tabs">\n' +

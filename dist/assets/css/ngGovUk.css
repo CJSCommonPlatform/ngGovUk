@@ -10802,6 +10802,16 @@ a.btn {
   margin-bottom: 22px;
 }
 
+.digit-box {
+  display: inline-block;
+  margin: 10px 0 10px 0;
+  padding: 15px 20px 10px 20px;
+  color: #fff;
+  background-color: #80898E;
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
 .badge {
   padding-top: 5px;
   font-size: 0.75em;
@@ -12779,6 +12789,20 @@ section {
   background-color: #BFC1C3;
 }
 
+.row.vertical-align {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  align-items: center;
+}
+
 .cpp-footer {
   padding: 60px 0 60px 0;
   background-color: #DEE0E2;
@@ -13091,6 +13115,62 @@ header .row {
 
 .side-nav-toggle .icon-bars {
   float: right;
+}
+
+.listActiveMixin {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.listActiveMixin h4 {
+  color: #0b0c0c;
+}
+
+.progress-list {
+  border: none;
+}
+
+.progress-list .list-group-item {
+  color: #BFC1C3;
+  border: none;
+  padding: 20px 0 15px 0;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #BFC1C3 !important;
+}
+
+.progress-list .list-group-item h4 {
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+
+.progress-list .list-group-item span {
+  margin-right: 5px;
+  font-size: 0.88em;
+}
+
+.progress-list .active {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.progress-list .active h4 {
+  color: #0b0c0c;
+}
+
+.progress-list .active:hover {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.progress-list .active:hover h4 {
+  color: #0b0c0c;
 }
 
 .tabbed-menu {
