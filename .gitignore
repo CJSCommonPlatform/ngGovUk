@@ -20,3 +20,14 @@ dev/*
 reports/*
 docs/assets/css/*
 docs/app.js
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln
+
+
+# Visual Studio 2015 cache/options directory
+.vs/
