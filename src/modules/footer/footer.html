@@ -5,26 +5,23 @@
         <div class="footer-meta-inner">
           <nav>
             <ul id="menu-footer" class="menu list-inline">
-              <li class="menu-all-government-blogs"><a href="https://www.blog.gov.uk">All GOV.UK blogs</a></li>
-              <li class="menu-all-government-blog-posts"><a href="https://www.blog.gov.uk/all-posts/">All GOV.UK blog posts</a></li>
-              <li class="menu-gov-uk"><a href="https://www.gov.uk">GOV.UK</a></li>
-              <li class="menu-all-departments"><a href="https://www.gov.uk/government/organisations">All departments</a></li>
-              <li class="menu-all-topics"><a href="https://www.gov.uk/government/topics">All topics</a></li>
-              <li class="menu-all-policies"><a href="https://www.gov.uk/government/policies">All policies</a></li>
-              <li class="menu-cookies"><a href="https://www.blog.gov.uk/cookies">Cookies</a></li>
+              <li data-ng-repeat="link in settings.links">
+                <a data-ng-if="link.type === 'href'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>
+                <a data-ng-if="link.type === 'ui-sref'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>
+              </li>
             </ul>
           </nav>
           <div class="open-government-licence">
             <p class="logo">
-              <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Service</a>
+              <a data-ng-href="{{ settings.licence.link }}"></a>
             </p>
-            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+            <p data-ng-bind-html="settings.licence.text"></p>
           </div>
         </div>
       </div>
       <div class="col-md-2 text-center">
         <div class="footer-logo">
-          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>
+          <a class="crown-copy" data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>
         </div>
       </div>
     </div>
