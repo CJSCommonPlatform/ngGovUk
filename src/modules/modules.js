@@ -7,6 +7,7 @@
     'ngGovUk.nav-side',
     'ngGovUk.tabbed-menu',
     'ngGovUk.form-validation',
-    'ngGovUk.progress-list'
+    'ngGovUk.progress-list',
+    'ngGovUk.sticky'
   ]);
 })();
