@@ -2,16 +2,17 @@
   'use strict';
 
   angular
-    .module('ngGovUk.footer', [])
+    .module('ngGovUk.footer.footer-directive', [])
     .directive('footerDirective', footerDirective);
 
-  function footerDirective() {
+  /* @ngInject */
+  function footerDirective($sce) {
     var directive = {
       link: link,
       templateUrl: 'modules/footer/footer.tpl.html',
       restrict: 'EA',
       scope: {
-        footerSettings: '='
+        settings: '=?footerSettings'
       }
     };
 
@@ -44,11 +45,13 @@
         }
       };
 
-      if (scope.footerSettings && angular.isObject(scope.footerSettings)) {
-        angular.extend(defaultSettings, scope.footerSettings);
+      var mergedSettings = angular.extend(defaultSettings, scope.settings);
+
+      if (mergedSettings.licence && mergedSettings.licence.text) {
+        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
       }
 
-      scope.settings = defaultSettings;
+      scope.settings = mergedSettings;
     }
   }
 })();
