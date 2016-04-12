@@ -1,9 +1,9 @@
 describe('progressList', function () {
   
   beforeEach(angular.mock.module('ngGovUk'));
-  beforeEach(module('ngGovUk.progress-list','progress-list/progress-list.html'));
+  beforeEach(module('ngGovUk.progress-list', 'templates'));
 
-  var $compile, scope, $exceptionHandler, $compileProvider,items;
+  var $compile, scope, $exceptionHandler, $compileProvider,items,element;
 
   beforeEach(module(function (_$compileProvider_) {
     $compileProvider = _$compileProvider_;
@@ -17,21 +17,24 @@ describe('progressList', function () {
     $compile = _$compile_;
     $exceptionHandler = _$exceptionHandler_;
     scope = $rootScope.$new();
-
-    var elementScope = $compile(
+    element = $compile(
       '<div data-progress-list-directive  data-progress-list-items="progressListItems"></div>')(scope);
     scope.$apply();
-
     items = scope.progressListItems;
 
   }));
+
+  it('should have applied template', function () {
+    expect(element).toBeDefined();
+    expect(element.html()).not.toEqual('');
+    expect(element.controller).toBeDefined();
+  });
 
   it('should define an array of objects', function () {
     expect(scope.progressListItems).toBeDefined();
   });
 
   describe('object', function () {
-
 
     it('should have title property', function () {
       for(var x = 0; x < items.length; x++) {

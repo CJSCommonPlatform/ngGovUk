@@ -21,7 +21,7 @@
   function footerDirective() {
     var directive = {
       link: link,
-      templateUrl: 'footer/footer.html',
+      templateUrl: 'modules/footer/footer.tpl.html',
       restrict: 'EA'
     };
 
@@ -140,7 +140,7 @@
   function globalNav() {
     var directive = {
       link: link,
-      templateUrl: 'global-nav/global-nav.html',
+      templateUrl: 'modules/global-nav/global-nav.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {
@@ -188,7 +188,7 @@
   function navSideDirective() {
     var directive = {
       link: link,
-      templateUrl: 'nav-side/nav-side.html',
+      templateUrl: 'modules/nav-side/nav-side.tpl.html',
       restrict: 'EA',
       scope: {
         collapseTitle: '=',
@@ -243,7 +243,7 @@
   function progressListDirective() {
     var directive = {
       link: link,
-      templateUrl: 'progress-list/progress-list.html',
+      templateUrl: 'modules/progress-list/progress-list.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {
@@ -297,7 +297,7 @@
   function tabbedMenu() {
     var directive = {
       link: link,
-      templateUrl: 'tabbed-menu/tabbed-menu.html',
+      templateUrl: 'modules/tabbed-menu/tabbed-menu.tpl.html',
       restrict: 'EA',
       scope: {
         title: '=',
@@ -320,7 +320,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.html',
+  $templateCache.put('modules/footer/footer.tpl.html',
     '<footer id="footer" class="cpp-footer">\n' +
     '  <div class="container">\n' +
     '    <div class="row">\n' +
@@ -364,7 +364,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('global-nav/global-nav.html',
+  $templateCache.put('modules/global-nav/global-nav.tpl.html',
     '<div>\n' +
     '    <header class="navbar navbar-default">\n' +
     '        <div class="navbar-content">\n' +
@@ -423,7 +423,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-side/nav-side.html',
+  $templateCache.put('modules/nav-side/nav-side.tpl.html',
     '<div class="nav-side">\n' +
     '  <nav>\n' +
     '    <div class="navbar-header">\n' +
@@ -523,7 +523,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('progress-list/progress-list.html',
+  $templateCache.put('modules/progress-list/progress-list.tpl.html',
     '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
     '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
     '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
@@ -543,7 +543,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tabbed-menu/tabbed-menu.html',
+  $templateCache.put('modules/tabbed-menu/tabbed-menu.tpl.html',
     '<div class="tabbedMenu">\n' +
     '  <nav>\n' +
     '    <ul class="nav nav-tabs">\n' +

@@ -8,7 +8,7 @@
   function progressListDirective() {
     var directive = {
       link: link,
-      templateUrl: 'progress-list/progress-list.html',
+      templateUrl: 'modules/progress-list/progress-list.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {

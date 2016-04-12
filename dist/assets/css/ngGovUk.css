@@ -10802,6 +10802,16 @@ a.btn {
   margin-bottom: 22px;
 }
 
+.digit-box {
+  display: inline-block;
+  margin: 10px 0 10px 0;
+  padding: 15px 20px 10px 20px;
+  color: #fff;
+  background-color: #80898E;
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
 .badge {
   padding-top: 5px;
   font-size: 0.75em;
