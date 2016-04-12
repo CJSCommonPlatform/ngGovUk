@@ -249,6 +249,11 @@
               title: 'Form Checkbox Toggle Content',
              type: 'scroll-to',
               ref: 'toggle-content-checkboxes'
+            },
+            {
+              title: 'Input boxes & link alignement',
+              type: 'scroll-to',
+              ref: 'input-link-alignement'
             }
           ],
         },
