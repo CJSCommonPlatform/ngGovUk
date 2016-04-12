@@ -8,7 +8,7 @@
   function navSideDirective() {
     var directive = {
       link: link,
-      templateUrl: 'nav-side/nav-side.html',
+      templateUrl: 'modules/nav-side/nav-side.tpl.html',
       restrict: 'EA',
       scope: {
         collapseTitle: '=',

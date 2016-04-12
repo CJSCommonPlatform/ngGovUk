@@ -15,7 +15,7 @@ module.exports = function(config, log) {
   });
 
   gulp.task('build-partials', function () {
-    return gulp.src(config.src.modulesPath + '/*/*.html')
+    return gulp.src(config.src.path + '/**/*.tpl.html')
       .pipe($.ngHtml2js({moduleName: config.dist.name}))
       .pipe($.concat(config.dev.templateName))
       .pipe(gulp.dest(config.dev.templateCachePath));
