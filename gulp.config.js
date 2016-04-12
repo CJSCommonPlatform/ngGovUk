@@ -67,7 +67,7 @@
         files: [].concat(
           config.karmaBowerDependencies, // karma dependencies i.e. angular mocks
           config.appFilesToTest, // app modules and files to test
-          {pattern: 'src/app/**/*.html', watched: true, served: true, included: true}
+          {pattern: 'src/modules/**/*.html', watched: true, served: true, included: true}
         ),
         coverage: {
           dir: config.tests_report_dir,
@@ -79,7 +79,7 @@
         },
         preprocessors: {
           'src/**/!(test)/*.js': ['coverage'],
-          'src/app/**/*!(index).html': 'ng-html2js'
+          'src/modules/**/*.html': 'ng-html2js'
         },
         ngHtml2JsPreprocessor: {
           stripPrefix: 'src/',

@@ -8,7 +8,7 @@
   function footerDirective() {
     var directive = {
       link: link,
-      templateUrl: 'footer/footer.html',
+      templateUrl: 'modules/footer/footer.tpl.html',
       restrict: 'EA',
       scope: {
         footerSettings: '='

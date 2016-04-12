@@ -8,7 +8,7 @@
   function globalNav() {
     var directive = {
       link: link,
-      templateUrl: 'global-nav/global-nav.html',
+      templateUrl: 'modules/global-nav/global-nav.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {

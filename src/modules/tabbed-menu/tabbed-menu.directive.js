@@ -8,7 +8,7 @@
   function tabbedMenu() {
     var directive = {
       link: link,
-      templateUrl: 'tabbed-menu/tabbed-menu.html',
+      templateUrl: 'modules/tabbed-menu/tabbed-menu.tpl.html',
       restrict: 'EA',
       scope: {
         title: '=',
