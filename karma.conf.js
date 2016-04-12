@@ -27,6 +27,9 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: gulpConfig.karma.preprocessors,
 
+    ngHtml2JsPreprocessor: gulpConfig.karma.ngHtml2JsPreprocessor,
+
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -61,6 +64,10 @@ module.exports = function (config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //browsers: ['Chrome'],
     browsers: ['PhantomJS'],
+
+    // proxies: {
+    //   '/': '/src/modules/'
+    // },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

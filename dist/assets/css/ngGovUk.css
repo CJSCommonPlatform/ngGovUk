@@ -8693,39 +8693,39 @@ a.text-primary:focus {
 }
 
 .text-success {
-  color: #3c763d;
+  color: #28a197;
 }
 
 a.text-success:hover,
 a.text-success:focus {
-  color: #2b542c;
+  color: #1e7871;
 }
 
 .text-info {
-  color: #31708f;
+  color: #912B88;
 }
 
 a.text-info:hover,
 a.text-info:focus {
-  color: #245269;
+  color: #6a1f63;
 }
 
 .text-warning {
-  color: #8a6d3b;
+  color: #E97637;
 }
 
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #66512c;
+  color: #d65b17;
 }
 
 .text-danger {
-  color: #a94442;
+  color: #B10E1E;
 }
 
 a.text-danger:hover,
 a.text-danger:focus {
-  color: #843534;
+  color: #820a16;
 }
 
 .bg-primary {
@@ -10802,6 +10802,16 @@ a.btn {
   margin-bottom: 22px;
 }
 
+.digit-box {
+  display: inline-block;
+  margin: 10px 0 10px 0;
+  padding: 15px 20px 10px 20px;
+  color: #fff;
+  background-color: #80898E;
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
 .badge {
   padding-top: 5px;
   font-size: 0.75em;
@@ -12779,6 +12789,20 @@ section {
   background-color: #BFC1C3;
 }
 
+.row.vertical-align {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  align-items: center;
+}
+
 .cpp-footer {
   padding: 60px 0 60px 0;
   background-color: #DEE0E2;
@@ -13091,6 +13115,62 @@ header .row {
 
 .side-nav-toggle .icon-bars {
   float: right;
+}
+
+.listActiveMixin {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.listActiveMixin h4 {
+  color: #0b0c0c;
+}
+
+.progress-list {
+  border: none;
+}
+
+.progress-list .list-group-item {
+  color: #BFC1C3;
+  border: none;
+  padding: 20px 0 15px 0;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #BFC1C3 !important;
+}
+
+.progress-list .list-group-item h4 {
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+
+.progress-list .list-group-item span {
+  margin-right: 5px;
+  font-size: 0.88em;
+}
+
+.progress-list .active {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.progress-list .active h4 {
+  color: #0b0c0c;
+}
+
+.progress-list .active:hover {
+  z-index: 2;
+  background: none;
+  border-bottom: 3px solid #0b0c0c !important;
+  color: #BFC1C3;
+}
+
+.progress-list .active:hover h4 {
+  color: #0b0c0c;
 }
 
 .tabbed-menu {
