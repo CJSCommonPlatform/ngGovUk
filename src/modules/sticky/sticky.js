@@ -36,16 +36,20 @@
         };
       }
 
-      function fixElement(element, dimensions, bottomElementHeight) {
+      function fixElement(element, dimensions, bottomElementHeight, viewportHeight) {
         var topCorrection = 0;
         if (bottomElementHeight) {
           var heightDifference = (Math.floor($document.height() - $document.scrollTop() - bottomElementHeight) -
           element.outerHeight());
           topCorrection = heightDifference < 0 ? heightDifference : 0;
         }
-        element.attr({style: 'top:0;position:fixed;' +
-        'width:' + dimensions.width + 'px;'
-        + 'top:' + topCorrection + 'px'});
+        element.css({
+          position: 'fixed',
+          width: dimensions.width,
+          top: topCorrection,
+          overflow: 'scroll',
+          maxHeight: viewportHeight
+        });
       }
 
       function unfixElement(element){
@@ -66,20 +70,22 @@
           var stickyMinWidth = parseInt(attrs.stickyMinimumWidth) || 0;
           var stickyBottomElement = $(attrs.stickyBottomSelector);
           var bottomHeight = stickyBottomElement.length ? stickyBottomElement.outerHeight() : 0;
+          var viewportHeight = window.innerHeight;
           var elementDimensions = getElementDimensions(element);
           $(window).on('scroll', _.debounce(function () {
             if ($document.width() >= stickyMinWidth) {
               elementShouldBeFixed(elementDimensions) ?
-                fixElement(element, elementDimensions, bottomHeight) :
+                fixElement(element, elementDimensions, bottomHeight, viewportHeight) :
                 unfixElement(element);
             }
           }, 10));
           $(window).on('resize', _.debounce(function () {
             unfixElement(element);
             elementDimensions = getElementDimensions(element);
+            viewportHeight = window.innerHeight;
             bottomHeight = stickyBottomElement.length ? stickyBottomElement.outerHeight() : 0;
             if (elementShouldBeFixed(elementDimensions) && $document.width() >= stickyMinWidth) {
-              fixElement(element, elementDimensions, bottomHeight);
+              fixElement(element, elementDimensions, bottomHeight, viewportHeight);
             }
           }, 10));
         }
