@@ -25,57 +25,60 @@
             </div>
             <div class="bs-example" data-example-id="global-nav">
               <div data-ng-controller="globalNavDemo">
-                <header data-global-nav></header>
+                <header data-global-nav data-nav-settings="demoNav"></header>
               </div>
             </div>
 
             <div data-tabset>
               <div data-tab data-heading="Markup">
                 <div data-syntax-highlighter data-source='
-                  <header data-global-nav></header>'></div>
+                  <header data-global-nav data-nav-settings="demoNav"></header>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
                 <div data-syntax-highlighter data-language="javascript" data-source="
                   angular.module('app').controller('globalNavDemo', function ($scope) {
-                    $scope.globalNav = {
+                    $scope.demoNav = {
                       pageTitle: {
-                        title: 'Criminal Justice System',
+                        title: 'Demo Title',
                         type: 'text',
                         ref: '#'
                       },
                       navItems: [
                         {
-                          title: 'Getting Started',
+                          title: 'Nav Item 1',
                           type: 'href',
                           ref: '#!/modules'
                         },
                         {
-                          title: 'CSS Elements',
+                          title: 'Nav Item 2',
                           type: 'href',
                           ref: '#!/modules'
                         },
                         {
-                          title: 'UI Components',
+                          title: 'Nav Item 3',
                           type: 'href',
                           ref: '#!/modules'
                         },
                         {
-                          title: 'Ng Modules',
+                          title: 'Nav Item 4',
                           type: 'href',
                           ref: '#!/modules'
                         },
                         {
-                          title: 'API',
+                          title: 'Nav Item 5',
                           type: 'href',
                           ref: '#!/modules'
                         }
-                      ]
+                      ],
+                      displaySettings:{
+                        showUnderline: true
+                      }
                     };
                   });"></div>
               </div>
             </div>
           </div>
-
+          <div class="vertical-spacer"></div>
           <div id="footer">
             <h2>footer</h2>
             <div>

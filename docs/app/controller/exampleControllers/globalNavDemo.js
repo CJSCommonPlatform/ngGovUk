@@ -11,39 +11,42 @@
     ////////////////
 
     function activate() {
-      $scope.globalNav = {
+      $scope.demoNav = {
         pageTitle: {
-          title: 'Criminal Justice System',
+          title: 'Demo Title',
           type: 'text',
           ref: '#'
         },
         navItems: [
           {
-            title: 'Getting Started',
+            title: 'Nav Item 1',
             type: 'href',
             ref: '#!/modules'
           },
           {
-            title: 'CSS Elements',
+            title: 'Nav Item 2',
             type: 'href',
             ref: '#!/modules'
           },
           {
-            title: 'UI Components',
+            title: 'Nav Item 3',
             type: 'href',
             ref: '#!/modules'
           },
           {
-            title: 'Ng Modules',
+            title: 'Nav Item 4',
             type: 'href',
             ref: '#!/modules'
           },
           {
-            title: 'API',
+            title: ' Nav Item 5',
             type: 'href',
             ref: '#!/modules'
           }
-        ]
+        ],
+        displaySettings:{
+          showUnderline: true
+        }
       };
     }
   }

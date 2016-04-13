@@ -39,8 +39,11 @@
             title: 'Playground',
             type: 'href',
             ref: '#!/playground'
-          }
-        ]
+          },
+        ],
+        displaySettings:{
+          showUnderline: true
+        }
       };
 
       $rootScope.globalNav = globalNav;

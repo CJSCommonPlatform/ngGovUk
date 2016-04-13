@@ -6,7 +6,8 @@
     'ngGovUk.global-nav',
     'ngGovUk.nav-side',
     'ngGovUk.tabbed-menu',
-    'ngGovUk.form-validation'
+    'ngGovUk.form-validation',
+    'ngGovUk.progress-list'
   ]);
 })();
 
@@ -140,13 +141,39 @@
     var directive = {
       link: link,
       templateUrl: 'global-nav/global-nav.html',
-      restrict: 'EA'
+      restrict: 'EA',
+      replace: true,
+      scope: {
+        navSettings: '='
+      }
     };
 
     return directive;
 
     function link(scope, element, attrs, fn) {
-      scope.globalNav.isCollapsed = true;
+
+      if(scope.navSettings) {
+        scope.globalNav = scope.navSettings;
+      } else {
+        scope.globalNav = {
+          pageTitle: {
+            title: 'Test Global Nav',
+            type: 'text',
+            ref: '#'
+          },
+          navItems: [
+            {
+              title: 'Getting Started',
+              type: 'href',
+              ref: '#!/'
+            }
+          ],
+          displaySettings: {
+            showUnderline: true
+          }
+        };
+      }
+
     }
   }
 })();
@@ -162,6 +189,61 @@
     var directive = {
       link: link,
       templateUrl: 'nav-side/nav-side.html',
+      restrict: 'EA',
+      scope: {
+        collapseTitle: '=',
+        navigationItems: '=',
+        currentState: '='
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, fn) {
+      scope.isCollapsed = false;
+
+      scope.isOpen = function (item) {
+        var result = false;
+
+        if (item && item.children && scope.currentState && scope.currentState.name) {
+          for (var i = 0; i < item.children.length; i++) {
+            if (item.children[i].ref.indexOf(scope.currentState.name) !== -1){
+              result = true;
+              break;
+            }
+          }
+        }
+
+        return result;
+      };
+
+      window.onload = updateCollapsedStatus(scope);
+      window.onresize = updateCollapsedStatus(scope);
+    }
+
+    function updateCollapsedStatus(scope) {
+      var windowWidth = window.innerWidth;
+
+      if (windowWidth < 768) {
+        scope.isCollapsed = true;
+      } else {
+        scope.isCollapsed = false;
+      }
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.progress-list', [])
+    .directive('progressListDirective', progressListDirective);
+
+  function progressListDirective() {
+    var directive = {
+      link: link,
+      templateUrl: 'progress-list/progress-list.html',
       restrict: 'EA',
       scope: {
         collapseTitle: '=',
@@ -284,50 +366,53 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('global-nav/global-nav.html',
-    '<header class="navbar navbar-default">\n' +
-    '  <div class="navbar-content">\n' +
-    '    <div class="navbar-inner">\n' +
-    '      <div class="container">\n' +
-    '        <div class="row">\n' +
-    '          <div class="navbar-header col-md-4">\n' +
-    '            <div class="header-logo clearfix">\n' +
-    '              <a href="#!/" role="button" class="navbar-brand text-uppercase">\n' +
-    '                <img width="35" height="31" alt="" src="assets/img/gov.uk_logotype_crown_invert_trans.png" /> GOV.UK\n' +
-    '              </a>\n' +
-    '            </div>\n' +
-    '          </div>\n' +
-    '          <div class="col-md-8">\n' +
-    '            <h3 class="navbar-title" data-ng-if="globalNav.pageTitle">\n' +
-    '              <a data-ng-if="globalNav.pageTitle.type === \'href\'" href="#">{{globalNav.pageTitle.title}}</a>\n' +
-    '              <a data-ng-if="globalNav.pageTitle.type === \'ui-sref\'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>\n' +
-    '              <span data-ng-if="globalNav.pageTitle.type === \'text\'">{{globalNav.pageTitle.title}}</span>\n' +
-    '            </h3>\n' +
-    '            <button data-ng-if="globalNav.navItems" type="button" class="navbar-toggle" data-toggle="collapse"\n' +
-    '                    data-ng-click="globalNav.isCollapsed = !globalNav.isCollapsed"\n' +
-    '                    data-ng-class="{\'nav-open\': globalNav.isCollapsed}">\n' +
-    '              <span class="sr-only">Toggle navigation</span>\n' +
-    '              Menu\n' +
-    '            </button>\n' +
-    '          </div>\n' +
-    '        </div>\n' +
+    '<div>\n' +
+    '    <header class="navbar navbar-default">\n' +
+    '        <div class="navbar-content">\n' +
+    '            <div class="navbar-inner">\n' +
+    '                <div class="container">\n' +
+    '                    <div class="row">\n' +
+    '                        <div class="navbar-header col-md-4">\n' +
+    '                            <div class="header-logo clearfix">\n' +
+    '                                <a href="#!/" role="button" class="navbar-brand text-uppercase">\n' +
+    '                                    <img width="35" height="31" alt="" src="assets/img/gov.uk_logotype_crown_invert_trans.png" /> GOV.UK\n' +
+    '                                </a>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="col-md-8">\n' +
+    '                            <h3 class="navbar-title" data-ng-if="globalNav.pageTitle">\n' +
+    '                                <a data-ng-if="globalNav.pageTitle.type === \'href\'" href="#">{{globalNav.pageTitle.title}}</a>\n' +
+    '                                <a data-ng-if="globalNav.pageTitle.type === \'ui-sref\'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>\n' +
+    '                                <span data-ng-if="globalNav.pageTitle.type === \'text\'">{{globalNav.pageTitle.title}}</span>\n' +
+    '                            </h3>\n' +
+    '                            <button data-ng-if="globalNav.navItems" type="button" class="navbar-toggle" data-toggle="collapse"\n' +
+    '                                    data-ng-click="globalNav.isCollapsed = !globalNav.isCollapsed"\n' +
+    '                                    data-ng-class="{\'nav-open\': globalNav.isCollapsed}">\n' +
+    '                                <span class="sr-only">Toggle navigation</span>\n' +
+    '                                Menu\n' +
+    '                            </button>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
     '\n' +
-    '        <div class="row" data-ng-if="globalNav.navItems">\n' +
-    '          <nav class="navbar-right col-md-8 col-md-offset-4">\n' +
-    '            <ul class="nav navbar-nav proposition-links" id="props" data-collapse="!globalNav.isCollapsed">\n' +
-    '              <li data-ng-repeat="item in globalNav.navItems">\n' +
-    '                <a data-ng-if="item.type === \'href\'" href="{{item.ref}}">{{item.title}}</a>\n' +
-    '                <a data-ng-if="item.type === \'ui-sref\'" data-ui-sref="{{item.ref}}">{{item.title}}</a>\n' +
-    '              </li>\n' +
-    '            </ul>\n' +
-    '          </nav>\n' +
+    '                    <div class="row" data-ng-if="globalNav.navItems">\n' +
+    '                        <nav class="navbar-right col-md-8 col-md-offset-4">\n' +
+    '                            <ul class="nav navbar-nav proposition-links" id="props" data-collapse="!globalNav.isCollapsed">\n' +
+    '                                <li data-ng-repeat="item in globalNav.navItems">\n' +
+    '                                    <a data-ng-if="item.type === \'href\'" href="{{item.ref}}">{{item.title}}</a>\n' +
+    '                                    <a data-ng-if="item.type === \'ui-sref\'" data-ui-sref="{{item.ref}}">{{item.title}}</a>\n' +
+    '                                </li>\n' +
+    '                            </ul>\n' +
+    '                        </nav>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
     '        </div>\n' +
-    '      </div>\n' +
+    '    </header>\n' +
+    '    <div data-ng-if="globalNav.displaySettings.showUnderline" class="container">\n' +
+    '        <div ng-class="{\'global-header-bar\':globalNav.displaySettings.showUnderline}" ></div>\n' +
     '    </div>\n' +
-    '  </div>\n' +
-    '  <div class="container">\n' +
-    '    <div class="global-header-bar"></div>\n' +
-    '  </div>\n' +
-    '</header>\n' +
+    '</div>\n' +
+    '\n' +
     '');
 }]);
 })();
@@ -428,8 +513,53 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>\n' +
-    '');
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngGovUk');
+} catch (e) {
+  module = angular.module('ngGovUk', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('progress-list/progress-list.html',
+    '<div class="progress-list">\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">1. Welcome</h3>\n' +
+    '            Complete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
+    '            Incomplete\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">3. Create password</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '    <div class="panel panel-default">\n' +
+    '        <div class="panel-heading">\n' +
+    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
+    '\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 

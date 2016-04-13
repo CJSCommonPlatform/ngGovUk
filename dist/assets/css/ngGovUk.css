@@ -8994,6 +8994,10 @@ a[rel="external"]:after {
   border-color: #B10E1E;
 }
 
+.panel-indent p {
+  margin-bottom: 0px;
+}
+
 details.main-details {
   color: #0b0c0c;
 }
@@ -10552,11 +10556,22 @@ legend {
   font-weight: bold;
 }
 
+legend.small {
+  margin-bottom: 0;
+  font-size: 1.19em;
+}
+
 .swatch-yellow {
   height: 25px;
   width: 25px;
   border-radius: 50px;
   background-color: #ffbf47;
+}
+
+.form-horizontal .control-label.control-label-plain {
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.19em;
 }
 
 .form-control:focus {
@@ -10569,7 +10584,7 @@ legend {
   text-transform: none;
   display: block;
   color: #6F777B;
-  margn-bottom: 5px;
+  margin-bottom: 5px;
   font-weight: normal;
 }
 
@@ -10780,6 +10795,11 @@ a.btn {
 .btn-plain:hover {
   color: #2e8aca;
   text-decoration: underline;
+}
+
+.vertical-spacer {
+  display: block;
+  margin-bottom: 22px;
 }
 
 .badge {
@@ -12713,6 +12733,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
+}
+
+.stripe {
+  background-color: #2e358b;
+  color: #fff;
+  padding: 14px 0 9px;
+  font-size: 1.19em;
+}
+
+.stripe .stripe-subtext {
+  color: #dedff4;
 }
 
 .tab-content {

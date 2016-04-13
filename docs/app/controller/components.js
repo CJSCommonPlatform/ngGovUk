@@ -8,6 +8,11 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
       ref: 'breadcrumbs'
     },
     {
+      title: 'Stripe',
+      type: 'scroll-to',
+      ref: 'stripe'
+    },
+    {
       title: 'Search',
       type: 'scroll-to',
       ref: 'search'
@@ -16,6 +21,11 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
       title: 'Accordion',
       type: 'scroll-to',
       ref: 'accordion'
+    },
+    {
+      title: 'Progress List',
+      type: 'scroll-to',
+      ref: 'progress-list'
     },
     {
       title: 'Alerts',
@@ -271,5 +281,4 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
     templateUrl: 'myPopoverTemplate.html',
     title: 'Title'
   };
-
 });
