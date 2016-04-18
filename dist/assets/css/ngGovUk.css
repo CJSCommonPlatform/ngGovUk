@@ -12240,7 +12240,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .icon-alert,
-.icon-notification {
+.icon-notification,
+.notification {
   position: relative;
   margin: 20px 0;
   padding-right: 20px;
@@ -12251,7 +12252,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .icon-alert .fa,
-.icon-notification .fa {
+.icon-notification .fa,
+.notification .fa {
   position: absolute;
   left: 0;
   top: 0;
@@ -12259,13 +12261,15 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .icon-alert > :not(.fa),
-.icon-notification > :not(.fa) {
+.icon-notification > :not(.fa),
+.notification > :not(.fa) {
   padding: 0 0 0 60px;
   margin: 0;
 }
 
 .icon-alert .subtext,
-.icon-notification .subtext {
+.icon-notification .subtext,
+.notification .subtext {
   font-size: 1em;
 }
 
@@ -12278,41 +12282,45 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-weight: 900;
 }
 
-.icon-notification-success {
-  background: #28a197;
+.icon-notification {
+  display: inline-block;
+  font-size: 1.5em;
   color: #fff;
-  border-top: 10px solid #28a197;
-  border-left: 20px solid #28a197;
-  border-bottom: 16px solid #28a197;
-  padding-top: 14px;
+  padding: 30px;
 }
 
-.icon-notification-success .fa {
-  font-size: 1.5em;
+.icon-notification .fa {
+  font-size: 1em;
   top: 13px;
 }
 
-.icon-notification-success > :not(.fa) {
-  padding-left: 30px;
+.icon-notification > :not(.fa) {
+  padding-left: 0px;
+}
+
+.icon-notification p {
+  font-size: 1em;
+  margin: 15px 0 15px 0;
+}
+
+.icon-notification-success {
+  background: #28a197;
 }
 
 .icon-notification-invalid {
   background: #B10E1E;
-  color: #fff;
-  border-top: 10px solid #B10E1E;
-  border-left: 20px solid #B10E1E;
-  border-bottom: 16px solid #B10E1E;
-  padding-top: 14px;
-  padding-bottom: 4px;
 }
 
-.icon-notification-invalid .fa {
-  font-size: 1.5em;
-  top: 13px;
+.icon-notification-active {
+  background: #006435;
 }
 
-.icon-notification-invalid > :not(.fa) {
-  padding-left: 30px;
+.icon-notification-deregister {
+  background: #6F777B;
+}
+
+.icon-notification-pending {
+  background: #FF842F;
 }
 
 .phase-banner {
@@ -12775,6 +12783,66 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   display: block;
 }
 
+.notification {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  padding: 30px;
+}
+
+.notification .fa {
+  position: relative;
+  float: left;
+  font-size: 1em;
+  line-height: 1.417em;
+  top: 0px;
+  margin-right: 10px;
+}
+
+.notification .notification-body {
+  position: relative;
+  top: 2px;
+  line-height: 1.417em;
+  float: left;
+}
+
+.notification .notification-body p {
+  font-size: 1em;
+  padding: 15px 0 15px 0;
+  margin: 0px;
+}
+
+.notification > :not(.fa) {
+  padding: 0px;
+}
+
+.notification-success {
+  background: #28a197;
+}
+
+.notification-invalid {
+  background: #B10E1E;
+}
+
+.notification-active {
+  background: #006435;
+}
+
+.notification-deregister {
+  background: #6F777B;
+}
+
+.notification-pending {
+  background: #FF842F;
+}
+
+@media (max-width: 767px) {
+  .notification-body {
+    float: none!important;
+  }
+}
+
 .no-gutter > [class^="col-"] {
   padding-left: 0px;
   padding-right: 0px;
@@ -12903,7 +12971,7 @@ header .row {
 }
 
 .content-wrapper {
-  margin-top: 40px;
+  margin: 40px 0 60px 0;
 }
 
 .header-logo img {
