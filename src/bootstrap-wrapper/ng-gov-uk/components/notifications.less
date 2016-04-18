@@ -1,0 +1,64 @@
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+
+
+
+.notification {
+  &:extend(.icon-alert all);
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  padding: 30px;
+  .fa {
+    position: relative;
+    float: left;
+    font-size: 1em;
+    line-height: 1.417em;
+    top: 0px;
+    margin-right: 10px;
+  }
+  .notification-body{
+    position: relative;
+    top: 2px;
+    line-height: 1.417em;
+    float:left;
+    p {
+      font-size: 1em;
+      padding: 15px 0 15px 0;
+      margin: 0px;
+    }
+  }
+  > :not(.fa) {
+    padding: 0px;
+  }
+}
+
+.notification-success {
+  background: @brand-success;
+}
+
+.notification-invalid {
+  background: @brand-danger;
+}
+
+.notification-active {
+  background: @active-colour;
+}
+
+.notification-deregister {
+  background: @deregister-colour;
+}
+
+.notification-pending {
+  background: @pending-colour;
+}
+
+
+// Clear float on small screens
+@media (max-width: @screen-xs-max) {
+  .notification-body{
+    float: none!important;
+  }
+}

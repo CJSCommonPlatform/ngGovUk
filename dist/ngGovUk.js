@@ -16,6 +16,74 @@
   'use strict';
 
   angular
+    .module('ngGovUk.footer.footer-directive', [])
+    .directive('footerDirective', footerDirective);
+
+  /* @ngInject */
+  function footerDirective($sce) {
+    var directive = {
+      link: link,
+      templateUrl: 'modules/footer/footer.tpl.html',
+      restrict: 'EA',
+      scope: {
+        settings: '=?footerSettings'
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs) {
+      var defaultSettings = {
+        links: [
+          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
+          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
+          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
+          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
+          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
+          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
+          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
+        ],
+
+        copyright: {
+          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
+          text: 'Crown copyright'
+        },
+
+        licence: {
+          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+          text: 'All content is available under the \
+                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
+                  Open Government Licence v3.0 \
+                 </a>, \
+                 except where otherwise stated'
+        }
+      };
+
+      var mergedSettings = angular.extend(defaultSettings, scope.settings);
+
+      if (mergedSettings.licence && mergedSettings.licence.text) {
+        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
+      }
+
+      scope.settings = mergedSettings;
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [
+      'ngGovUk.footer.footer-directive'
+    ]);
+
+})();
+
+(function () {
+  'use strict';
+
+  angular
     .module('ngGovUk.form-validation', [
       'ngGovUk.form-validation.lazy-validation',
       'ngGovUk.form-validation.lazy-validation-on-click'
@@ -109,28 +177,6 @@
     };
   }
 })();
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.footer', [])
-    .directive('footerDirective', footerDirective);
-
-  function footerDirective() {
-    var directive = {
-      link: link,
-      templateUrl: 'modules/footer/footer.tpl.html',
-      restrict: 'EA'
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, fn) {
-
-    }
-  }
-})();
-
 (function () {
   'use strict';
 
@@ -418,26 +464,23 @@ module.run(['$templateCache', function($templateCache) {
     '        <div class="footer-meta-inner">\n' +
     '          <nav>\n' +
     '            <ul id="menu-footer" class="menu list-inline">\n' +
-    '              <li class="menu-all-government-blogs"><a href="https://www.blog.gov.uk">All GOV.UK blogs</a></li>\n' +
-    '              <li class="menu-all-government-blog-posts"><a href="https://www.blog.gov.uk/all-posts/">All GOV.UK blog posts</a></li>\n' +
-    '              <li class="menu-gov-uk"><a href="https://www.gov.uk">GOV.UK</a></li>\n' +
-    '              <li class="menu-all-departments"><a href="https://www.gov.uk/government/organisations">All departments</a></li>\n' +
-    '              <li class="menu-all-topics"><a href="https://www.gov.uk/government/topics">All topics</a></li>\n' +
-    '              <li class="menu-all-policies"><a href="https://www.gov.uk/government/policies">All policies</a></li>\n' +
-    '              <li class="menu-cookies"><a href="https://www.blog.gov.uk/cookies">Cookies</a></li>\n' +
+    '              <li data-ng-repeat="link in settings.links">\n' +
+    '                <a data-ng-if="link.type === \'href\'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '                <a data-ng-if="link.type === \'ui-sref\'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '              </li>\n' +
     '            </ul>\n' +
     '          </nav>\n' +
     '          <div class="open-government-licence">\n' +
     '            <p class="logo">\n' +
-    '              <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Service</a>\n' +
+    '              <a data-ng-href="{{ settings.licence.link }}"></a>\n' +
     '            </p>\n' +
-    '            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>\n' +
+    '            <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>\n' +
     '          </div>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="col-md-2 text-center">\n' +
     '        <div class="footer-logo">\n' +
-    '          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
+    '          <a class="crown-copy" data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +
@@ -514,7 +557,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/nav-side/nav-side.tpl.html',
-    '<div class="nav-side">\n' +
+    '<aside class="nav-side">\n' +
     '  <nav>\n' +
     '    <div class="navbar-header">\n' +
     '      <button type="button"\n' +
@@ -602,7 +645,8 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>');
+    '</aside>\n' +
+    '');
 }]);
 })();
 
