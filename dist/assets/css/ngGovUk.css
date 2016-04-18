@@ -8604,7 +8604,6 @@ h6,
 
 p {
   margin-bottom: 15.232px;
-  font-size: 1.19em;
 }
 
 .lead {
@@ -8811,6 +8810,22 @@ ol ol {
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+
+.list-spaced > li {
+  padding-bottom: 6px;
+}
+
+.list-spaced-large > li {
+  padding-bottom: 10px;
+}
+
+.list-spaced-small > li {
+  padding-bottom: 5px;
+}
+
+.list-spaced-xs > li {
+  padding-bottom: 1px;
 }
 
 .list-inline {
@@ -13121,41 +13136,38 @@ header .row {
   z-index: 2;
   background: none;
   border-bottom: 3px solid #0b0c0c !important;
-  color: #BFC1C3;
+  color: #6F777B;
 }
 
 .listActiveMixin h4 {
   color: #0b0c0c;
 }
 
-.progress-list {
-  border: none;
-}
-
 .progress-list .list-group-item {
-  color: #BFC1C3;
   border: none;
+  border-bottom: 1px solid #BFC1C3;
+  color: #6F777B;
   padding: 20px 0 15px 0;
   margin-bottom: 0px;
-  border-bottom: 1px solid #BFC1C3 !important;
 }
 
 .progress-list .list-group-item h4 {
-  font-weight: 600;
+  font-size: 1em;
+  font-weight: bold;
   margin: 0px;
   padding: 0px;
 }
 
 .progress-list .list-group-item span {
   margin-right: 5px;
-  font-size: 0.88em;
+  font-size: 0.75em;
 }
 
 .progress-list .active {
   z-index: 2;
   background: none;
   border-bottom: 3px solid #0b0c0c !important;
-  color: #BFC1C3;
+  color: #6F777B;
 }
 
 .progress-list .active h4 {
@@ -13166,11 +13178,15 @@ header .row {
   z-index: 2;
   background: none;
   border-bottom: 3px solid #0b0c0c !important;
-  color: #BFC1C3;
+  color: #6F777B;
 }
 
 .progress-list .active:hover h4 {
   color: #0b0c0c;
+}
+
+.progress-list .list-group-item:last-of-type {
+  border: none;
 }
 
 .tabbed-menu {

@@ -1,5 +1,5 @@
-<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">
-    <li ng-class="item.active ? 'list-group-item active' : 'list-group-item'">
+<ul class="progress-list list-group">
+    <li data-ng-repeat="item in progressListItems" ng-class="item.active ? 'list-group-item active' : 'list-group-item'">
         <h4>{{$index + 1}}. {{item.title}}</h4>
               <span ng-if="item.access && item.complete">
                 <span class="glyphicon glyphicon-ok success-color"></span>Complete

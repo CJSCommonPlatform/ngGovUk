@@ -124,7 +124,6 @@ h6, .h6 {
 
 p {
   margin-bottom: @font-size-default-text-margin-bottom;
-  font-size: @font-size-default-text;
 }
 
 .lead {
@@ -267,6 +266,20 @@ ol ol {
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+
+// Spaced add extra padding to each list element
+.list-spaced>li {
+  padding-bottom: @padding-base-vertical;
+}
+.list-spaced-large>li {
+  padding-bottom: @padding-large-vertical;
+}
+.list-spaced-small>li {
+  padding-bottom: @padding-small-vertical;
+}
+.list-spaced-xs>li {
+  padding-bottom: @padding-xs-vertical;
 }
 
 // Inline turns list items into inline-block
