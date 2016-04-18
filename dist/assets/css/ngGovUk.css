@@ -8604,7 +8604,6 @@ h6,
 
 p {
   margin-bottom: 15.232px;
-  font-size: 1.19em;
 }
 
 .lead {
@@ -8811,6 +8810,22 @@ ol ol {
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+
+.list-spaced > li {
+  padding-bottom: 6px;
+}
+
+.list-spaced-large > li {
+  padding-bottom: 10px;
+}
+
+.list-spaced-small > li {
+  padding-bottom: 5px;
+}
+
+.list-spaced-xs > li {
+  padding-bottom: 1px;
 }
 
 .list-inline {
@@ -12790,6 +12805,8 @@ section {
 }
 
 .row.vertical-align {
+  -js-display: flex;
+  /* IE8,IE9 uses https://github.com/10up/flexibility  */
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
