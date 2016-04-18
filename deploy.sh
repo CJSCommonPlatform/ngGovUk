@@ -1,9 +1,9 @@
 #!/bin/bash
-
+set -ev
 # BRANCH_NAME=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
 
-if [ $TRAVIS_PULL_REQUEST == 'false' ]; then
+if [ "$BRANCH_NAME" = "master" ]; then
   cd docs
   git init
 
