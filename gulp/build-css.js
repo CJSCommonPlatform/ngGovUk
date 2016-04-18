@@ -3,54 +3,62 @@
 var gulp   = require('gulp');
 var $      = require('gulp-load-plugins')({ lazy: true });
 var source = require('vinyl-source-stream');
-var path   = require('path');
-var lessImportString = require('./helpers/lessImportString')();
 
-module.exports = function(config, log) {
+module.exports = function (config, log) {
+
   gulp.task('build-css', ['create-css']);
 
-  gulp.task('create-demo-css', function () {
-    return gulp.src(config.docs.lessPath + '/app.less')
-      .pipe($.less())
-      .pipe(gulp.dest(config.docs.cssPath));
+  gulp.task('create-css', ['copy-sass-resources-to-dev'], function () {
+    return gulp.src(config.dev.sassPath + '/*.scss')
+      .pipe($.sass())
+      .pipe(gulp.dest(config.dev.cssPath));
   });
 
-  gulp.task('create-css', ['create-main-less'], function () {
-    return gulp.src(config.dev.path + '/*.less')
-      .pipe($.less())
-      .pipe(gulp.dest(config.dev.path));
-  });
+  gulp.task('copy-sass-resources-to-dev', ['copy-nggov-sass-to-dev', 'copy-external-dependencies-to-dev']);
 
-  gulp.task('create-main-less', ['copy-less'], function () {
-    var stream = source(config.dist.name + '.less');
+  gulp.task('copy-nggov-sass-to-dev', ['copy-dev-sass-modules', 'copy-dev-sass-main-file']);
 
-    gulp.src([config.docs.bowerBootstrapLessPath + '/bootstrap.less', config.dev.lessPath + '/*.less', config.dev.lessModulesPath + '/*.less'])
-      .pipe($.tap(function (file, t) {
-        var filePath;
-
-        if (path.basename(file.path) === 'bootstrap.less') {
-          filePath = path.dirname(file.path);
-        } else {
-          filePath = 'less' + path.dirname(file.path).split('less')[1];
-        }
-
-        stream.write(lessImportString(filePath, path.basename(file.path)));
-      }));
-
-    stream.pipe(gulp.dest(config.dev.path));
-  });
-
-  gulp.task('copy-less', ['copy-less-theme', 'copy-less-modules']);
-
-  gulp.task('copy-less-theme', function () {
-    return gulp.src(config.src.bootstrapWrapperPath + '/**')
-      .pipe(gulp.dest(config.dev.lessPath));
-  });
-
-  gulp.task('copy-less-modules', function () {
-    //Copy modules files
-    return gulp.src(config.src.modulesPath + '/**/*.less')
+  gulp.task('copy-dev-sass-modules', function () {
+    return gulp.src(config.src.modulesPath + '/**/*.scss')
       .pipe($.flatten())
-      .pipe(gulp.dest(config.dev.lessModulesPath));
+      .pipe(gulp.dest(config.dev.sassModulesPath));
   });
+
+  gulp.task('copy-dev-sass-main-file', function () {
+    return gulp.src(config.src.sassPath + '/*.scss')
+      .pipe(gulp.dest(config.dev.sassPath));
+  });
+
+  gulp.task('copy-dev-sass-bootstrap-theme', function () {
+    return gulp.src(config.src.bootstrapThemePath + '/**/*.scss')
+      .pipe(gulp.dest(config.dev.sassPath));
+  });
+
+  gulp.task('copy-external-dependencies-to-dev',
+    ['copy-core-bootstrap',
+      'copy-core-bootstrap',
+      'copy-govuk-elements',
+      'copy-govuk-template',
+      'copy-govuk-frontend-toolkit']);
+
+  gulp.task('copy-core-bootstrap', function () {
+    return gulp.src(config.nodeModules.bootstrapPath + '/**')
+      .pipe(gulp.dest(config.dev.sassBootstrapPath));
+  });
+
+  gulp.task('copy-govuk-frontend-toolkit', function () {
+    return gulp.src(config.nodeModules.govUkToolkitPath + '/**')
+      .pipe(gulp.dest(config.dev.sassGovUkToolkitPath));
+  });
+
+  gulp.task('copy-govuk-elements', function () {
+    return gulp.src(config.nodeModules.govUkElementsPath + '/**')
+      .pipe(gulp.dest(config.dev.sassGovUkElementsPath));
+  });
+
+  gulp.task('copy-govuk-template', function () {
+    return gulp.src(config.nodeModules.govUkTemplatePath + '/**')
+      .pipe(gulp.dest(config.dev.sassGovUkTemplatePath));
+  });
+
 };

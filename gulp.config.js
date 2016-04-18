@@ -8,18 +8,24 @@
       // paths
       src: {
         path: './src',
-        bootstrapWrapperPath: './src/bootstrap-wrapper',
+        bootstrapThemePath: './src/bootstrap-theme',
         modulesPath: './src/modules',
+        sassPath: './src/sass',
         assetPath: './src/assets',
         modulesFile: 'modules.js'
       },
       dev: {
         path: './dev',
-        lessPath: './dev/less',
-        lessModulesPath: './dev/less/modules',
+        sassPath: './dev/sass',
+        sassModulesPath: './dev/sass/modules',
+        sassBootstrapPath: './dev/sass/bootstrap',
+        sassGovUkElementsPath: './dev/sass/govuk-elements',
+        sassGovUkToolkitPath: './dev/sass/govuk-toolkit',
+        sassGovUkTemplatePath: './dev/sass/govuk-template',
         assetPath: './dev/assets',
         fontsPath: './dev/assets/fonts',
         imgPath: './dev/assets/img',
+        cssPath: './dev/assets/css',
         templateCachePath: './dev/templates',
         templateName: 'templates.js'
       },
@@ -30,19 +36,24 @@
         assetsPath: './docs/assets',
         fontsPath: './docs/assets/fonts',
         imgPath: './docs/assets/img',
-        lessPath: './docs/assets/less',
+        sassPath: './docs/assets/sass',
         cssPath: './docs/assets/css',
         cssName: 'app.css',
-        bowerComponentsPath: './docs/bower_components',
-        bowerBootstrapLessPath: './docs/bower_components/bootstrap/less',
+        bowerComponentsPath: './docs/bower_components'
+      },
+      nodeModules: {
+        bootstrapPath: './node_modules/bootstrap-sass/assets/stylesheets',
+        govUkToolkitPath: './node_modules/govuk_frontend_toolkit/stylesheets',
+        govUkElementsPath: './node_modules/govuk-elements-sass/public/sass',
+        govUkTemplatePath: './node_modules/govuk_template_ejs/assets/stylesheets'
       },
       dist: {
         path: './dist',
-        lessPath: './dist/less',
+        sassPath: './dist/sass',
         fontsPath: './dist/assets/fonts',
         imgPath: './dist/assets/img',
         cssPath: './dist/assets/css',
-        lessModulesPath: './dist/less/modules',
+        sassModulesPath: './dist/sass/modules',
         name: 'ngGovUk'
       },
       karmaConf: __dirname + '/karma.conf.js',
