@@ -107,37 +107,39 @@
 
 .icon-notification {
   &:extend(.icon-alert all);
+  display: inline-block;
+  font-size: 1.5em;
+  color: #fff;
+  padding:30px;
+  .fa {
+    font-size: 1em;
+    top: 13px;
+  }
+  > :not(.fa) {
+    padding-left: 0px;
+  }
+  p {
+    font-size: 1em;
+    margin: 15px 0 15px 0;
+  }
 }
 
 .icon-notification-success {
   background: @brand-success;
-  color: #fff;
-  border-top: 10px solid @brand-success;
-  border-left: 20px solid @brand-success;
-  border-bottom: 16px solid @brand-success;
-  padding-top: 14px;
-  .fa {
-    font-size: 1.5em;
-    top: 13px;
-  }
-  > :not(.fa) {
-    padding-left: 30px;
-  }
 }
 
 .icon-notification-invalid {
   background: @brand-danger;
-  color: #fff;
-  border-top: 10px solid @brand-danger;
-  border-left: 20px solid @brand-danger;
-  border-bottom: 16px solid @brand-danger;
-  padding-top: 14px;
-  padding-bottom: 4px;
-  .fa {
-    font-size: 1.5em;
-    top: 13px;
-  }
-  > :not(.fa) {
-    padding-left: 30px;
-  }
+}
+
+.icon-notification-active {
+  background: @active-colour;
+}
+
+.icon-notification-deregister {
+  background: @deregister-colour;
+}
+
+.icon-notification-pending {
+  background: @pending-colour;
 }
