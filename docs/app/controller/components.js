@@ -54,6 +54,21 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
           title: 'Invalid Notification',
           type: 'scroll-to',
           ref: 'invalid-notification'
+        },
+        {
+          title: 'Active Notification',
+          type: 'scroll-to',
+          ref: 'active-notification'
+        },
+        {
+          title: 'Deregistered Notification',
+          type: 'scroll-to',
+          ref: 'deregistered-notification'
+        },
+        {
+          title: 'Pending Notification',
+          type: 'scroll-to',
+          ref: 'pending-notification'
         }
       ]
     }
