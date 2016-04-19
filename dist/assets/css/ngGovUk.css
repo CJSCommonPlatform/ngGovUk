@@ -12873,6 +12873,8 @@ section {
 }
 
 .row.vertical-align {
+  -js-display: flex;
+  /* IE8,IE9 uses https://github.com/10up/flexibility  */
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
