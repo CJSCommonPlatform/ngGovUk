@@ -8,7 +8,7 @@
   z-index: 2;
   background: none;
   border-bottom: 3px solid @black!important;
-  color: @gray;
+  color: @grey-1;
   h4{
     color: @black;
   }
@@ -16,24 +16,21 @@
 
 // Wrapper and base class
 .progress-list {
-  border: none;
   .list-group-item{
-
+    border: none;
+    border-bottom: 1px solid @grey-2;
+    color: @grey-1;
+    padding: 20px 0 15px 0;
+    margin-bottom: 0px;
     h4{
-      font-weight: 600;
+      font-size: 1em;
+      font-weight: bold;
       margin: 0px;
       padding: 0px;
     }
-
-    color: @gray;
-    border: none;
-    padding: 20px 0 15px 0;
-    margin-bottom: 0px;
-    border-bottom: 1px solid @gray!important;
-
     span {
       margin-right:5px;
-      font-size: @font-size-xs;
+      font-size: @font-size-xxs;
     }
   }
   .active{
@@ -41,5 +38,8 @@
     &:hover{
       .listActiveMixin;
     }
+  }
+  .list-group-item:last-of-type {
+    border: none;
   }
 }

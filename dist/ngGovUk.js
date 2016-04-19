@@ -84,6 +84,103 @@
   'use strict';
 
   angular
+    .module('ngGovUk.form-validation', [
+      'ngGovUk.form-validation.lazy-validation',
+      'ngGovUk.form-validation.lazy-validation-on-click'
+    ]);
+})();
+(function () {
+  'use strict';
+
+  angular
+      .module('ngGovUk.form-validation.lazy-validation-on-click', [
+        'ngGovUk.form-validation.lazy-validation'
+      ])
+      .directive('lazyValidationOnClick', lazyValidationOnClick);
+
+  /**
+   * This directive triggers revalidation of a form on a click event
+   *
+   * <form lazy-validation="scopePropertyToBindFormValidation">
+   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
+   * </form>
+   */
+  function lazyValidationOnClick() {
+    return {
+      restrict: 'A',
+      require: '^^lazyValidation',
+      /** Makes sure postLink runs before ng-click */
+      priority: '-1',
+      link: function ($scope, element, attrs, lazyValidationController) {
+        var revalidateAndRunCallbackIfDefined = function () {
+          lazyValidationController.revalidate();
+
+          if (lazyValidationController.isValid() && $scope.ifValidCallback) {
+            $scope.ifValidCallback();
+          }
+        };
+
+        element.bind('click', function () {
+          $scope.$apply(revalidateAndRunCallbackIfDefined);
+        });
+      },
+      scope: {
+        ifValidCallback: '&?lazyValidationOnClick'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.form-validation.lazy-validation', [])
+    .directive('lazyValidation', lazyValidation);
+
+  /**
+   * Lazy Validation
+   *
+   * It wraps default angular validation which is dynamic in it's nature
+   * and delays its execution till it's explicitly required
+   * (eg. when user clicks on a form's 'Submit' button)
+   *
+   * <form lazy-validation="formName">
+   *   <span ng-if="formName.name.$error.required">Name is required</span>
+   *   <input type=text name="name">
+   *
+   *   <button lazy-validation-on-click></button>
+   * </form>
+   */
+  function lazyValidation() {
+    function createDeepCopy(validationData) {
+      return angular.copy(validationData);
+    }
+
+    return {
+      restrict: 'A',
+      require: 'form',
+      controller: ['$scope', function ($scope) {
+        this.revalidate = function () {
+          $scope.validation = createDeepCopy($scope.angularFormController);
+        };
+
+        this.isValid = function () {
+          return $scope.angularFormController.$valid;
+        };
+      }],
+      link: function ($scope, element, attrs, angularFormController) {
+        $scope.angularFormController = angularFormController;
+      },
+      scope: {
+        validation: '=lazyValidation'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
     .module('ngGovUk.global-nav', [])
     .directive('globalNav', globalNav);
 
@@ -358,103 +455,6 @@
 })();
 
 
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.form-validation', [
-      'ngGovUk.form-validation.lazy-validation',
-      'ngGovUk.form-validation.lazy-validation-on-click'
-    ]);
-})();
-(function () {
-  'use strict';
-
-  angular
-      .module('ngGovUk.form-validation.lazy-validation-on-click', [
-        'ngGovUk.form-validation.lazy-validation'
-      ])
-      .directive('lazyValidationOnClick', lazyValidationOnClick);
-
-  /**
-   * This directive triggers revalidation of a form on a click event
-   *
-   * <form lazy-validation="scopePropertyToBindFormValidation">
-   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
-   * </form>
-   */
-  function lazyValidationOnClick() {
-    return {
-      restrict: 'A',
-      require: '^^lazyValidation',
-      /** Makes sure postLink runs before ng-click */
-      priority: '-1',
-      link: function ($scope, element, attrs, lazyValidationController) {
-        var revalidateAndRunCallbackIfDefined = function () {
-          lazyValidationController.revalidate();
-
-          if (lazyValidationController.isValid() && $scope.ifValidCallback) {
-            $scope.ifValidCallback();
-          }
-        };
-
-        element.bind('click', function () {
-          $scope.$apply(revalidateAndRunCallbackIfDefined);
-        });
-      },
-      scope: {
-        ifValidCallback: '&?lazyValidationOnClick'
-      }
-    };
-  }
-})();
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.form-validation.lazy-validation', [])
-    .directive('lazyValidation', lazyValidation);
-
-  /**
-   * Lazy Validation
-   *
-   * It wraps default angular validation which is dynamic in it's nature
-   * and delays its execution till it's explicitly required
-   * (eg. when user clicks on a form's 'Submit' button)
-   *
-   * <form lazy-validation="formName">
-   *   <span ng-if="formName.name.$error.required">Name is required</span>
-   *   <input type=text name="name">
-   *
-   *   <button lazy-validation-on-click></button>
-   * </form>
-   */
-  function lazyValidation() {
-    function createDeepCopy(validationData) {
-      return angular.copy(validationData);
-    }
-
-    return {
-      restrict: 'A',
-      require: 'form',
-      controller: ['$scope', function ($scope) {
-        this.revalidate = function () {
-          $scope.validation = createDeepCopy($scope.angularFormController);
-        };
-
-        this.isValid = function () {
-          return $scope.angularFormController.$valid;
-        };
-      }],
-      link: function ($scope, element, attrs, angularFormController) {
-        $scope.angularFormController = angularFormController;
-      },
-      scope: {
-        validation: '=lazyValidation'
-      }
-    };
-  }
-})();
 (function(module) {
 try {
   module = angular.module('ngGovUk');
@@ -664,8 +664,8 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/progress-list/progress-list.tpl.html',
-    '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
-    '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '<ul class="progress-list list-group">\n' +
+    '    <li data-ng-repeat="item in progressListItems" ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
     '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
     '              <span ng-if="item.access && item.complete">\n' +
     '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +

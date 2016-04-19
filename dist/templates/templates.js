@@ -207,8 +207,8 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/progress-list/progress-list.tpl.html',
-    '<ul class="progress-list list-group" data-ng-repeat="item in progressListItems">\n' +
-    '    <li ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '<ul class="progress-list list-group">\n' +
+    '    <li data-ng-repeat="item in progressListItems" ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
     '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
     '              <span ng-if="item.access && item.complete">\n' +
     '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
