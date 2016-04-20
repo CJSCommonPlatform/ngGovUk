@@ -150,6 +150,11 @@
               ref: 'review-complete'
             },
             {
+              title: 'Danger Button',
+              type: 'scroll-to',
+              ref: 'danger-button'
+            },
+            {
               title: 'Button Alignment',
               type: 'scroll-to',
               ref: 'button-alignment'
