@@ -16,22 +16,31 @@ module.exports = function (config, log) {
 
   gulp.task('copy-sass-resources-to-dev', ['copy-nggov-sass-to-dev', 'copy-external-dependencies-to-dev']);
 
-  gulp.task('copy-nggov-sass-to-dev', ['copy-dev-sass-modules', 'copy-dev-sass-main-file']);
-
-  gulp.task('copy-dev-sass-modules', function () {
-    return gulp.src(config.src.modulesPath + '/**/*.scss')
-      .pipe($.flatten())
-      .pipe(gulp.dest(config.dev.sassModulesPath));
-  });
+  gulp.task('copy-nggov-sass-to-dev', [
+    'copy-dev-sass-main-file',
+    'copy-dev-sass-bootstrap-theme',
+    'copy-dev-sass-modules',
+    'copy-dev-sass-custom']);
 
   gulp.task('copy-dev-sass-main-file', function () {
     return gulp.src(config.src.sassPath + '/*.scss')
       .pipe(gulp.dest(config.dev.sassPath));
   });
 
+  gulp.task('copy-dev-sass-custom', function () {
+    return gulp.src(config.src.sassCustomPath + '/**/*.scss')
+      .pipe(gulp.dest(config.dev.sassCustomPath));
+  });
+
   gulp.task('copy-dev-sass-bootstrap-theme', function () {
     return gulp.src(config.src.bootstrapThemePath + '/**/*.scss')
-      .pipe(gulp.dest(config.dev.sassPath));
+      .pipe(gulp.dest(config.dev.sassBootstrapThemePath));
+  });
+
+  gulp.task('copy-dev-sass-modules', function () {
+    return gulp.src(config.src.modulesPath + '/**/*.scss')
+      .pipe($.flatten())
+      .pipe(gulp.dest(config.dev.sassModulesPath));
   });
 
   gulp.task('copy-external-dependencies-to-dev',

@@ -23,29 +23,15 @@ module.exports = function (config, log) {
       runSequence('lint', 'build-js', 'move-to-docs', browserSync.reload);
     });
 
-    // watch all less files
-    gulp.watch([config.src.modulesPath + '/**/*.less', config.src.bootstrapWrapperPath + '/**/*.less'], function () {
-      runSequence('build-css', 'move-to-docs', 'create-demo-css', browserSync.reload);
+    // watch all scss files
+    gulp.watch([config.src.path + '/**/*.scss'], function () {
+      runSequence('build-css', 'create-docs-app', browserSync.reload);
     });
 
     // watch module files
     gulp.watch(config.src.modulesPath + '/**/*.html', function () {
       runSequence('html-lint', 'build-js', 'move-to-docs', browserSync.reload);
     });
-
-    // -- watch doc files -- //
-
-    // watch less
-    gulp.watch(config.docs.assetsPath + '/**/*.less', function () {
-      runSequence('create-demo-css', browserSync.reload);
-    });
-
-    // html files
-    gulp.watch(config.docs.path + '/**/*.html', browserSync.reload);
-
-    // watch js files
-    gulp.watch(config.docs.path + '/**/*.js', function () {
-      runSequence('build-demo', browserSync.reload);
-    });
+    
   });
 };

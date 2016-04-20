@@ -14,17 +14,18 @@
 </head>
 <body id="top">
   <header data-global-nav data-nav-settings="globalNav"></header>
-  <div class="container">
-    <div class="phase-banner">
-      <p>
-        <strong class="alpha-banner">ALPHA</strong>
-        <span>This is a new service – your feedback will help us to improve it.</span>
-      </p>
+  <main id="content" role="main">
+    <div class="container">
+      <div class="phase-banner">
+        <p>
+          <strong class="alpha-banner">ALPHA</strong>
+          <span>This is a new service – your feedback will help us to improve it.</span>
+        </p>
+      </div>
     </div>
-  </div>
-  <div ui-view class="content-wrapper"></div>
-<!-- /.main -->
-  <div data-footer-directive></div>
+    <div ui-view class="content-wrapper"></div>
+    <div data-footer-directive></div>
+  </main>
   <!--[if lt IE 10]>
   <script data-remove="false" data-concat="false" src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
   <script data-remove="false" data-concat="false" src="bower_components/respond/src/respond.js"></script>
