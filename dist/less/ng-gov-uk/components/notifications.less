@@ -6,29 +6,33 @@
 
 .notification {
   &:extend(.icon-alert all);
+  position: relative;
   display: inline-block;
   font-size: 1.5em;
   font-weight: bold;
   color: #fff;
   padding: 30px;
   .fa {
-    position: relative;
-    float: left;
+    position: absolute;
     font-size: 1em;
     line-height: 1.417em;
-    top: 0px;
+    top: 30px;
+    left:30px;
     margin-right: 10px;
   }
   .notification-body{
     position: relative;
-    top: 2px;
     line-height: 1.417em;
-    float:left;
+    top:2px;
     p {
       font-size: 1em;
       padding: 15px 0 15px 0;
       margin: 0px;
     }
+  }
+  .fa + div {
+    left:30px;
+    padding-right: 30px!important;
   }
   > :not(.fa) {
     padding: 0px;
@@ -53,12 +57,4 @@
 
 .notification-pending {
   background: @pending-colour;
-}
-
-
-// Clear float on small screens
-@media (max-width: @screen-xs-max) {
-  .notification-body{
-    float: none!important;
-  }
 }
