@@ -1,0 +1,10 @@
+#footer .footer-wrapper {
+  max-width: inherit;
+  @extend .container;
+}
+
+
+#footer .footer-meta {
+  padding-left: 0;
+  padding-right: 0;
+}

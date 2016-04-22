@@ -1,28 +1,31 @@
+//govuk_bootstrap
+//govuk_angular_components
+
 @import "gov-uk-toolkit/colours";
 @import "gov-uk-toolkit/measurements";
 @import "gov-uk-toolkit/helpers";
 @import "gov-uk-toolkit/typography";
+@import "gov-uk-toolkit/grid_layout";
+
 @import "gov-uk-elements/elements/govuk-template-base";
+
+@import "gov-uk-template/fonts"; //raw css that includes base64 encoded fonts
+@import "gov-uk-template/govuk-template"; //this is a raw css file
+
+
 @import "ng-gov-uk/bootstrap-theme/variables";
-//@import "bootstrap/bootstrap"; //this imports the whole of bootstrap;
 
-
-
-
-
-//selected bootstrap bits
+//BOOTSTRAP START
 
 // Core variables and mixins
 @import "bootstrap/bootstrap/variables";
 @import "bootstrap/bootstrap/mixins";
 
 // Reset and dependencies
-//@import "bootstrap/bootstrap/normalize";
-//@import "bootstrap/bootstrap/print";
 @import "bootstrap/bootstrap/glyphicons";
 
 // Core CSS
-//@import "bootstrap/bootstrap/scaffolding"; //contains anchor reset styles
+@import "bootstrap/bootstrap/scaffolding";
 @import "bootstrap/bootstrap/type";
 @import "bootstrap/bootstrap/code";
 @import "bootstrap/bootstrap/grid";
@@ -35,8 +38,6 @@
 @import "bootstrap/bootstrap/dropdowns";
 @import "bootstrap/bootstrap/button-groups";
 @import "bootstrap/bootstrap/input-groups";
-@import "bootstrap/bootstrap/navs";
-@import "bootstrap/bootstrap/navbar";
 @import "bootstrap/bootstrap/breadcrumbs";
 @import "bootstrap/bootstrap/pagination";
 @import "bootstrap/bootstrap/pager";
@@ -53,6 +54,7 @@
 @import "bootstrap/bootstrap/wells";
 @import "bootstrap/bootstrap/close";
 
+
 // Components w/ JavaScript
 @import "bootstrap/bootstrap/modals";
 @import "bootstrap/bootstrap/tooltip";
@@ -63,5 +65,8 @@
 @import "bootstrap/bootstrap/utilities";
 @import "bootstrap/bootstrap/responsive-utilities";
 
+//BOOTSTRAP END
 
-@import "ng-gov-uk/custom/typography";
+@import "ng-gov-uk/govuk_overrides/layout";
+@import "ng-gov-uk/govuk_overrides/header";
+@import "ng-gov-uk/govuk_overrides/footer";

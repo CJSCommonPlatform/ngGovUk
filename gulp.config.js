@@ -9,25 +9,23 @@
       src: {
         path: './src',
         sassPath: './src/sass',
-        sassCustomPath: './src/sass/custom',
+        govUkOverridesPath: './src/sass/govuk_overrides',
         bootstrapThemePath: './src/sass/bootstrap-theme',
         modulesPath: './src/modules',
-        assetPath: './src/assets',
         modulesFile: 'modules.js'
       },
       dev: {
         path: './dev',
         sassPath: './dev/sass',
         sassBootstrapThemePath: './dev/sass/ng-gov-uk/bootstrap-theme',
-        sassCustomPath: './dev/sass/ng-gov-uk/custom',
+        govUkOverridesPath: './dev/sass/ng-gov-uk/govuk_overrides',
         sassModulesPath: './dev/sass/ng-gov-uk/modules',
         sassBootstrapPath: './dev/sass/bootstrap',
         sassGovUkElementsPath: './dev/sass/gov-uk-elements',
         sassGovUkToolkitPath: './dev/sass/gov-uk-toolkit',
         sassGovUkTemplatePath: './dev/sass/gov-uk-template',
         assetPath: './dev/assets',
-        fontsPath: './dev/assets/fonts',
-        imgPath: './dev/assets/img',
+        imagePath: './dev/assets/images',
         cssPath: './dev/assets/css',
         templateCachePath: './dev/templates',
         templateName: 'templates.js'
@@ -46,9 +44,12 @@
       },
       nodeModules: {
         bootstrapPath: './node_modules/bootstrap-sass/assets/stylesheets',
-        govUkToolkitPath: './node_modules/govuk_frontend_toolkit/stylesheets',
-        govUkElementsPath: './node_modules/govuk-elements-sass/public/sass',
-        govUkTemplatePath: './node_modules/govuk_template_ejs/assets/stylesheets'
+        govUkToolkitSassPath: './node_modules/govuk_frontend_toolkit/stylesheets',
+        govUkElementsSassPath: './node_modules/govuk-elements-sass/public/sass',
+        govUkTemplateStylePath: './node_modules/govuk_template_ejs/assets/stylesheets',
+        govUkTemplateAssetImagePath: './node_modules/govuk_template_ejs/assets/images',
+        govUkTemplateStylesheetImagePath: './node_modules/govuk_template_ejs/assets/stylesheets/images'
+
       },
       dist: {
         path: './dist',

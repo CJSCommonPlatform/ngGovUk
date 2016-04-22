@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="assets/images/gov.uk_logotype_crown.svg" color="#0b0c0c">
   <title>ngGovUk</title>
   <!-- demo app -->
-  <link rel="stylesheet" href="assets/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/main.css" type="text/css"/>
   <!-- Prism CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/themes/prism.min.css"/>
   <!-- fontAwesome -->
@@ -14,18 +16,13 @@
 </head>
 <body id="top">
   <header data-global-nav data-nav-settings="globalNav"></header>
-  <main id="content" role="main">
+  <div id="global-header-bar"></div>
+  <main role="main">
     <div class="container">
-      <div class="phase-banner">
-        <p>
-          <strong class="alpha-banner">ALPHA</strong>
-          <span>This is a new service – your feedback will help us to improve it.</span>
-        </p>
-      </div>
+      <div ui-view class="content-wrapper"></div>
     </div>
-    <div ui-view class="content-wrapper"></div>
-    <div data-footer-directive></div>
   </main>
+  <footer data-footer-directive></footer>
   <!--[if lt IE 10]>
   <script data-remove="false" data-concat="false" src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
   <script data-remove="false" data-concat="false" src="bower_components/respond/src/respond.js"></script>

@@ -29,10 +29,13 @@
           controller: 'components'
         })
         .state('getting-started', {
-          url: '/',
+          url: '/getting-started',
           templateUrl: viewsPath + 'getting-started.html'
+        })
+        .state('test-page', {
+          url: '/',
+          templateUrl: viewsPath + 'test-page.html'
         });
-
       $urlRouterProvider.otherwise('/');
   });
 })();

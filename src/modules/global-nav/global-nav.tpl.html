@@ -1,47 +1,26 @@
-<div>
-    <header class="navbar navbar-default">
-        <div class="navbar-content">
-            <div class="navbar-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="navbar-header col-md-4">
-                            <div class="header-logo clearfix">
-                                <a href="#!/" role="button" class="navbar-brand text-uppercase">
-                                    <img width="35" height="31" alt="" src="assets/img/gov.uk_logotype_crown_invert_trans.png" /> GOV.UK
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h3 class="navbar-title" data-ng-if="globalNav.pageTitle">
-                                <a data-ng-if="globalNav.pageTitle.type === 'href'" href="#">{{globalNav.pageTitle.title}}</a>
-                                <a data-ng-if="globalNav.pageTitle.type === 'ui-sref'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>
-                                <span data-ng-if="globalNav.pageTitle.type === 'text'">{{globalNav.pageTitle.title}}</span>
-                            </h3>
-                            <button data-ng-if="globalNav.navItems" type="button" class="navbar-toggle" data-toggle="collapse"
-                                    data-ng-click="globalNav.isCollapsed = !globalNav.isCollapsed"
-                                    data-ng-class="{'nav-open': globalNav.isCollapsed}">
-                                <span class="sr-only">Toggle navigation</span>
-                                Menu
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="row" data-ng-if="globalNav.navItems">
-                        <nav class="navbar-right col-md-8 col-md-offset-4">
-                            <ul class="nav navbar-nav proposition-links" id="props" data-collapse="!globalNav.isCollapsed">
-                                <li data-ng-repeat="item in globalNav.navItems">
-                                    <a data-ng-if="item.type === 'href'" href="{{item.ref}}">{{item.title}}</a>
-                                    <a data-ng-if="item.type === 'ui-sref'" data-ui-sref="{{item.ref}}">{{item.title}}</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div data-ng-if="globalNav.displaySettings.showUnderline" class="container">
-        <div ng-class="{'global-header-bar':globalNav.displaySettings.showUnderline}" ></div>
+<header role="banner" id="global-header" class="with-proposition">
+  <div class="header-wrapper">
+    <div class="header-global">
+      <div class="header-logo">
+        <a href="https://www.gov.uk" title="Go to the GOV.UK homepage" id="logo" class="content">
+          <img src="assets/images/gov.uk_logotype_crown_invert_trans.png" width="35" height="31" alt=""> GOV.UK
+        </a>
+      </div>
     </div>
-</div>
-
+    <div class="header-proposition">
+      <div class="content">
+        <a class="menu" data-ng-click="menuLinksHiddenInMobile=false" data-ng-show="menuLinksHiddenInMobile">Menu</a>
+        <nav id="proposition-menu">
+          <a id="proposition-name" data-ng-if="globalNav.pageTitle.type === 'href'" href="#">{{globalNav.pageTitle.title}}</a>
+          <a id="proposition-name" data-ng-if="globalNav.pageTitle.type === 'ui-sref'" data-ui-sref="#">{{globalNav.pageTitle.title}}</a>
+          <ul id="proposition-links" data-ng-class="{'proposition-links-hidden':menuLinksHiddenInMobile}">
+            <li data-ng-repeat="item in globalNav.navItems">
+              <a data-ng-if="item.type === 'href'" href="{{item.ref}}">{{item.title}}</a>
+              <a data-ng-if="item.type === 'ui-sref'" data-ui-sref="{{item.ref}}">{{item.title}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

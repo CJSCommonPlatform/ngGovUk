@@ -20,7 +20,7 @@ module.exports = function (config, log) {
 
     // watch js files in module
     gulp.watch(config.src.modulesPath + '/**/*.js', function () {
-      runSequence('lint', 'build-js', 'move-to-docs', browserSync.reload);
+      runSequence('lint', 'build-js', 'create-docs-app', browserSync.reload);
     });
 
     // watch all scss files
@@ -30,8 +30,8 @@ module.exports = function (config, log) {
 
     // watch module files
     gulp.watch(config.src.modulesPath + '/**/*.html', function () {
-      runSequence('html-lint', 'build-js', 'move-to-docs', browserSync.reload);
+      runSequence('html-lint', 'build-js', 'create-docs-app', browserSync.reload);
     });
-    
+
   });
 };

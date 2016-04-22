@@ -1,0 +1,10 @@
+main {
+  @include core-19;
+  -webkit-font-smoothing: antialiased;
+  @extend %contain-floats;
+  padding-bottom: $gutter;
+
+  @include media(desktop) {
+    padding-bottom: $gutter * 3;
+  }
+}

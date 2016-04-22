@@ -1,112 +1,112 @@
-.navbar-toggle {
-  margin: 0;
-  padding: 6px 10px;
-
-  &:after {
-    content: " \25BC";
-    font-size: 8px;
-    display: inline-block;
-    height: 11px;
-    padding: 0 0 0 3px;
-    vertical-align: middle;
-  }
-
-  &.nav-open:after {
-    content: " \25B2";
-  }
-
-  &.menuOpen {
-    content: " \25BC";
-  }
-}
-.navbar-nav {
-  margin: 0;
-
-  > li {
-    padding: 0 15px 0 0;
-    &:last-child {
-      padding: 0;
-    }
-  }
-  > li > a {
-    padding: 0;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  @media (min-width: $grid-float-breakpoint) {
-    > li > a {
-      padding: 0;
-    }
-  }
-}
-.proposition-links {
-  @media (min-width: $grid-float-breakpoint) {
-    display: block;
-    height: auto !important; // necessary because of horrible javascripty things.
-  }
-
-  @media (max-width: $grid-float-breakpoint-max) {
-    > li {
-      float: left;
-      width: 50%;
-      border-bottom: 1px solid $navbar-default-border;
-      font-size: $font-size-h6;
-    }
-  }
-}
-.navbar-default {
-  border: 0;
-  a {
-    text-decoration: none;
-    color: #fff;
-    padding: 2px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .navbar-content {
-    background-color: $navbar-default-bg;
-    border-color: $navbar-default-border;
-    padding: $navbar-padding-vertical 0 $navbar-padding-bottom 0;
-  }
-
-  .navbar-title {
-    display: inline-block;
-    float: left;
-    margin: 4px 0 11px 0;
-  }
-
-  .navbar-nav {
-    > li > a {
-      &:hover {
-        color: $navbar-default-link-hover-color;
-      }
-      &:focus {
-        background-color: $link-focus-color-bg;
-        outline: 3px solid $link-focus-color-bg;
-        color: $link-focus-color;
-      }
-    }
-  }
-
-  .navbar-toggle {
-    border: 0;
-    color: $navbar-default-toggle-color;
-
-    &:hover {
-      text-decoration: underline;
-      background-color: transparent;
-    }
-    &:focus {
-      background-color: $link-focus-color-bg;
-      outline: 3px solid $link-focus-color-bg;
-      color: $link-focus-color;
-    }
-    .icon-bar {
-      background-color: $navbar-default-toggle-icon-bar-bg;
-    }
-  }
-}
+//.navbar-toggle {
+//  margin: 0;
+//  padding: 6px 10px;
+//
+//  &:after {
+//    content: " \25BC";
+//    font-size: 8px;
+//    display: inline-block;
+//    height: 11px;
+//    padding: 0 0 0 3px;
+//    vertical-align: middle;
+//  }
+//
+//  &.nav-open:after {
+//    content: " \25B2";
+//  }
+//
+//  &.menuOpen {
+//    content: " \25BC";
+//  }
+//}
+//.navbar-nav {
+//  margin: 0;
+//
+//  > li {
+//    padding: 0 15px 0 0;
+//    &:last-child {
+//      padding: 0;
+//    }
+//  }
+//  > li > a {
+//    padding: 0;
+//    text-decoration: none;
+//    &:hover {
+//      text-decoration: underline;
+//    }
+//  }
+//  @media (min-width: $grid-float-breakpoint) {
+//    > li > a {
+//      padding: 0;
+//    }
+//  }
+//}
+//.proposition-links {
+//  @media (min-width: $grid-float-breakpoint) {
+//    display: block;
+//    height: auto !important; // necessary because of horrible javascripty things.
+//  }
+//
+//  @media (max-width: $grid-float-breakpoint-max) {
+//    > li {
+//      float: left;
+//      width: 50%;
+//      border-bottom: 1px solid $navbar-default-border;
+//      font-size: $font-size-h6;
+//    }
+//  }
+//}
+//.navbar-default {
+//  border: 0;
+//  a {
+//    text-decoration: none;
+//    color: #fff;
+//    padding: 2px;
+//    &:hover {
+//      text-decoration: underline;
+//    }
+//  }
+//
+//  .navbar-content {
+//    background-color: $navbar-default-bg;
+//    border-color: $navbar-default-border;
+//    padding: $navbar-padding-vertical 0 $navbar-padding-bottom 0;
+//  }
+//
+//  .navbar-title {
+//    display: inline-block;
+//    float: left;
+//    margin: 4px 0 11px 0;
+//  }
+//
+//  .navbar-nav {
+//    > li > a {
+//      &:hover {
+//        color: $navbar-default-link-hover-color;
+//      }
+//      &:focus {
+//        background-color: $link-focus-color-bg;
+//        outline: 3px solid $link-focus-color-bg;
+//        color: $link-focus-color;
+//      }
+//    }
+//  }
+//
+//  .navbar-toggle {
+//    border: 0;
+//    color: $navbar-default-toggle-color;
+//
+//    &:hover {
+//      text-decoration: underline;
+//      background-color: transparent;
+//    }
+//    &:focus {
+//      background-color: $link-focus-color-bg;
+//      outline: 3px solid $link-focus-color-bg;
+//      color: $link-focus-color;
+//    }
+//    .icon-bar {
+//      background-color: $navbar-default-toggle-icon-bar-bg;
+//    }
+//  }
+//}

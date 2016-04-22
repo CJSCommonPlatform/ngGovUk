@@ -11,16 +11,16 @@ module.exports = function () {
       runSequence([
         'test',
         'build-css',
-        'copy-assets',
+        'copy-images',
         'build-js'
       ], 'create-docs-app',
         'create-dist',
         'uglify-dist', cb);
     } else {
       runSequence([
-        'test',
+        // 'test',
         'build-css',
-        'copy-assets',
+        'copy-images',
         'build-js'
       ], 'create-docs-app', cb);
     }

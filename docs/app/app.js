@@ -10,8 +10,8 @@
 
       globalNav = {
         pageTitle: {
-          title: 'ngGovUk',
-          type: 'text',
+          title: 'GOV.UK Boostrap',
+          type: 'href',
           ref: '#'
         },
         navItems: [

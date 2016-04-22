@@ -11,7 +11,7 @@ module.exports = function (config, log) {
   gulp.task('create-css', ['copy-sass-resources-to-dev'], function () {
     return gulp.src(config.dev.sassPath + '/*.scss')
       .pipe($.sass())
-      .pipe(gulp.dest(config.dev.cssPath));
+      .pipe(gulp.dest(config.dev.assetPath));
   });
 
   gulp.task('copy-sass-resources-to-dev', ['copy-nggov-sass-to-dev', 'copy-external-dependencies-to-dev']);
@@ -20,16 +20,16 @@ module.exports = function (config, log) {
     'copy-dev-sass-main-file',
     'copy-dev-sass-bootstrap-theme',
     'copy-dev-sass-modules',
-    'copy-dev-sass-custom']);
+    'copy-dev-sass-govuk-overrides']);
 
   gulp.task('copy-dev-sass-main-file', function () {
     return gulp.src(config.src.sassPath + '/*.scss')
       .pipe(gulp.dest(config.dev.sassPath));
   });
 
-  gulp.task('copy-dev-sass-custom', function () {
-    return gulp.src(config.src.sassCustomPath + '/**/*.scss')
-      .pipe(gulp.dest(config.dev.sassCustomPath));
+  gulp.task('copy-dev-sass-govuk-overrides', function () {
+    return gulp.src(config.src.govUkOverridesPath + '/**/*.scss')
+      .pipe(gulp.dest(config.dev.govUkOverridesPath));
   });
 
   gulp.task('copy-dev-sass-bootstrap-theme', function () {
@@ -56,17 +56,17 @@ module.exports = function (config, log) {
   });
 
   gulp.task('copy-govuk-frontend-toolkit', function () {
-    return gulp.src(config.nodeModules.govUkToolkitPath + '/**')
+    return gulp.src(config.nodeModules.govUkToolkitSassPath + '/**')
       .pipe(gulp.dest(config.dev.sassGovUkToolkitPath));
   });
 
   gulp.task('copy-govuk-elements', function () {
-    return gulp.src(config.nodeModules.govUkElementsPath + '/**')
+    return gulp.src(config.nodeModules.govUkElementsSassPath + '/**')
       .pipe(gulp.dest(config.dev.sassGovUkElementsPath));
   });
 
   gulp.task('copy-govuk-template', function () {
-    return gulp.src(config.nodeModules.govUkTemplatePath + '/**')
+    return gulp.src(config.nodeModules.govUkTemplateStylePath + '/**')
       .pipe(gulp.dest(config.dev.sassGovUkTemplatePath));
   });
 

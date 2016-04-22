@@ -1,28 +1,20 @@
-<footer id="footer" class="cpp-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="footer-meta-inner">
-          <nav>
-            <ul id="menu-footer" class="menu list-inline">
-              <li data-ng-repeat="link in settings.links">
-                <a data-ng-if="link.type === 'href'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>
-                <a data-ng-if="link.type === 'ui-sref'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="open-government-licence">
-            <p class="logo">
-              <a data-ng-href="{{ settings.licence.link }}"></a>
-            </p>
-            <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>
-          </div>
+<footer class="group js-footer" id="footer" role="contentinfo">
+  <div class="footer-wrapper">
+    <div class="footer-meta">
+      <div class="footer-meta-inner">
+        <ul ng-if="settings.links.length">
+          <li data-ng-repeat="link in settings.links">
+            <a data-ng-if="link.type === 'href'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>
+            <a data-ng-if="link.type === 'ui-sref'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>
+          </li>
+        </ul>
+        <div class="open-government-licence">
+          <p class="logo"><a data-ng-href="{{ settings.licence.link }}" rel="license">Open Government Licence</a></p>
+          <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>
         </div>
       </div>
-      <div class="col-md-2 text-center">
-        <div class="footer-logo">
-          <a class="crown-copy" data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>
-        </div>
+      <div class="copyright">
+        <a data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>
       </div>
     </div>
   </div>

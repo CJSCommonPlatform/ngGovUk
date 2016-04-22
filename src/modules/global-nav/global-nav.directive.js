@@ -19,14 +19,14 @@
     return directive;
 
     function link(scope, element, attrs, fn) {
-
+      scope.menuLinksHiddenInMobile = true;
       if(scope.navSettings) {
         scope.globalNav = scope.navSettings;
       } else {
         scope.globalNav = {
           pageTitle: {
             title: 'Test Global Nav',
-            type: 'text',
+            type: 'href',
             ref: '#'
           },
           navItems: [
