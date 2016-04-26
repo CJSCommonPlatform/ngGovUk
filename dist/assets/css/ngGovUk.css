@@ -4227,20 +4227,20 @@ fieldset[disabled] .btn-warning.focus {
 .btn-danger {
   color: #fff;
   background-color: #B10E1E;
-  border-color: #990c1a;
+  border-color: #3b050a;
 }
 
 .btn-danger:focus,
 .btn-danger.focus {
   color: #fff;
   background-color: #820a16;
-  border-color: #230306;
+  border-color: #000000;
 }
 
 .btn-danger:hover {
   color: #fff;
   background-color: #820a16;
-  border-color: #610810;
+  border-color: #020000;
 }
 
 .btn-danger:active,
@@ -4248,7 +4248,7 @@ fieldset[disabled] .btn-warning.focus {
 .open > .dropdown-toggle.btn-danger {
   color: #fff;
   background-color: #820a16;
-  border-color: #610810;
+  border-color: #020000;
 }
 
 .btn-danger:active:hover,
@@ -4262,7 +4262,7 @@ fieldset[disabled] .btn-warning.focus {
 .open > .dropdown-toggle.btn-danger.focus {
   color: #fff;
   background-color: #610810;
-  border-color: #230306;
+  border-color: #000000;
 }
 
 .btn-danger:active,
@@ -4281,7 +4281,7 @@ fieldset[disabled] .btn-danger:focus,
 .btn-danger[disabled].focus,
 fieldset[disabled] .btn-danger.focus {
   background-color: #B10E1E;
-  border-color: #990c1a;
+  border-color: #3b050a;
 }
 
 .btn-danger .badge {
@@ -10745,6 +10745,19 @@ a.btn {
   outline-offset: initial;
 }
 
+.btn-danger {
+  -webkit-box-shadow: 0 2px 0 #3b050a;
+  -moz-box-shadow: 0 2px 0 #3b050a;
+  box-shadow: 0 2px 0 #3b050a;
+}
+
+.btn-danger:focus {
+  background-color: #B10E1E;
+  border: 0;
+  outline: 3px solid #ffbf47;
+  outline-offset: initial;
+}
+
 .btn-link {
   background: #00823b url("../img/icon-pointer.png") no-repeat right;
   font-weight: bold;
@@ -12784,6 +12797,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .notification {
+  position: relative;
   display: inline-block;
   font-size: 1.5em;
   font-weight: bold;
@@ -12792,25 +12806,29 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .notification .fa {
-  position: relative;
-  float: left;
+  position: absolute;
   font-size: 1em;
   line-height: 1.417em;
-  top: 0px;
+  top: 30px;
+  left: 30px;
   margin-right: 10px;
 }
 
 .notification .notification-body {
   position: relative;
-  top: 2px;
   line-height: 1.417em;
-  float: left;
+  top: 2px;
 }
 
 .notification .notification-body p {
   font-size: 1em;
   padding: 15px 0 15px 0;
   margin: 0px;
+}
+
+.notification .fa + div {
+  left: 30px;
+  padding-right: 30px!important;
 }
 
 .notification > :not(.fa) {
@@ -12835,12 +12853,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .notification-pending {
   background: #FF842F;
-}
-
-@media (max-width: 767px) {
-  .notification-body {
-    float: none!important;
-  }
 }
 
 .no-gutter > [class^="col-"] {
