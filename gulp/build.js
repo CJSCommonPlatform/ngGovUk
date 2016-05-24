@@ -21,12 +21,11 @@ module.exports = function () {
     } else {
       runSequence([
         'test',
-        'build-css',
+        'build-sass',
         'copy-assets',
         'build-js'
       ], 'build-demo',
-        'move-to-docs',
-        'create-demo-css', cb);
+        'move-to-docs', cb);
     }
   });
 };
