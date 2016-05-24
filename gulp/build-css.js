@@ -16,8 +16,8 @@ module.exports = function(config) {
     return gulp.src('./src/index.scss')
       .pipe(sass({
         includePaths: [
-          'node_modules/govuk_frontend_toolkit/stylesheets',
-          'node_modules/govuk-elements-sass/public/sass'
+          path.resolve(process.cwd(), 'node_modules/govuk_frontend_toolkit/stylesheets'),
+          path.resolve(process.cwd(), 'node_modules/govuk-elements-sass/public/sass')
         ],
         importer: function importer(url) {
           if (url[0] === '~') {

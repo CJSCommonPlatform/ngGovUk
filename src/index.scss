@@ -2,3 +2,6 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/grid';
 @import '~govuk-elements-sass/public/sass/govuk-elements';
+
+@import '~@govuk/platform-template/lib/govuk_template/stylesheets/styleguide/_colours';
+@import '~@govuk/platform-template/modules/components/headers/govuk/govuk-header';
