@@ -45,7 +45,10 @@ module.exports = function (config, log) {
       .pipe(gulp.dest(config.dist.fontsPath));
   });
   gulp.task('copy-dev-images', function () {
-    return gulp.src([config.dev.imgPath + '/**/*'])
+    return gulp.src([
+      config.dev.imgPath + '/**/*',
+      'node_modules/govuk_template_ejs/assets/images/**'
+    ])
       .pipe(gulp.dest(config.dist.imgPath));
   });
 

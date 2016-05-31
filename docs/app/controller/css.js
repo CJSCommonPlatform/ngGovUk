@@ -57,6 +57,7 @@
       navItems = [
         {
           title: 'Typography',
+          ref: 'typography',
           children: [
             {
               title: 'Font',
@@ -101,7 +102,12 @@
           ]
         },
         {
+          title: 'Tables',
+          ref: 'tables'
+        },
+        {
           title: 'Data',
+          ref: 'data',
           children: [
             {
               title: 'Numeric tabular data',
@@ -132,6 +138,7 @@
         },
         {
           title: 'Buttons',
+          ref: 'buttons',
           children: [
             {
               title: 'Button Text',
@@ -173,6 +180,7 @@
         },
         {
           title: 'Alpha Beta Banners',
+          ref: 'banners',
           children: [
             {
               title: 'Alpha Banner',
@@ -188,6 +196,7 @@
         },
         {
           title: 'Form Elements',
+          ref: 'form-elements',
           href: null,
           children: [
             {
@@ -264,6 +273,7 @@
         },
         {
           title: 'Errors and Validation',
+          ref: 'validation',
           href: null,
           children: [
             {

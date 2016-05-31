@@ -47,5 +47,25 @@
       };
 
       $rootScope.globalNav = globalNav;
+  })
+
+  .directive('metaAnchor', function ($document) {
+    return {
+      link: function (scope, elem, attrs) {
+        var id = attrs.metaAnchor;
+
+        elem.bind('click', scrollToId);
+
+        scope.$on('$destroy', function() {
+          elem.unbind(scrollToId);
+        });
+
+        function scrollToId() {
+          var body = $document.find('body');
+          var target = body[0].querySelector('#' + id);
+          body[0].scrollTop = target.offsetTop;
+        }
+      }
+    };
   });
 })();

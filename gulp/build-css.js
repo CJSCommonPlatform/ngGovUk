@@ -26,6 +26,10 @@ module.exports = function(config) {
           return {file: url};
         }
       }))
+      .on('error', function swallowError (error) {
+        console.log(error.toString());
+        this.emit('end');
+      })
       .pipe(rename({basename: 'app'}))
       .pipe(gulp.dest('./dev/assets/css'));
   });

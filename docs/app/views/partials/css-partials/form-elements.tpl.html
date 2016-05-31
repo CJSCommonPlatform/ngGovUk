@@ -1,6 +1,6 @@
-<h1>Form elements</h1>
-<section id="labels">
-  <h3>Labels</h3>
+<h2 class="heading-large" id="form-elements">Form elements</h2>
+<section>
+  <h3 class="heading-medium">Labels</h3>
   <ul class="text list-bullet">
     <li>all form fields should be given labels</li>
     <li>don't hide labels, unless the surrounding context makes them unnecessary</li>
@@ -21,7 +21,7 @@
   '></div>
 </section>
 <section id="form-focus-states">
-  <h3>Form focus states</h3>
+  <h3 class="heading-medium">Form focus states</h3>
   <div class="text">
     <p>All elements use the yellow focus style as a highlight, as either a fill or 3px outline.</p>
     <p>Click on the label "Full name" or inside the form field to show the focus state.</p>
@@ -33,19 +33,11 @@
         <input class="form-control" type="text" id="full-name-f2">
       </div>
     </form>
-    <div class="swatch-wrapper">
-      <h4>Focus</h4>
-      <div class="swatch-yellow"></div>
-      <ul>
-        <li><b>#FFBF47</b></li>
-        <li>@link-focus-color-bg</li>
-      </ul>
-    </div>
   </div>
 </section>
 
 <section id="hint-text">
-  <h3>Hint text</h3>
+  <h3 class="heading-medium">Hint text</h3>
   <ul class="list-bullet text">
     <li>don't use placeholder text in form fields, as this will disappear once content is entered into the
       form field
@@ -71,7 +63,7 @@
 </section>
 
 <section id="form-spacing">
-  <h3>Spacing between form elements</h3>
+  <h3 class="heading-medium">Spacing between form elements</h3>
   <p class="text">
     Ensure there is sufficient spacing between form elements.
   </p>
@@ -98,7 +90,7 @@
 </section>
 
 <section id="form-fieldsets">
-  <h3>Fieldsets and legends</h3>
+  <h3 class="heading-medium">Fieldsets and legends</h3>
   <p class="text">
     Use fieldsets to group related form controls. The first element inside a fieldset must be a <code
     class="code">legend</code> element which describes the group.
@@ -157,14 +149,14 @@
 </section>
 
 <section id="form-select-boxes">
-  <h3>Select boxes</h3>
+  <h3 class="heading-medium">Select boxes</h3>
   <p class="text">
     Avoid using select boxes (drop-down lists) - use radio buttons or checkboxes instead.
   </p>
 </section>
 
 <section id="inline-radio-buttons">
-  <h3>Radio buttons</h3>
+  <h3 class="heading-medium">Radio buttons</h3>
   <ul class="list-bullet text">
     <li>use these to let users choose a single option from a list</li>
     <li>for more than two options, radio buttons should be stacked</li>
@@ -172,7 +164,7 @@
   </ul>
   <h4>Inline radio buttons</h4>
   <div class="bs-example">
-    <form>
+    <form class="inline">
       <label class="radio-inline block-background" data-ng-class="{selected: isChecked == 'Yes'}"
         for="radio-inline-15">
         <input id="radio-inline-15" type="radio" name="radio-inline-group" data-ng-model="isChecked" value="Yes">
@@ -186,7 +178,7 @@
     </form>
   </div>
   <div data-syntax-highlighter data-source='
-    <form>
+    <form class="inline">
       <label class="radio-inline block-background" data-ng-class="{selected: isChecked == &apos;Yes&apos;}"
         for="radio-inline-15">
         <input id="radio-inline-15" type="radio" name="radio-inline-group" data-ng-model="isChecked" value="Yes">
@@ -246,7 +238,7 @@
 </section>
 
 <section id="stacked-checkboxes">
-  <h3>Checkboxes</h3>
+  <h3 class="heading-medium">Checkboxes</h3>
   <ul class="list-bullet text">
     <li>use these to select either on/off toggles or multiple selections</li>
     <li>make it clear with words when users can select one or multiple options</li>
@@ -305,31 +297,27 @@
   </ul>
   <div class="bs-example">
     <form>
-      <label class="form-label" for="telephone-number">Enter your telephone number
-        <input class="form-control" id="telephone-number" type="text">
-      </label>
-      <label class="form-checkbox" for="checkbox-telephone-number"></label>
-      <div>
+      <label class="form-label" for="telephone-number">Enter your telephone number</label>
+      <input class="form-control" id="telephone-number" type="text">
+      <label class="form-checkbox" for="checkbox-telephone-number">
         <input id="checkbox-telephone-number" type="checkbox" value="checkbox-telephone-number">
         I need to be contacted using a text phone
-      </div>
+      </label>
     </form>
   </div>
   <div data-syntax-highlighter data-source='
     <form>
-      <label class="form-label" for="telephone-number">Enter your telephone number
-        <input class="form-control" id="telephone-number" type="text">
-      </label>
-      <label class="form-checkbox" for="checkbox-telephone-number"></label>
-      <div>
+      <label class="form-label" for="telephone-number">Enter your telephone number</label>
+      <input class="form-control" id="telephone-number" type="text">
+      <label class="form-checkbox" for="checkbox-telephone-number">
         <input id="checkbox-telephone-number" type="checkbox" value="checkbox-telephone-number">
         I need to be contacted using a text phone
-      </div>
+      </label>
     </form>'></div>
 </section>
 
 <section id="radio-conditionally-reveal-content">
-  <h3>
+  <h3 class="heading-medium">
     Conditionally revealing content
   </h3>
   <ul class="list-bullet text">
@@ -346,19 +334,21 @@
       <p>
         Do you know their National Insurance number?
       </p>
-      <label class="radio-inline block-background" for="radio-inline-001"
-        data-ng-class="{'selected': niChecked == 'Yes'}">
-        <input id="radio-inline-001" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="Yes">
-        Yes
-      </label>
-      <label class="radio-inline block-background" for="radio-inline-002"
-        data-ng-class="{'selected': niChecked == 'No'}">
-        <input id="radio-inline-002" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="No">
-        No
-      </label>
-      <div class="panel-indent" id="example-ni-no" data-ng-show="niChecked == 'Yes'">
-        <label class="form-label" for="national-insurance">National Insurance number</label>
-        <input class="form-control" type="text" id="national-insurance">
+      <div class="form-group">
+        <label class="radio-inline block-background" for="radio-inline-001"
+               data-ng-class="{'selected': niChecked == 'Yes'}">
+          <input id="radio-inline-001" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="Yes">
+          Yes
+        </label>
+        <label class="radio-inline block-background" for="radio-inline-002"
+               data-ng-class="{'selected': niChecked == 'No'}">
+          <input id="radio-inline-002" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="No">
+          No
+        </label>
+        <div class="panel-indent" id="example-ni-no" data-ng-show="niChecked == 'Yes'">
+          <label class="form-label" for="national-insurance">National Insurance number</label>
+          <input class="form-control" type="text" id="national-insurance">
+        </div>
       </div>
     </form>
   </div>
@@ -367,19 +357,21 @@
       <p>
         Do you know their National Insurance number?
       </p>
-      <label class="radio-inline block-background" for="radio-inline-001"
-        data-ng-class="{&apos;selected&apos;: niChecked == &apos;Yes&apos;}">
-        <input id="radio-inline-001" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="Yes">
-        Yes
-      </label>
-      <label class="radio-inline block-background" for="radio-inline-002"
-        data-ng-class="{&apos;selected&apos;: niChecked == &apos;No&apos;}">
-        <input id="radio-inline-002" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="No">
-        No
-      </label>
-      <div class="panel-indent" id="example-ni-no" data-ng-show="niChecked == &apos;Yes&apos;">
-        <label class="form-label" for="national-insurance">National Insurance number</label>
-        <input class="form-control" type="text" id="national-insurance">
+      <div class="form-group">
+        <label class="radio-inline block-background" for="radio-inline-001"
+          data-ng-class="{&apos;selected&apos;: niChecked == &apos;Yes&apos;}">
+          <input id="radio-inline-001" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="Yes">
+          Yes
+        </label>
+        <label class="radio-inline block-background" for="radio-inline-002"
+          data-ng-class="{&apos;selected&apos;: niChecked == &apos;No&apos;}">
+          <input id="radio-inline-002" type="radio" name="radio-inline-group" data-ng-model="niChecked" value="No">
+          No
+        </label>
+        <div class="panel-indent" id="example-ni-no" data-ng-show="niChecked == &apos;Yes&apos;">
+          <label class="form-label" for="national-insurance">National Insurance number</label>
+          <input class="form-control" type="text" id="national-insurance">
+        </div>
       </div>
     </form>'></div>
 </section>
@@ -394,21 +386,23 @@
           What is your nationality?
         </legend>
         <p>Select all the options that apply to you</p>
-        <label for="checkbox-11" class="checkbox block-background" data-ng-class="{selected: citizen1}">
-          <input id="checkbox-11" type="checkbox" data-ng-model="citizen1" value="British...">
-          British (including English, Scottish, Welsh and Northern Irish)
-        </label>
-        <label for="checkbox-12" class="checkbox block-background" data-ng-class="{selected: citizen2}">
-          <input id="checkbox-12" type="checkbox" data-ng-model="citizen2" value="Irish">
-          Irish
-        </label>
-        <label for="checkbox-13" class="checkbox block-background" data-ng-class="{selected: diffCountry}">
-          <input id="checkbox-13" type="checkbox" data-ng-model="diffCountry" value="different country">
-          Citizen of a different country
-        </label>
-        <div class="panel-indent" id="example-ni-nom" data-ng-show="diffCountry">
-          <label class="form-label" for="nationality-other-country">Country name</label>
-          <input class="form-control" type="text" id="nationality-other-country">
+        <div class="form-group">
+          <label for="checkbox-11" class="checkbox block-background" data-ng-class="{selected: citizen1}">
+            <input id="checkbox-11" type="checkbox" data-ng-model="citizen1" value="British...">
+            British (including English, Scottish, Welsh and Northern Irish)
+          </label>
+          <label for="checkbox-12" class="checkbox block-background" data-ng-class="{selected: citizen2}">
+            <input id="checkbox-12" type="checkbox" data-ng-model="citizen2" value="Irish">
+            Irish
+          </label>
+          <label for="checkbox-13" class="checkbox block-background" data-ng-class="{selected: diffCountry}">
+            <input id="checkbox-13" type="checkbox" data-ng-model="diffCountry" value="different country">
+            Citizen of a different country
+          </label>
+          <div class="panel-indent" id="example-ni-nom" data-ng-show="diffCountry">
+            <label class="form-label" for="nationality-other-country">Country name</label>
+            <input class="form-control" type="text" id="nationality-other-country">
+          </div>
         </div>
       </fieldset>
     </form>
@@ -420,57 +414,24 @@
           What is your nationality?
         </legend>
         <p>Select all the options that apply to you</p>
-        <label for="checkbox-11" class="checkbox block-background" data-ng-class="{selected: citizen1}">
-          <input id="checkbox-11" type="checkbox" data-ng-model="citizen1" value="British...">
-          British (including English, Scottish, Welsh and Northern Irish)
-        </label>
-        <label for="checkbox-12" class="checkbox block-background" data-ng-class="{selected: citizen2}">
-          <input id="checkbox-12" type="checkbox" data-ng-model="citizen2" value="Irish">
-          Irish
-        </label>
-        <label for="checkbox-13" class="checkbox block-background" data-ng-class="{selected: diffCountry}">
-          <input id="checkbox-13" type="checkbox" data-ng-model="diffCountry" value="different country">
-          Citizen of a different country
-        </label>
-        <div class="panel-indent" id="example-ni-nom" data-ng-show="diffCountry">
-          <label class="form-label" for="nationality-other-country">Country name</label>
-          <input class="form-control" type="text" id="nationality-other-country">
+        <div class="form-group">
+          <label for="checkbox-11" class="checkbox block-background" data-ng-class="{selected: citizen1}">
+            <input id="checkbox-11" type="checkbox" data-ng-model="citizen1" value="British...">
+            British (including English, Scottish, Welsh and Northern Irish)
+          </label>
+          <label for="checkbox-12" class="checkbox block-background" data-ng-class="{selected: citizen2}">
+            <input id="checkbox-12" type="checkbox" data-ng-model="citizen2" value="Irish">
+            Irish
+          </label>
+          <label for="checkbox-13" class="checkbox block-background" data-ng-class="{selected: diffCountry}">
+            <input id="checkbox-13" type="checkbox" data-ng-model="diffCountry" value="different country">
+            Citizen of a different country
+          </label>
+          <div class="panel-indent" id="example-ni-nom" data-ng-show="diffCountry">
+            <label class="form-label" for="nationality-other-country">Country name</label>
+            <input class="form-control" type="text" id="nationality-other-country">
+          </div>
         </div>
       </fieldset>
-    </form>'></div>
-</section>
-
-
-<section id="input-link-alignement">
-  <h4>Input boxes & link alignement</h4>
-  <p>By using boostrap grid layout you only need to add <code>.vertical-align</code> alongside to to row container
-  <div class="bs-example">
-    <form>
-      <div class="form-group">
-        <label class="form-label" for="otp-code">Enter OTP code</label>
-        <div class="row vertical-align">
-          <div class="col-xs-8 form-group">
-            <input class="form-control" id="otp-code" type="text">
-          </div>
-          <div class="col-xs-4 form-group">
-            <a href="#">Resend Code</a>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div data-syntax-highlighter data-source='
-    <form>
-      <div class="form-group">
-        <label class="form-label" for="otp-code">Enter OTP code</label>
-        <div class="row vertical-align">
-          <div class="col-xs-8 form-group">
-            <input class="form-control" id="otp-code" type="text">
-          </div>
-          <div class="col-xs-4 form-group">
-            <a href="#">Resend Code</a>
-          </div>
-        </div>
-      </div>
     </form>'></div>
 </section>

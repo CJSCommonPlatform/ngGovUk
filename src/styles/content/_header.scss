@@ -1,0 +1,19 @@
+#global-header #logo {
+  background-image: url('../img/gov.uk_logotype_crown.png');
+}
+
+.breadcrumb {
+  padding-left: 0;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+
+  @extend %contain-floats;
+  @include breadcrumbs;
+
+  padding-top: 0;
+  padding-bottom: 0;
+
+  li {
+    background-image: url('../img/separator.png');
+  }
+}

@@ -29,6 +29,7 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
     },
     {
       title: 'Alerts',
+      ref: 'alerts',
       children: [
         {
           title: 'Attention Alert',
@@ -44,6 +45,7 @@ angular.module('app').controller('components', function ($scope, $modal, $log) {
     },
     {
       title: 'Notifications',
+      ref: 'notifications',
       children: [
         {
           title: 'Success Notification',

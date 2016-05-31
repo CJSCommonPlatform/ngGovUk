@@ -1,91 +1,78 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<h1 class="heading-xlarge">
+  <span class="heading-secondary">ngGovUk</span>
+  Angular Modules
+</h1>
 
-      <section id="page-intro">
-        <div>
-          <div class="row">
-            <div class="col-xs-12">
-              <div>
-                <h1 class="text-uppercase">Angular Modules</h1>
-                <p class="lead">Some angular modules that can be included in any project for some global gds designs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<p class="lede">Some angular modules that can be included in any project for some global gds designs</p>
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="global-nav">
-            <h2>global-nav</h2>
-            <div>
-              <p>To include the header add the directive by using the data attribute <code>data-global-nav</code> in the mark up.</p>
-              <p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
-            </div>
-            <div class="bs-example" data-example-id="global-nav">
-              <div data-ng-controller="globalNavDemo">
-                <header data-global-nav data-nav-settings="demoNav"></header>
-              </div>
-            </div>
+<h2 class="heading-large">global-nav</h2>
+<div>
+  <p>To include the header add the directive by using the data attribute <code class="code">data-global-nav</code> in the mark up.</p>
+  <p>In the javascript create an object called <code class="code">globalNav</code> which can contain two objects: <code class="code">pageTitle</code> and <code class="code">navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
+</div>
+<div class="bs-example" data-example-id="global-nav">
+  <div data-ng-controller="globalNavDemo">
+    <header data-global-nav data-nav-settings="demoNav"></header>
+  </div>
+</div>
 
-            <div data-tabset>
-              <div data-tab data-heading="Markup">
-                <div data-syntax-highlighter data-source='
-                  <header data-global-nav data-nav-settings="demoNav"></header>'></div>
-              </div>
-              <div data-tab data-heading="JavaScript">
-                <div data-syntax-highlighter data-language="javascript" data-source="
-                  angular.module('app').controller('globalNavDemo', function ($scope) {
-                    $scope.demoNav = {
-                      pageTitle: {
-                        title: 'Demo Title',
-                        type: 'text',
-                        ref: '#'
-                      },
-                      navItems: [
-                        {
-                          title: 'Nav Item 1',
-                          type: 'href',
-                          ref: '#!/modules'
-                        },
-                        {
-                          title: 'Nav Item 2',
-                          type: 'href',
-                          ref: '#!/modules'
-                        },
-                        {
-                          title: 'Nav Item 3',
-                          type: 'href',
-                          ref: '#!/modules'
-                        },
-                        {
-                          title: 'Nav Item 4',
-                          type: 'href',
-                          ref: '#!/modules'
-                        },
-                        {
-                          title: 'Nav Item 5',
-                          type: 'href',
-                          ref: '#!/modules'
-                        }
-                      ],
-                      displaySettings:{
-                        showUnderline: true
-                      }
-                    };
-                  });"></div>
-              </div>
-            </div>
-          </div>
+<div data-tabset>
+  <div data-tab data-heading="Markup">
+    <div data-syntax-highlighter data-source='
+      <header data-global-nav data-nav-settings="demoNav"></header>'></div>
+  </div>
+  <div data-tab data-heading="JavaScript">
+    <div data-syntax-highlighter data-language="javascript" data-source="
+      angular.module('app').controller('globalNavDemo', function ($scope) {
+        $scope.demoNav = {
+          pageTitle: {
+            title: 'Demo Title',
+            type: 'text',
+            ref: '#'
+          },
+          navItems: [
+            {
+              title: 'Nav Item 1',
+              type: 'href',
+              ref: '#!/modules'
+            },
+            {
+              title: 'Nav Item 2',
+              type: 'href',
+              ref: '#!/modules'
+            },
+            {
+              title: 'Nav Item 3',
+              type: 'href',
+              ref: '#!/modules'
+            },
+            {
+              title: 'Nav Item 4',
+              type: 'href',
+              ref: '#!/modules'
+            },
+            {
+              title: 'Nav Item 5',
+              type: 'href',
+              ref: '#!/modules'
+            }
+          ],
+          displaySettings:{
+            showUnderline: true
+          }
+        };
+      });"></div>
+  </div>
+</div>
+
           <div class="vertical-spacer"></div>
-          <div id="footer">
-            <h2>footer</h2>
+          <div id="footer-directive">
+            <h2 class="heading-large">footer</h2>
             <div>
-              <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>.</p>
-              <p>Elements within the directive can be overridden using the <code>data-footer-settings</code> attribute. Only set the properties that you want to override and the directive will keep the default ones.</p>
+              <p>In order include the footer directive add a data attribute of <code class="code">data-footer-directive</code>.</p>
+              <p>Elements within the directive can be overridden using the <code class="code">data-footer-settings</code> attribute. Only set the properties that you want to override and the directive will keep the default ones.</p>
             </div>
-            <div class="bs-example" data-example-id="footer">
+            <div class="bs-example" data-example-id="footer-directive">
               <div data-footer-directive></div>
             </div>
             <div data-tabset>
@@ -132,7 +119,7 @@
           </div>
 
           <div id="nav-side">
-            <h2>nav-side</h2>
+            <h2 class="heading-large">nav-side</h2>
             <div>
               <p>This modules is used to create a navigation panel on the left side of the screen, it has been created by utilising the data-ng-bootstrap accordion</p>
               <p>In order to set up the side nav, there are a couple of things that need to be done:</p>
@@ -213,7 +200,7 @@
           </div>
 
           <div id="tabbed-menu">
-            <h2>tabbed-menu</h2>
+            <h2 class="heading-large">tabbed-menu</h2>
             <div>
               <p>This directive creates a tabbed menu as a directive, creating a title infront of the items is optional and can be ommited in order to have just the tabs. In the scope add an array of item objects under the name of 'items'; each item should contain a 'title and a ref'.</p>
             </div>
@@ -248,7 +235,7 @@
             </div>
           </div>
           <div id="lazy-validation">
-            <h2>lazy-validation</h2>
+            <h2 class="heading-large">lazy-validation</h2>
               <div>
                 <p>This module enables angular validation to be triggered lazily, when a specific event occurs (such as clicking on a submit button)</p>
               </div>
@@ -378,8 +365,3 @@
                 })();"></div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  describe('footer directive', function () {
+  xdescribe('footer directive', function () {
     var $scope, $compile, template, element;
 
     beforeEach(module('templates'));

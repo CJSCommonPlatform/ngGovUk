@@ -9,6 +9,7 @@ module.exports = function (config, log) {
   gulp.task('serve', function () {
     browserSync.init({
       server: './',
+      port: 3003,
       startPath: config.docs.path
     });
 
@@ -24,8 +25,8 @@ module.exports = function (config, log) {
     });
 
     // watch all less files
-    gulp.watch([config.src.modulesPath + '/**/*.less', config.src.bootstrapWrapperPath + '/**/*.less'], function () {
-      runSequence('build-css', 'move-to-docs', 'create-demo-css', browserSync.reload);
+    gulp.watch(['./src/**/*.scss'], function () {
+      runSequence('build-sass', 'move-to-docs', browserSync.reload);
     });
 
     // watch module files
@@ -36,7 +37,7 @@ module.exports = function (config, log) {
     // -- watch doc files -- //
 
     // watch less
-    gulp.watch(config.docs.assetsPath + '/**/*.less', function () {
+    gulp.watch(config.docs.assetsPath + '/**/*.scss', function () {
       runSequence('create-demo-css', browserSync.reload);
     });
 

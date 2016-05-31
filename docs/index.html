@@ -14,15 +14,19 @@
 </head>
 <body id="top">
   <header data-global-nav data-nav-settings="globalNav"></header>
-  <div class="container">
-    <div class="phase-banner">
+
+  <div id="content">
+    <div class="phase-banner-alpha">
       <p>
-        <strong class="alpha-banner">ALPHA</strong>
-        <span>This is a new service – your feedback will help us to improve it.</span>
+        <strong class="phase-tag">ALPHA</strong>
+        <span>This is the alpha banner state.</span>
       </p>
     </div>
+
+    <div ui-view class="content-wrapper"></div>
   </div>
-  <div ui-view class="content-wrapper"></div>
+
+
   <!-- /.main -->
   <div data-footer-directive></div>
   <!--[if lt IE 10]>
