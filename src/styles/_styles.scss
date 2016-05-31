@@ -1,10 +1,21 @@
 @import 'mixins';
 
-@import 'components/components';
+@import 'components/accordion';
+@import 'components/digit-box';
+@import 'components/disclosure';
+@import 'components/notices';
+@import 'components/notifications';
+@import 'components/panels';
+@import 'components/progress-list';
+@import 'components/search';
+@import 'components/stripe';
+@import 'components/tabs';
+
 @import 'content/buttons';
 @import 'content/footer';
 @import 'content/header';
 @import 'content/forms';
 @import 'content/tables';
 @import 'content/typography';
+
 @import 'docs/docs';

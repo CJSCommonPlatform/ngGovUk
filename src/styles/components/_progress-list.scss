@@ -1,0 +1,32 @@
+.progress-list {
+  list-style: none;
+
+  .list-group-item{
+    border: none;
+    border-bottom: 1px solid $grey-2;
+    color: $grey-1;
+    padding: 20px 0 15px 0;
+    margin-bottom: 0;
+    h4 {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+    span {
+      @include core-14;
+      margin-right: 5px;
+    }
+
+    &.active, &:hover {
+      z-index: 2;
+      background: none;
+      border-bottom: 3px solid $black !important;
+      margin-bottom: -2px;
+      color: $grey-1;
+      h4 {
+        color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.digit-box {
+  display: inline-block;
+  background: $grey-1;
+  color: $white;
+  padding: 15px 20px;
+  margin: 10px 0;
+  @extend .bold-large;
+}
