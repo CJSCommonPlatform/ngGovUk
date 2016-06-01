@@ -68,5 +68,5 @@ a[rel="external"]:after {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAGQCAYAAACapoFrAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QMNCgUIqYX+/QAAATVJREFUeNrt3DFOwzAYhuE3CLGBxA3YmBp1qMLIBCvXAJZsOUS2LsDKAbgAJygZUJRcoTsFti5lSYrVxqILiOF9pCzO79j+nflLiBiNp/fA9eb4HnG3wMPOE9o6XwGPwDIcT0bj6YqfLYGDcIUT4Dh4LoDPYMJ5v71+wntb54u2zhfAKfAEHAIf3fZm/Zn2NzpzBjwDR13xJTALznSzFxQnwF1Y3Nb5S7RL3ReugNdY8VZb2zqfA5NY8eA9dCtF9Yd+G42nSJIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZKk/yWJvUjL6pczpJoiG86QSsvqjzKkmiJbNEU2mCHVFNlwhlRaVtEMqe5M3xlSaVltZUg1RRbPkOq+sM6QGireamtTZHNgEisevIdupah1hlRaVjv9S199lm53ylwe3wAAAABJRU5ErkJggg==');
   background-repeat: no-repeat;
   content: "\A0\A0\A0";
-  background-position: right 3px;
+  background-position: right 3px !important;
 }
