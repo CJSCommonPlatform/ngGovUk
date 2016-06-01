@@ -9,17 +9,7 @@ var lessImportString = require('./helpers/lessImportString')();
 
 module.exports = function (config, log) {
   // copies files from dev and creates the dev version of the less import file
-  gulp.task('create-dist', ['copy-dev-js', 'copy-dev-fonts', 'copy-dev-images', 'copy-dev-less', 'copy-docs-css'], function () {
-    var stream = source(config.dist.name + '.less');
-
-    gulp.src([config.dist.lessPath + '/*.less', config.dist.lessModulesPath + '/*.less'])
-      .pipe($.tap(function (file, t) {
-        var filePath = 'less' + path.dirname(file.path).split('less')[1];
-        stream.write(lessImportString(filePath, path.basename(file.path)));
-      }));
-
-    stream.pipe(gulp.dest(config.dist.path));
-  });
+  gulp.task('create-dist', ['copy-dev-js', 'copy-dev-fonts', 'copy-dev-images', 'copy-docs-css']);
 
   gulp.task('copy-docs-css', function () {
     return gulp.src(config.docs.cssPath + '/' + config.docs.cssName)
@@ -29,12 +19,7 @@ module.exports = function (config, log) {
       }))
       .pipe(gulp.dest(config.dist.cssPath));
   });
-
-  gulp.task('copy-dev-less', function () {
-    return gulp.src([config.dev.path + '/**', !config.dev.path + config.dist.name + '.less'])
-      .pipe(gulp.dest(config.dist.path));
-  });
-
+  
   gulp.task('copy-dev-js', function () {
     return gulp.src(config.dev.path + '/**/*.js')
       .pipe(gulp.dest(config.dist.path));

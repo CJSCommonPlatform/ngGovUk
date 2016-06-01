@@ -1,0 +1,16 @@
+// progressive disclosure
+
+.summary.main-summary {
+  color: $govuk-blue;
+  text-decoration: underline;
+  margin-bottom: 4px;
+
+  &:hover { cursor: pointer; }
+
+  .arrow-right { @include arrow(right); }
+  .arrow-down  { @include arrow(down); }
+}
+
+.summary-content {
+  @extend .panel-border-narrow;
+}

@@ -8,14 +8,15 @@ var gutil       = require('gulp-util');
 module.exports = function () {
   gulp.task('build', ['clean-dev'], function (cb) {
     if (gutil.env.dist) {
-      runSequence([
+      runSequence(
+        'clean-dist', [
         'test',
-        'build-css',
+        'build-sass',
         'copy-assets',
-        'build-js'
+        'build-js',
+        'copy-sass'
       ], 'build-demo',
         'move-to-docs',
-        'create-demo-css',
         'create-dist',
         'uglify-dist', cb);
     } else {

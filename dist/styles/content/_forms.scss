@@ -1,0 +1,47 @@
+label:not(.radio-inline) {
+  @extend .form-label;
+}
+
+.form-hint-text {
+  @extend .form-hint;
+}
+
+.block-background {
+  @extend .block-label;
+
+  input {
+    &:focus {
+      outline: none !important; // prevent internal radio button from focusing
+    }
+  }
+}
+
+.form-group .panel-indent {
+  @extend .panel-border-narrow;
+  padding-bottom: 0;
+}
+
+.cpp-form-error-summary {
+  @extend .error-summary;
+
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .cpp-form-error-summary-list {
+    @extend .error-summary-list;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.cpp-form-error {
+  .cpp-form-error-message {
+    @extend .error-message;
+    font-weight: bold;
+  }
+
+  @extend .error;
+}

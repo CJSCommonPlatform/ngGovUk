@@ -1,0 +1,41 @@
+table {
+
+  &.table-hover {
+    tr:hover {
+      background: $highlight-colour;
+    }
+  }
+
+  &.table-collapsible tbody {
+
+    .collapsible-row-header > td:first-child, th:first-child {
+      @include arrow(right);
+    }
+    .open > td:first-child {
+      @include arrow(down);
+    }
+    .collapsible-row-header {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .collapsible-row-content {
+    > td {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .collapsible-row-wrapper {
+
+    &.expand-row-wrapper {
+      max-height: 300px;
+    }
+  }
+
+  .expand-row {
+    display: table-row;
+  }
+}

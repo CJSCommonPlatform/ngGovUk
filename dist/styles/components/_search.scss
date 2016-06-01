@@ -1,0 +1,53 @@
+.input-group.search-group {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+
+  > input {
+    width: 100%;
+    max-width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 52px;
+    &:focus {
+      padding-left: 11px;
+      @include focus-input;
+    }
+  }
+
+  .input-group-btn {
+    width: 40px;
+    position: absolute;
+    height: 40px;
+    right: 0;
+    top: 0;
+
+    button.btn.btn-default.btn-search {
+      @extend .btn;
+      box-sizing: border-box;
+      box-shadow: none;
+      font-size: 0;
+      height: 40px;
+      padding: 6px 0 7px;
+      background: $secondary-text-colour;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      width: 100%;
+      &:hover {
+        background: $secondary-text-colour;
+      }
+      &:after {
+        font-family: FontAwesome, sans-serif;
+        content: '\f002';
+        color: $white;
+        font-size: 18px;
+      }
+      &:focus {
+        @include focus-input;
+        padding-top: 4px;
+      }
+    }
+  }
+}

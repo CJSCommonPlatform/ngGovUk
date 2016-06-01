@@ -1,0 +1,17 @@
+.stripe {
+  background-color: $purple;
+  color: $white;
+  padding: 15px 0;;
+
+  @include bold-19;
+
+  .stripe-subtext {
+    color: $grey-3;
+    padding: 0 15px;
+  }
+
+  .container .stripe-subtext {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

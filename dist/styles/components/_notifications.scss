@@ -1,0 +1,27 @@
+.notification {
+  @include bold-24;
+  box-sizing: border-box;
+  padding: 22px;
+  display: table;
+  width: 100%;
+  color: $white;
+
+  @include media(tablet) {
+    padding: 30px;
+  }
+
+  .notification-body {
+    display: table-cell;
+    padding-left: 8px;
+    width: 100%;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &.notification-active     { background: $green; }
+  &.notification-deregister { background: $red; }
+  &.notification-success    { background: $turquoise; }
+  &.notification-pending    { background: $orange; }
+  &.notification-invalid    { background: $red; }
+}

@@ -1,0 +1,74 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/component-animations';
+
+.accordion {
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    outline: none;
+    background: transparent;
+  }
+
+  > li {
+    border-bottom: 1px solid $grey-3;
+    margin-bottom: 0;
+    padding: 10px 0;
+    .panel {
+      padding: 0;
+      border-left: 0;
+      margin-bottom: 0;
+    }
+  }
+  .list-item-detail {
+    display: block;
+    margin-bottom: -10px;
+  }
+
+  h4, .list-item-title {
+    @extend .heading-small;
+    color: $link-colour;
+    font-weight: normal;
+    text-decoration: none;
+    margin-top: 0 !important;
+    line-height: 1em;
+  }
+
+  .panel-body {
+    padding: 10px 0 5px;
+    > li {
+      padding: 5px 0 5px 20px;
+    }
+  }
+
+  .accordion-toggle {
+    cursor: context-menu;
+  }
+
+  .list-item-detail {
+    @include core-14;
+    color: #6F777B;
+  }
+}
+
+.navbar-header {
+  text-align: right;
+  .box-shadow-menu {
+    @include core-14;
+    cursor: pointer;
+    color: $link-color;
+    position: relative;
+    padding-right: 1.25em;
+  }
+  .box-shadow-menu:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0.15em;
+    width: 1em;
+    height: 0.2em;
+    background: $link-colour;
+    box-shadow:  0 0.35em 0 0 $link-colour, 0 0.7em 0 0 $link-colour;
+  }
+}
