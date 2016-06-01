@@ -1,17 +1,16 @@
 .input-group.search-group {
-  display: table;
+  position: relative;
   width: 100%;
+  max-width: 100%;
 
   > input {
-    @extend .form-control;
     width: 100%;
+    max-width: 100%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    display: table-cell;
     height: 40px;
-    vertical-align: top;
     padding-left: 12px;
-    padding-right: 12px;
+    padding-right: 52px;
     &:focus {
       padding-left: 11px;
       @include focus-input;
@@ -20,9 +19,10 @@
 
   .input-group-btn {
     width: 40px;
-    display: table-cell;
+    position: absolute;
     height: 40px;
-    vertical-align: top;
+    right: 0;
+    top: 0;
 
     button.btn.btn-default.btn-search {
       @extend .btn;
