@@ -1,78 +1,68 @@
 <aside class="nav-side">
   <nav>
-    <div class="navbar-header">
-      <a class="box-shadow-menu"
-         data-toggle="isCollapsed = !isCollapsed"
-         data-ng-click="isCollapsed = !isCollapsed"
-         data-ng-class="{'nav-open': isCollapsed}">
-        <span class="icon-bar-title" data-ng-bind="collapseTitle"></span>
-      </a>
-    </div>
-    <div class="navbar-collapse" data-collapse="isCollapsed">
-      <ul class="accordion">
-        <li data-accordion data-ng-repeat="navItem in navigationItems">
-          <ul data-accordion-group data-heading="{{navItem.title}}" data-ng-class="{'active':isOpen(navItem)}" data-is-open="{{ isOpen(navItem) }}" data-ui-sref-active="active" data-ng-if="navItem.children" class="nav-item nav-item-with-children">
-            <li data-ng-repeat="subNavItem in navItem.children">
+    <ul class="accordion">
+      <li data-accordion data-ng-repeat="navItem in navigationItems">
+        <ul data-accordion-group data-heading="{{navItem.title}}" data-ng-class="{'active':isOpen(navItem)}" data-is-open="{{ isOpen(navItem) }}" data-ui-sref-active="active" data-ng-if="navItem.children" class="nav-item nav-item-with-children">
+          <li data-ng-repeat="subNavItem in navItem.children">
 
-              <!-- If Permissions -->
-              <a data-ng-if="subNavItem.type === 'scroll-to'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-scroll-to="{{subNavItem.ref}}" href="#" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-              <!-- If no permissions -->
-              <a data-ng-if="subNavItem.type === 'scroll-to'" data-ng-hide="subNavItem.permissions" data-scroll-to="{{subNavItem.ref}}" href="#" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-
-              <!-- If Permissions -->
-              <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-              <!-- If no permissions -->
-              <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-hide="subNavItem.permissions" ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-
-              <!-- If Permissions -->
-              <a data-ng-if="subNavItem.type === 'href'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" href="{{subNavItem.ref}}" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-              <!-- If no permissions -->
-              <a data-ng-if="subNavItem.type === 'href'" data-ng-hide="subNavItem.permissions" href="{{subNavItem.ref}}" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
-                <span class="list-item-title">{{subNavItem.title}}</span>
-                <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
-              </a>
-            </li>
-          </ul>
-          <div class="panel-heading nav-item" data-ng-if="!navItem.children">
             <!-- If Permissions -->
-            <h4 data-ng-show="navItem.permissions" class="panel-title" data-only-access data-permissions="{{navItem.permissions}}">
-              <a data-ng-if="navItem.type === 'scroll-to'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">{{navItem.title}}</a>
-              <a data-ng-if="navItem.type === 'ui-sref'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active">{{navItem.title}}</a>
-              <a data-ng-if="navItem.type === 'href'" href="{{navItem.href}}" data-offset="20">{{navItem.title}}</a>
-            </h4>
+            <a data-ng-if="subNavItem.type === 'scroll-to'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-scroll-to="{{subNavItem.ref}}" href="#" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
             <!-- If no permissions -->
-            <h4 data-ng-hide="navItem.permissions" class="panel-title">
-              <a data-ng-if="navItem.type === 'scroll-to'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">
-                {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
-              </a>
-              <a data-ng-if="navItem.type === 'ui-sref'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active" data-ng-class="{'parent-with-detail' : !!navItem.detail}">
-                {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
-              </a>
-              <a data-ng-if="navItem.type === 'href'" href="{{navItem.href}}" data-offset="20">
-                {{navItem.title}}<br data-ng-if="!!navItem.detail">
-                <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
-              </a>
-            </h4>
-          </div>
-        </li>
-      </ul>
-    </div>
+            <a data-ng-if="subNavItem.type === 'scroll-to'" data-ng-hide="subNavItem.permissions" data-scroll-to="{{subNavItem.ref}}" href="#" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
+
+            <!-- If Permissions -->
+            <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" data-ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
+            <!-- If no permissions -->
+            <a data-ng-if="subNavItem.type === 'ui-sref'" data-ng-hide="subNavItem.permissions" ui-sref="{{subNavItem.ref}}" data-ui-sref-active="active" data-data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
+
+            <!-- If Permissions -->
+            <a data-ng-if="subNavItem.type === 'href'" data-ng-show="subNavItem.permissions" data-only-access data-permissions="{{subNavItem.permissions}}" href="{{subNavItem.ref}}" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
+            <!-- If no permissions -->
+            <a data-ng-if="subNavItem.type === 'href'" data-ng-hide="subNavItem.permissions" href="{{subNavItem.ref}}" data-offset="20" class="subnav-link clearfix" data-ng-class="{'has-detail' : !!subNavItem.detail}">
+              <span class="list-item-title">{{subNavItem.title}}</span>
+              <span data-ng-if="!!subNavItem.detail" class="list-item-detail" data-ng-bind-html="subNavItem.detail"></span>
+            </a>
+          </li>
+        </ul>
+        <div class="panel-heading nav-item" data-ng-if="!navItem.children">
+          <!-- If Permissions -->
+          <h4 data-ng-show="navItem.permissions" class="panel-title" data-only-access data-permissions="{{navItem.permissions}}">
+            <a data-ng-if="navItem.type === 'scroll-to'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">{{navItem.title}}</a>
+            <a data-ng-if="navItem.type === 'ui-sref'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active">{{navItem.title}}</a>
+            <a data-ng-if="navItem.type === 'href'" href="{{navItem.href}}" data-offset="20">{{navItem.title}}</a>
+          </h4>
+          <!-- If no permissions -->
+          <h4 data-ng-hide="navItem.permissions" class="panel-title">
+            <a data-ng-if="navItem.type === 'scroll-to'" data-scroll-to="{{navItem.ref}}" href="#" data-offset="20">
+              {{navItem.title}}<br data-ng-if="!!navItem.detail">
+              <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
+            </a>
+            <a data-ng-if="navItem.type === 'ui-sref'" ui-sref="{{navItem.ref}}" data-offset="20" ui-sref-active="active" data-ng-class="{'parent-with-detail' : !!navItem.detail}">
+              {{navItem.title}}<br data-ng-if="!!navItem.detail">
+              <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
+            </a>
+            <a data-ng-if="navItem.type === 'href'" href="{{navItem.href}}" data-offset="20">
+              {{navItem.title}}<br data-ng-if="!!navItem.detail">
+              <span class="list-item-detail parent-detail" data-ng-if="!!navItem.detail" data-ng-bind-html="navItem.detail"></span>
+            </a>
+          </h4>
+        </div>
+      </li>
+    </ul>
   </nav>
 </aside>
