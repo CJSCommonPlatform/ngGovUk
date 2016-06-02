@@ -220,6 +220,8 @@
             <h2>lazy-validation</h2>
               <div>
                 <p>This module enables angular validation to be triggered lazily, when a specific event occurs (such as clicking on a submit button)</p>
+                <p>It also uses the focus directive so when clicking in the error link it will scroll to the right input
+                  and set the focus</p>
               </div>
               <div class="bs-example" data-example-id="lazy-validation-example">
                 <div data-ng-controller="lazyValidationDemo">
@@ -235,7 +237,9 @@
 
                           <p>Optional description of the error(s) and how to correct them</p>
                           <ul class="cpp-form-error-summary-list">
-                            <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
+                            <li data-ng-if="form.fullName.$error.required">
+                              <a href="#" data-event-focus="click" data-scroll-to="example-full-name">Full name must be
+                                entered</a></li>
                             <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
                           </ul>
                         </div>
@@ -288,7 +292,8 @@
                       <h3 id="error-summary-heading-example-2">Required fields are blank</h3>
                       <p>Optional description of the error(s) and how to correct them</p>
                       <ul class="cpp-form-error-summary-list">
-                        <li data-ng-if="form.fullName.$error.required"><a>Full name must be entered</a></li>
+                        <li data-ng-if="form.fullName.$error.required">
+                        <a data-event-focus="click" data-scroll-to="example-full-name">Full name must be entered</a></li>
                         <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
                       </ul>
                     </div>
