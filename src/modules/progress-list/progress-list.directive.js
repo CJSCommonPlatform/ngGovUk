@@ -8,8 +8,9 @@
   function progressListDirective() {
     var directive = {
       link: link,
-      templateUrl: 'progress-list/progress-list.html',
+      templateUrl: 'modules/progress-list/progress-list.tpl.html',
       restrict: 'EA',
+      replace: true,
       scope: {
         progressListItems: '=',
         currentState: '='
@@ -20,29 +21,29 @@
 
     function link(scope, element, attrs, fn) {
       if(!scope.progressListItems) {
-        $scope.progressListItems = [
+        scope.progressListItems = [
           {
             title: 'Item 1',
             active: false,  // for applying active css class
-            state: true, // for displaying complete/incomplete messages
+            access: true, // for displaying complete/incomplete messages
             complete: true // for  displaying complete/incomplete corresponding  message
           },
           {
             title: 'Item 2',
             active: true,
-            state: true,
+            access: true,
             complete: false
           },
           {
             title: 'Item 3',
             active:false,
-            state: false,
+            access: false,
             complete:false
           },
           {
             title: 'Item 4',
             active:false,
-            state: false,
+            access: false,
             complete: false
           }
         ];

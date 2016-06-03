@@ -5,7 +5,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.html',
+  $templateCache.put('modules/footer/footer.tpl.html',
     '<footer id="footer" class="cpp-footer">\n' +
     '  <div class="container">\n' +
     '    <div class="row">\n' +
@@ -13,26 +13,23 @@ module.run(['$templateCache', function($templateCache) {
     '        <div class="footer-meta-inner">\n' +
     '          <nav>\n' +
     '            <ul id="menu-footer" class="menu list-inline">\n' +
-    '              <li class="menu-all-government-blogs"><a href="https://www.blog.gov.uk">All GOV.UK blogs</a></li>\n' +
-    '              <li class="menu-all-government-blog-posts"><a href="https://www.blog.gov.uk/all-posts/">All GOV.UK blog posts</a></li>\n' +
-    '              <li class="menu-gov-uk"><a href="https://www.gov.uk">GOV.UK</a></li>\n' +
-    '              <li class="menu-all-departments"><a href="https://www.gov.uk/government/organisations">All departments</a></li>\n' +
-    '              <li class="menu-all-topics"><a href="https://www.gov.uk/government/topics">All topics</a></li>\n' +
-    '              <li class="menu-all-policies"><a href="https://www.gov.uk/government/policies">All policies</a></li>\n' +
-    '              <li class="menu-cookies"><a href="https://www.blog.gov.uk/cookies">Cookies</a></li>\n' +
+    '              <li data-ng-repeat="link in settings.links">\n' +
+    '                <a data-ng-if="link.type === \'href\'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '                <a data-ng-if="link.type === \'ui-sref\'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '              </li>\n' +
     '            </ul>\n' +
     '          </nav>\n' +
     '          <div class="open-government-licence">\n' +
     '            <p class="logo">\n' +
-    '              <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Service</a>\n' +
+    '              <a data-ng-href="{{ settings.licence.link }}"></a>\n' +
     '            </p>\n' +
-    '            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>\n' +
+    '            <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>\n' +
     '          </div>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="col-md-2 text-center">\n' +
     '        <div class="footer-logo">\n' +
-    '          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
+    '          <a class="crown-copy" data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +
@@ -49,7 +46,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('global-nav/global-nav.html',
+  $templateCache.put('modules/global-nav/global-nav.tpl.html',
     '<div>\n' +
     '    <header class="navbar navbar-default">\n' +
     '        <div class="navbar-content">\n' +
@@ -108,8 +105,8 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-side/nav-side.html',
-    '<div class="nav-side">\n' +
+  $templateCache.put('modules/nav-side/nav-side.tpl.html',
+    '<aside class="nav-side">\n' +
     '  <nav>\n' +
     '    <div class="navbar-header">\n' +
     '      <button type="button"\n' +
@@ -197,7 +194,8 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>');
+    '</aside>\n' +
+    '');
 }]);
 })();
 
@@ -208,42 +206,16 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('progress-list/progress-list.html',
-    '<div class="progress-list">\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">1. Welcome</h3>\n' +
-    '            Complete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
-    '            Incomplete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">3. Create password</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '</div>');
+  $templateCache.put('modules/progress-list/progress-list.tpl.html',
+    '<ul class="progress-list list-group">\n' +
+    '    <li data-ng-repeat="item in progressListItems" ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
+    '              <span ng-if="item.access && item.complete">\n' +
+    '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
+    '              </span>\n' +
+    '        <span ng-if="item.access && !item.complete">Incomplete</span>\n' +
+    '    </li>\n' +
+    '</ul>');
 }]);
 })();
 
@@ -254,7 +226,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tabbed-menu/tabbed-menu.html',
+  $templateCache.put('modules/tabbed-menu/tabbed-menu.tpl.html',
     '<div class="tabbedMenu">\n' +
     '  <nav>\n' +
     '    <ul class="nav nav-tabs">\n' +

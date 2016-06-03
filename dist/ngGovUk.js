@@ -7,7 +7,8 @@
     'ngGovUk.nav-side',
     'ngGovUk.tabbed-menu',
     'ngGovUk.form-validation',
-    'ngGovUk.progress-list'
+    'ngGovUk.progress-list',
+    'ngGovUk.sticky'
   ]);
 })();
 
@@ -15,22 +16,68 @@
   'use strict';
 
   angular
-    .module('ngGovUk.footer', [])
+    .module('ngGovUk.footer.footer-directive', [])
     .directive('footerDirective', footerDirective);
 
-  function footerDirective() {
+  /* @ngInject */
+  function footerDirective($sce) {
     var directive = {
       link: link,
-      templateUrl: 'footer/footer.html',
-      restrict: 'EA'
+      templateUrl: 'modules/footer/footer.tpl.html',
+      restrict: 'EA',
+      scope: {
+        settings: '=?footerSettings'
+      }
     };
 
     return directive;
 
-    function link(scope, element, attrs, fn) {
+    function link(scope, element, attrs) {
+      var defaultSettings = {
+        links: [
+          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
+          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
+          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
+          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
+          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
+          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
+          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
+        ],
 
+        copyright: {
+          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
+          text: 'Crown copyright'
+        },
+
+        licence: {
+          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+          text: 'All content is available under the \
+                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
+                  Open Government Licence v3.0 \
+                 </a>, \
+                 except where otherwise stated'
+        }
+      };
+
+      var mergedSettings = angular.extend(defaultSettings, scope.settings);
+
+      if (mergedSettings.licence && mergedSettings.licence.text) {
+        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
+      }
+
+      scope.settings = mergedSettings;
     }
   }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [
+      'ngGovUk.footer.footer-directive'
+    ]);
+
 })();
 
 (function () {
@@ -140,7 +187,7 @@
   function globalNav() {
     var directive = {
       link: link,
-      templateUrl: 'global-nav/global-nav.html',
+      templateUrl: 'modules/global-nav/global-nav.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {
@@ -188,7 +235,7 @@
   function navSideDirective() {
     var directive = {
       link: link,
-      templateUrl: 'nav-side/nav-side.html',
+      templateUrl: 'modules/nav-side/nav-side.tpl.html',
       restrict: 'EA',
       scope: {
         collapseTitle: '=',
@@ -243,11 +290,11 @@
   function progressListDirective() {
     var directive = {
       link: link,
-      templateUrl: 'progress-list/progress-list.html',
+      templateUrl: 'modules/progress-list/progress-list.tpl.html',
       restrict: 'EA',
+      replace: true,
       scope: {
-        collapseTitle: '=',
-        navigationItems: '=',
+        progressListItems: '=',
         currentState: '='
       }
     };
@@ -255,37 +302,131 @@
     return directive;
 
     function link(scope, element, attrs, fn) {
-      scope.isCollapsed = false;
-
-      scope.isOpen = function (item) {
-        var result = false;
-
-        if (item && item.children && scope.currentState && scope.currentState.name) {
-          for (var i = 0; i < item.children.length; i++) {
-            if (item.children[i].ref.indexOf(scope.currentState.name) !== -1){
-              result = true;
-              break;
-            }
+      if(!scope.progressListItems) {
+        scope.progressListItems = [
+          {
+            title: 'Item 1',
+            active: false,  // for applying active css class
+            access: true, // for displaying complete/incomplete messages
+            complete: true // for  displaying complete/incomplete corresponding  message
+          },
+          {
+            title: 'Item 2',
+            active: true,
+            access: true,
+            complete: false
+          },
+          {
+            title: 'Item 3',
+            active:false,
+            access: false,
+            complete:false
+          },
+          {
+            title: 'Item 4',
+            active:false,
+            access: false,
+            complete: false
           }
-        }
-
-        return result;
-      };
-
-      window.onload = updateCollapsedStatus(scope);
-      window.onresize = updateCollapsedStatus(scope);
-    }
-
-    function updateCollapsedStatus(scope) {
-      var windowWidth = window.innerWidth;
-
-      if (windowWidth < 768) {
-        scope.isCollapsed = true;
-      } else {
-        scope.isCollapsed = false;
+        ];
       }
     }
   }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.sticky', [])
+    /**
+     * Sticky directive
+     *
+     * @author: Vygintas Ranonis
+     * @description: Makes the element sticky, positioning at the top of the page when the viewport scrolls down.
+     * 'Bottoming out' can be enabled on a specified element - upon reaching its position, the element will be fixed
+     * to its bottom. Responsive container width is supported (the element will be restyled on window resize), which is
+     * useful when the using the directive inside the responsive Boostrap grid.
+     * @param stickyBottomSelector: jQuery selector of the 'bottom out' element - when the sticky element
+     * reaches the position of this element, it sticks to its top, rather than the top of the page.
+     * @param stickyMinimumWidth: miminum page width at which to trigger stickiness (useful when
+     * sticky behaviour is not needed in small viewports
+     *
+     * (example usage: wrap the nav-side directive in a sticky container, bottoming out with the footer element, and disabled
+     * for small viewports)
+     * <div data-sticky data-sticky-bottom-selector="footer" data-sticky-minimum-width="768">
+     *    <div data-nav-side-directive data-navigation-items="navItems"></div>
+     * </div>
+     *
+     * NOTE1: there are currently no unit tests as it is not feasable to test window scrolling behaviour with Karma
+     * NOTE2: while there are several existing sticky libraries out there, none of them provide all of the desired
+     * behaviour
+     */
+
+    .directive('sticky', function ($document) {
+
+      function getElementDimensions(element) {
+        return {
+          width: element.width(),
+          top: element.offset().top
+        };
+      }
+
+      function fixElement(element, dimensions, bottomElementHeight, viewportHeight) {
+        var topCorrection = 0;
+        if (bottomElementHeight) {
+          var heightDifference = (Math.floor($document.height() - $document.scrollTop() - bottomElementHeight) -
+          element.outerHeight());
+          topCorrection = heightDifference < 0 ? heightDifference : 0;
+        }
+        element.css({
+          position: 'fixed',
+          width: dimensions.width,
+          top: topCorrection,
+          overflow: 'scroll',
+          maxHeight: viewportHeight
+        });
+      }
+
+      function unfixElement(element){
+        element.attr({style: ''});
+      }
+
+      function elementShouldBeFixed(dimensions) {
+        return $document.scrollTop() >= dimensions.top;
+      }
+
+      return {
+        restrict: 'A',
+        scope: {
+          stickyBottomSelector: '=',
+          stickyMinimumWidth: '='
+        },
+        link: function link(scope, element, attrs) {
+          var stickyMinWidth = parseInt(attrs.stickyMinimumWidth) || 0;
+          var stickyBottomElement = $(attrs.stickyBottomSelector);
+          var bottomHeight = stickyBottomElement.length ? stickyBottomElement.outerHeight() : 0;
+          var viewportHeight = window.innerHeight;
+          var elementDimensions = getElementDimensions(element);
+          $(window).on('scroll', _.debounce(function () {
+            if ($document.width() >= stickyMinWidth) {
+              elementShouldBeFixed(elementDimensions) ?
+                fixElement(element, elementDimensions, bottomHeight, viewportHeight) :
+                unfixElement(element);
+            }
+          }, 10));
+          $(window).on('resize', _.debounce(function () {
+            unfixElement(element);
+            elementDimensions = getElementDimensions(element);
+            viewportHeight = window.innerHeight;
+            bottomHeight = stickyBottomElement.length ? stickyBottomElement.outerHeight() : 0;
+            if (elementShouldBeFixed(elementDimensions) && $document.width() >= stickyMinWidth) {
+              fixElement(element, elementDimensions, bottomHeight, viewportHeight);
+            }
+          }, 10));
+        }
+      };
+    });
 })();
 
 (function () {
@@ -298,7 +439,7 @@
   function tabbedMenu() {
     var directive = {
       link: link,
-      templateUrl: 'tabbed-menu/tabbed-menu.html',
+      templateUrl: 'modules/tabbed-menu/tabbed-menu.tpl.html',
       restrict: 'EA',
       scope: {
         title: '=',
@@ -321,7 +462,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.html',
+  $templateCache.put('modules/footer/footer.tpl.html',
     '<footer id="footer" class="cpp-footer">\n' +
     '  <div class="container">\n' +
     '    <div class="row">\n' +
@@ -329,26 +470,23 @@ module.run(['$templateCache', function($templateCache) {
     '        <div class="footer-meta-inner">\n' +
     '          <nav>\n' +
     '            <ul id="menu-footer" class="menu list-inline">\n' +
-    '              <li class="menu-all-government-blogs"><a href="https://www.blog.gov.uk">All GOV.UK blogs</a></li>\n' +
-    '              <li class="menu-all-government-blog-posts"><a href="https://www.blog.gov.uk/all-posts/">All GOV.UK blog posts</a></li>\n' +
-    '              <li class="menu-gov-uk"><a href="https://www.gov.uk">GOV.UK</a></li>\n' +
-    '              <li class="menu-all-departments"><a href="https://www.gov.uk/government/organisations">All departments</a></li>\n' +
-    '              <li class="menu-all-topics"><a href="https://www.gov.uk/government/topics">All topics</a></li>\n' +
-    '              <li class="menu-all-policies"><a href="https://www.gov.uk/government/policies">All policies</a></li>\n' +
-    '              <li class="menu-cookies"><a href="https://www.blog.gov.uk/cookies">Cookies</a></li>\n' +
+    '              <li data-ng-repeat="link in settings.links">\n' +
+    '                <a data-ng-if="link.type === \'href\'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '                <a data-ng-if="link.type === \'ui-sref\'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '              </li>\n' +
     '            </ul>\n' +
     '          </nav>\n' +
     '          <div class="open-government-licence">\n' +
     '            <p class="logo">\n' +
-    '              <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Service</a>\n' +
+    '              <a data-ng-href="{{ settings.licence.link }}"></a>\n' +
     '            </p>\n' +
-    '            <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>\n' +
+    '            <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>\n' +
     '          </div>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="col-md-2 text-center">\n' +
     '        <div class="footer-logo">\n' +
-    '          <a class="crown-copy" href="https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown copyright</a>\n' +
+    '          <a class="crown-copy" data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +
@@ -365,7 +503,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('global-nav/global-nav.html',
+  $templateCache.put('modules/global-nav/global-nav.tpl.html',
     '<div>\n' +
     '    <header class="navbar navbar-default">\n' +
     '        <div class="navbar-content">\n' +
@@ -424,8 +562,8 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-side/nav-side.html',
-    '<div class="nav-side">\n' +
+  $templateCache.put('modules/nav-side/nav-side.tpl.html',
+    '<aside class="nav-side">\n' +
     '  <nav>\n' +
     '    <div class="navbar-header">\n' +
     '      <button type="button"\n' +
@@ -513,7 +651,8 @@ module.run(['$templateCache', function($templateCache) {
     '      </ul>\n' +
     '    </div>\n' +
     '  </nav>\n' +
-    '</div>');
+    '</aside>\n' +
+    '');
 }]);
 })();
 
@@ -524,42 +663,16 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('progress-list/progress-list.html',
-    '<div class="progress-list">\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">1. Welcome</h3>\n' +
-    '            Complete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">2. One-time passcode</h3>\n' +
-    '            Incomplete\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">3. Create password</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '\n' +
-    '\n' +
-    '    <div class="panel panel-default">\n' +
-    '        <div class="panel-heading">\n' +
-    '            <h3 class="panel-title">4. Complete registration</h3>\n' +
-    '\n' +
-    '        </div>\n' +
-    '\n' +
-    '    </div>\n' +
-    '</div>');
+  $templateCache.put('modules/progress-list/progress-list.tpl.html',
+    '<ul class="progress-list list-group">\n' +
+    '    <li data-ng-repeat="item in progressListItems" ng-class="item.active ? \'list-group-item active\' : \'list-group-item\'">\n' +
+    '        <h4>{{$index + 1}}. {{item.title}}</h4>\n' +
+    '              <span ng-if="item.access && item.complete">\n' +
+    '                <span class="glyphicon glyphicon-ok success-color"></span>Complete\n' +
+    '              </span>\n' +
+    '        <span ng-if="item.access && !item.complete">Incomplete</span>\n' +
+    '    </li>\n' +
+    '</ul>');
 }]);
 })();
 
@@ -570,7 +683,7 @@ try {
   module = angular.module('ngGovUk', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tabbed-menu/tabbed-menu.html',
+  $templateCache.put('modules/tabbed-menu/tabbed-menu.tpl.html',
     '<div class="tabbedMenu">\n' +
     '  <nav>\n' +
     '    <ul class="nav nav-tabs">\n' +

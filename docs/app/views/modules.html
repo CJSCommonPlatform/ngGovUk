@@ -82,7 +82,8 @@
           <div id="footer">
             <h2>footer</h2>
             <div>
-              <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>. As of now, there is no need to include any javascript code.</p>
+              <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>.</p>
+              <p>Elements within the directive can be overridden using the <code>data-footer-settings</code> attribute. Only set the properties that you want to override and the directive will keep the default ones.</p>
             </div>
             <div class="bs-example" data-example-id="footer">
               <div data-footer-directive></div>
@@ -90,11 +91,41 @@
             <div data-tabset>
               <div data-tab data-heading="Markup">
                 <div data-syntax-highlighter data-source='
-                  <div data-footer-directive></div>'></div>
+                  <!-- using with default configuration -->
+                  <div data-footer-directive></div>
+                  <!-- defining custom configuration -->
+                  <div data-footer-directive data-footer-settings="footerSettings"></div>'></div>
               </div>
               <div data-tab data-heading="JavaScript">
                 <div data-syntax-highlighter data-language="javascript" data-source="
                   angular.module('app').controller('footerDemo', function ($scope) {
+                    $scope.footerSettings = {
+                      // (OPTIONAL) overrides default links
+                      links: [
+                        {
+                          title: 'Anchor link',
+                          ref: 'http://link',
+                          type: 'href'
+                        },
+                        {
+                          title: 'Link to a ui-route state',
+                          ref: 'my-state-name',
+                          type: 'ui-sref'
+                        },
+                      ],
+
+                      // (OPTIONAL) overrides default copyright
+                      copyright: {
+                        link: '',
+                        text: ''
+                      },
+
+                      // (OPTIONAL) overrides default licence
+                      licence: {
+                        link: '',
+                        text: '' // text allows html content
+                      }
+                    }
                   });"></div>
               </div>
             </div>

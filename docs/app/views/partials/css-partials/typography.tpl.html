@@ -41,7 +41,6 @@
         to 24px in em
       </li>
       <li>there should only be one lead paragraph per page</li>
-      <li>regular paragraphs sizes will be calculated to 19px in em</li>
     </ul>
     <div class="bs-example" data-example-id="headings">
       <p class="lead">This is a lead paragraph</p>
@@ -57,7 +56,6 @@
     <ul>
       <li>use GDS transport light</li>
       <li>avoid bold and italics</li>
-      <li>regular paragraphs sizes will be calculated to 19px in em</li>
       <li>use smaller sizes only if there's a user need (eg 16px, 14px, 12px)</li>
       <li>make sure lines of text don't exceed 75 characters, as they become harder to read beyond that
         point
@@ -106,6 +104,8 @@
   <section id="lists">
     <h3>Lists</h3>
     <p>List items start with a lowercase letter and have no full stop at the end.</p>
+    <p>Use the <code>list-unstyled</code> class for a not bulleted list.</p>
+    <p>Use one from list-space collection class for adding extra padding to list elements.</p>
     <div class="bs-example" data-example-id="lists">
       <ul>
         <li>here is a bulleted list</li>
@@ -117,6 +117,27 @@
         <li>integer posuere erat a ante venenatis dapibus</li>
         <li>sagittis lacus vel augue laoreet</li>
       </ol>
+      <ul class="list-unstyled">
+        <li>here is a non-bulleted list</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+        <li>integer posuere erat a ante venenatis dapibus</li>
+      </ul>
+      <ul class="list-spaced-large">
+        <li>here is a non-bulleted and spaced list with 10px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced">
+        <li>here is a non-bulleted and spaced list with 6px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced-small">
+        <li>here is a non-bulleted and spaced list with 5px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced-xs">
+        <li>here is a non-bulleted and spaced list with 1px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
     </div>
     <div data-syntax-highlighter data-source='
       <ul>
@@ -124,12 +145,32 @@
         <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
         <li>integer posuere erat a ante venenatis dapibus</li>
       </ul>
-
       <ol>
         <li>here is a numbered list</li>
         <li>integer posuere erat a ante venenatis dapibus</li>
         <li>sagittis lacus vel augue laoreet</li>
-      </ol>'></div>
+      </ol>
+      <ul class="list-unstyled">
+        <li>here is a non-bulleted list</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+        <li>integer posuere erat a ante venenatis dapibus</li>
+      </ul>
+      <ul class="list-spaced-large">
+        <li>here is a non-bulleted and spaced list with 10px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced">
+        <li>here is a non-bulleted and spaced list with 6px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced-small">
+        <li>here is a non-bulleted and spaced list with 5px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>
+      <ul class="list-spaced-xs">
+        <li>here is a non-bulleted and spaced list with 1px padding</li>
+        <li>vivamus sagittis lacus vel augue laoreet rutrum</li>
+      </ul>'></div>
   </section>
 
   <section id="alerts">
@@ -259,5 +300,17 @@
             post.</p>
         </div>
       </div>'></div>
+  </section>
+
+  <section id="digit-box">
+    <h3>Digit box container</h3>
+    <p>Use this to display a grey box to reflect digit numbers.</p>
+    <div class="bs-example" data-example-id="digit-box">
+      <span class="digit-box">1234</span>
+    </div>
+    <div data-syntax-highlighter data-source='
+    <span class="digit-box">
+      1234
+    </span>'></div>
   </section>
 </section>

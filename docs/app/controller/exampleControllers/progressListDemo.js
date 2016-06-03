@@ -15,25 +15,25 @@
         {
           title: 'Welcome',
           active: false,  // for applying active css class
-          state: true, // for displaying complete/incomplete messages
+          access: true, // for displaying complete/incomplete messages
           complete: true // for  displaying complete/incomplete corresponding  message
         },
         {
           title: 'One-time passcode',
           active: true,
-          state: true,
+          access: true,
           complete: false
         },
         {
           title: 'Create password',
           active:false,
-          state: false,
+          access: false,
           complete:false
         },
         {
           title: 'Complete registration',
           active:false,
-          state: false,
+          access: false,
           complete: false
         }
       ];

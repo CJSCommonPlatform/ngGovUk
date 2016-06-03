@@ -92,6 +92,11 @@
               title: 'Hidden text (progressive disclosure)',
               type: 'scroll-to',
               ref: 'hidden-text'
+            },
+            {
+              title: 'Digit numbers confirmantion box',
+              type: 'scroll-to',
+              ref: 'digit-box'
             }
           ]
         },
@@ -143,6 +148,11 @@
               title: 'Review Complete',
               type: 'scroll-to',
               ref: 'review-complete'
+            },
+            {
+              title: 'Danger Button',
+              type: 'scroll-to',
+              ref: 'danger-button'
             },
             {
               title: 'Button Alignment',
@@ -244,6 +254,11 @@
               title: 'Form Checkbox Toggle Content',
              type: 'scroll-to',
               ref: 'toggle-content-checkboxes'
+            },
+            {
+              title: 'Input boxes & link alignement',
+              type: 'scroll-to',
+              ref: 'input-link-alignement'
             }
           ],
         },

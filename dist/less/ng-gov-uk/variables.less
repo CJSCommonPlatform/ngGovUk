@@ -12,10 +12,14 @@
 @grey-3:                #DEE0E2;
 @grey-4:                #F8F8F8;
 @grey-5:                #666666;
+@grey-6:                #80898E;
+@grey-7:                #7F898E;
 @grey-footer:           #454a4c;
 
 //Colour palette:
 @turqouise:             #28a197;
+@orange:                #F47738;
+@green:                 #006435;
 
 // Apply the GDS greys to Bootstrap
 
@@ -60,13 +64,15 @@
 
 // Status colours
 @aplha-colour:          #D53880;
-@beta-colour:           #F47738;
+@beta-colour:           @orange;
 @discovery-colour:      #912B88;
 @live-colour:           #85994B;
 @error-colour:          #B10E1E;
 @warning-colour:        #E97637;
 @success-colour:        @turqouise;
-
+@pending-colour:        #FF842F;
+@active-colour:         @green;
+@deregister-colour:     @grey-1;
 
 
 // Bootsrap Applications of GDS colours
@@ -214,6 +220,7 @@
 @btn-default-border:             #ccc;
 @btn-default-shadow-color:       #003518;
 @btn-default-focus-color:        #ffbf47;
+@btn-danger-focus-color:         #ffbf47;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
@@ -233,7 +240,7 @@
 
 @btn-danger-color:               #fff;
 @btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              darken(@btn-danger-bg, 5%);
+@btn-danger-border:              darken(@btn-danger-bg, 25%);
 
 @btn-link-disabled-color:        @gray-light;
 

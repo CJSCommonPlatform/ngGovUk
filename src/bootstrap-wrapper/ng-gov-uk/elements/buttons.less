@@ -20,6 +20,16 @@ a.btn {
   }
 }
 
+.btn-danger {
+  .drop-shadow-color(0, 2px, 0, @btn-danger-border);
+  &:focus {
+    background-color: @btn-danger-bg;
+    border: 0;
+    outline: 3px solid @btn-danger-focus-color;
+    outline-offset: initial;
+  }
+}
+
 .btn-link {
   background: @btn-default-bg url('@{image-path}icon-pointer.png') no-repeat right;
   font-weight: bold;
