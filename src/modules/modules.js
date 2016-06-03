@@ -8,6 +8,7 @@
     'ngGovUk.tabbed-menu',
     'ngGovUk.form-validation',
     'ngGovUk.progress-list',
+    'ngGovUk.focus',
     'ngGovUk.sticky'
   ]);
 })();
