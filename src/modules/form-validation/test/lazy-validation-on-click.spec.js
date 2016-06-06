@@ -2,7 +2,7 @@
   'use strict';
 
   describe('lazy-validation-on-click directive', function () {
-    var lazyValidationController, $compile, $scope, template, buttonElem;
+    var lazyValidationController, $compile, $scope, template, buttonElem, $window, smoothScroll;
 
     function compileDirective(template) {
       mockDirectiveController(
@@ -21,21 +21,35 @@
 
     beforeEach(module('ngGovUk.form-validation.lazy-validation-on-click'));
 
-    beforeEach(inject(function (_$rootScope_, _$compile_) {
-      $scope = _$rootScope_.$new();
-      $compile = _$compile_;
-
-      lazyValidationController = {
-        revalidate: jasmine.createSpy('revalidate'),
-        isValid: jasmine.createSpy('isValid')
+    beforeEach(function () {
+      smoothScroll = jasmine.createSpy();
+      $window = {
+        document: {
+            getElementById: jasmine.createSpy()
+        }
       };
-    }));
+
+      module(function ($provide) {
+        $provide.value('$window', $window);
+        $provide.value('smoothScroll', smoothScroll);
+      });
+
+      inject(function (_$rootScope_, _$compile_) {
+        $scope = _$rootScope_.$new();
+        $compile = _$compile_;
+
+        lazyValidationController = {
+          revalidate: jasmine.createSpy('revalidate'),
+          isValid: jasmine.createSpy('isValid')
+        };
+      });
+    });
 
     describe('when callback attribute has been set', function () {
       beforeEach(function () {
-        template = angular.element('<div><button lazy-validation-on-click="callback()"></button></div>');
+        template = angular.element('<div><button move-page-to="error-summary" ' +
+                                            'lazy-validation-on-click="callback()"></button></div>');
         $scope.callback = jasmine.createSpy('callback');
-
         buttonElem = compileDirective(template).find('button');
       });
 
@@ -62,12 +76,14 @@
         });
       });
 
-      describe('and form was NOT valid', function () {
+      describe(', form was NOT valid and id provided exists in the document', function () {
         beforeEach(function () {
           lazyValidationController.isValid = jasmine
             .createSpy('isValid')
             .and
             .returnValue(false);
+          var element = angular.element('<div></div>');
+          $window.document.getElementById.and.returnValue(element);
         });
 
         describe('and element has been clicked', function () {
@@ -82,8 +98,41 @@
           it('should NOT trigger the callback', function () {
             expect($scope.callback).not.toHaveBeenCalled();
           });
+
+          it('should scroll to the id provided', function() {
+              expect($window.document.getElementById).toHaveBeenCalled();
+              expect(smoothScroll).toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe(', form was NOT valid and id provided does NOT exist in the document', function () {
+        beforeEach(function () {
+          lazyValidationController.isValid = jasmine
+            .createSpy('isValid')
+            .and
+            .returnValue(false);
+          $window.document.getElementById.and.returnValue(null);
         });
 
+        describe('and element has been clicked', function () {
+          beforeEach(function () {
+            buttonElem.triggerHandler('click');
+          });
+
+          it('should revalidate the form', function () {
+            expect(lazyValidationController.revalidate).toHaveBeenCalled();
+          });
+
+          it('should NOT trigger the callback', function () {
+            expect($scope.callback).not.toHaveBeenCalled();
+          });
+
+          it('should scroll to the id provided', function() {
+              expect($window.document.getElementById).toHaveBeenCalled();
+              expect(smoothScroll).not.toHaveBeenCalled();
+          });
+        });
       });
     });
 

@@ -251,6 +251,8 @@
             <h2>lazy-validation</h2>
               <div>
                 <p>This module enables angular validation to be triggered lazily, when a specific event occurs (such as clicking on a submit button)</p>
+                <p>When the error ocurrs because the form is invalid, if an id is provided (should be to the top where
+                  error messages are displayed) it will do the scrolling</p>
                 <p>It also uses the focus directive so when clicking in the error link it will scroll to the right input
                   and set the focus</p>
               </div>
@@ -299,6 +301,7 @@
                       <input class="btn btn-default"
                       type="submit"
                       value="Submit form"
+                      data-move-page-to="error-summary-heading-example-2"
                       data-lazy-validation-on-click="submitForm()">
                       <input class="btn btn-default"
                         type="submit"
@@ -357,6 +360,7 @@
                     <input class="btn btn-default"
                       type="submit"
                       value="Submit form (manual validation check)"
+                      data-move-page-to="error-summary-heading-example-2"
                       data-lazy-validation-on-click
                       data-ng-click="checkValidationManually()">
                   </form>
