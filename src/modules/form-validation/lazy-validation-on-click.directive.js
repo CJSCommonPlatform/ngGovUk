@@ -3,18 +3,23 @@
 
   angular
       .module('ngGovUk.form-validation.lazy-validation-on-click', [
-        'ngGovUk.form-validation.lazy-validation'
+        'ngGovUk.form-validation.lazy-validation',
+        'smoothScroll'
       ])
-      .directive('lazyValidationOnClick', lazyValidationOnClick);
+      .directive('lazyValidationOnClick', ['smoothScroll', '$window', lazyValidationOnClick]);
 
   /**
-   * This directive triggers revalidation of a form on a click event
+   * @name lazyVAlidationOnClick
+   * @desc This directive triggers revalidation of a form on a click event and scrolls to the id provided if form is invalid
+   * (should go to the error message validation)
    *
+   * @example
+   * <div id="error-summary"></div>
    * <form lazy-validation="scopePropertyToBindFormValidation">
-   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
+   *     <button data-move-page-to="error-summary" lazy-validation-on-click="optionalCallbackWhenFormValid()" />
    * </form>
    */
-  function lazyValidationOnClick() {
+  function lazyValidationOnClick(smoothScroll, $window) {
     return {
       restrict: 'A',
       require: '^^lazyValidation',
@@ -26,6 +31,12 @@
 
           if (lazyValidationController.isValid() && $scope.ifValidCallback) {
             $scope.ifValidCallback();
+          } else {
+            var id = attrs.movePageTo;
+            var element = $window.document.getElementById(id);
+            if(element) {
+              smoothScroll(element);
+            }
           }
         };
 
