@@ -1,4 +1,4 @@
-#ngGovUk 
+#ngGovUk - THIS LIBRARY HAS BEEN DEPRECATED
 
 *ALPHA - This is a new service – your feedback will help us to improve it.
 
