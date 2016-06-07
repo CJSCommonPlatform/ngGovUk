@@ -16,171 +16,6 @@
   'use strict';
 
   angular
-    .module('ngGovUk.form-validation', [
-      'ngGovUk.form-validation.lazy-validation',
-      'ngGovUk.form-validation.lazy-validation-on-click'
-    ]);
-})();
-(function () {
-  'use strict';
-
-  angular
-      .module('ngGovUk.form-validation.lazy-validation-on-click', [
-        'ngGovUk.form-validation.lazy-validation'
-      ])
-      .directive('lazyValidationOnClick', lazyValidationOnClick);
-
-  /**
-   * This directive triggers revalidation of a form on a click event
-   *
-   * <form lazy-validation="scopePropertyToBindFormValidation">
-   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
-   * </form>
-   */
-  function lazyValidationOnClick() {
-    return {
-      restrict: 'A',
-      require: '^^lazyValidation',
-      /** Makes sure postLink runs before ng-click */
-      priority: '-1',
-      link: function ($scope, element, attrs, lazyValidationController) {
-        var revalidateAndRunCallbackIfDefined = function () {
-          lazyValidationController.revalidate();
-
-          if (lazyValidationController.isValid() && $scope.ifValidCallback) {
-            $scope.ifValidCallback();
-          }
-        };
-
-        element.bind('click', function () {
-          $scope.$apply(revalidateAndRunCallbackIfDefined);
-        });
-      },
-      scope: {
-        ifValidCallback: '&?lazyValidationOnClick'
-      }
-    };
-  }
-})();
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.form-validation.lazy-validation', [])
-    .directive('lazyValidation', lazyValidation);
-
-  /**
-   * Lazy Validation
-   *
-   * It wraps default angular validation which is dynamic in it's nature
-   * and delays its execution till it's explicitly required
-   * (eg. when user clicks on a form's 'Submit' button)
-   *
-   * <form lazy-validation="formName">
-   *   <span ng-if="formName.name.$error.required">Name is required</span>
-   *   <input type=text name="name">
-   *
-   *   <button lazy-validation-on-click></button>
-   * </form>
-   */
-  function lazyValidation() {
-    function createDeepCopy(validationData) {
-      return angular.copy(validationData);
-    }
-
-    return {
-      restrict: 'A',
-      require: 'form',
-      controller: ['$scope', function ($scope) {
-        this.revalidate = function () {
-          $scope.validation = createDeepCopy($scope.angularFormController);
-        };
-
-        this.isValid = function () {
-          return $scope.angularFormController.$valid;
-        };
-      }],
-      link: function ($scope, element, attrs, angularFormController) {
-        $scope.angularFormController = angularFormController;
-      },
-      scope: {
-        validation: '=lazyValidation'
-      }
-    };
-  }
-})();
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.footer.footer-directive', [])
-    .directive('footerDirective', footerDirective);
-
-  /* @ngInject */
-  function footerDirective($sce) {
-    var directive = {
-      link: link,
-      templateUrl: 'modules/footer/footer.tpl.html',
-      restrict: 'EA',
-      scope: {
-        settings: '=?footerSettings'
-      }
-    };
-
-    return directive;
-
-    function link(scope, element, attrs) {
-      var defaultSettings = {
-        links: [
-          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
-          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
-          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
-          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
-          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
-          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
-          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
-        ],
-
-        copyright: {
-          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
-          text: 'Crown copyright'
-        },
-
-        licence: {
-          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-          text: 'All content is available under the \
-                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
-                  Open Government Licence v3.0 \
-                 </a>, \
-                 except where otherwise stated'
-        }
-      };
-
-      var mergedSettings = angular.extend(defaultSettings, scope.settings);
-
-      if (mergedSettings.licence && mergedSettings.licence.text) {
-        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
-      }
-
-      scope.settings = mergedSettings;
-    }
-  }
-})();
-
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.footer', [
-      'ngGovUk.footer.footer-directive'
-    ]);
-
-})();
-
-(function () {
-  'use strict';
-
-  angular
     .module('ngGovUk.global-nav', [])
     .directive('globalNav', globalNav)
     .directive('metaId', function () {
@@ -463,6 +298,171 @@
   }
 })();
 
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.form-validation', [
+      'ngGovUk.form-validation.lazy-validation',
+      'ngGovUk.form-validation.lazy-validation-on-click'
+    ]);
+})();
+(function () {
+  'use strict';
+
+  angular
+      .module('ngGovUk.form-validation.lazy-validation-on-click', [
+        'ngGovUk.form-validation.lazy-validation'
+      ])
+      .directive('lazyValidationOnClick', lazyValidationOnClick);
+
+  /**
+   * This directive triggers revalidation of a form on a click event
+   *
+   * <form lazy-validation="scopePropertyToBindFormValidation">
+   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
+   * </form>
+   */
+  function lazyValidationOnClick() {
+    return {
+      restrict: 'A',
+      require: '^^lazyValidation',
+      /** Makes sure postLink runs before ng-click */
+      priority: '-1',
+      link: function ($scope, element, attrs, lazyValidationController) {
+        var revalidateAndRunCallbackIfDefined = function () {
+          lazyValidationController.revalidate();
+
+          if (lazyValidationController.isValid() && $scope.ifValidCallback) {
+            $scope.ifValidCallback();
+          }
+        };
+
+        element.bind('click', function () {
+          $scope.$apply(revalidateAndRunCallbackIfDefined);
+        });
+      },
+      scope: {
+        ifValidCallback: '&?lazyValidationOnClick'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.form-validation.lazy-validation', [])
+    .directive('lazyValidation', lazyValidation);
+
+  /**
+   * Lazy Validation
+   *
+   * It wraps default angular validation which is dynamic in it's nature
+   * and delays its execution till it's explicitly required
+   * (eg. when user clicks on a form's 'Submit' button)
+   *
+   * <form lazy-validation="formName">
+   *   <span ng-if="formName.name.$error.required">Name is required</span>
+   *   <input type=text name="name">
+   *
+   *   <button lazy-validation-on-click></button>
+   * </form>
+   */
+  function lazyValidation() {
+    function createDeepCopy(validationData) {
+      return angular.copy(validationData);
+    }
+
+    return {
+      restrict: 'A',
+      require: 'form',
+      controller: ['$scope', function ($scope) {
+        this.revalidate = function () {
+          $scope.validation = createDeepCopy($scope.angularFormController);
+        };
+
+        this.isValid = function () {
+          return $scope.angularFormController.$valid;
+        };
+      }],
+      link: function ($scope, element, attrs, angularFormController) {
+        $scope.angularFormController = angularFormController;
+      },
+      scope: {
+        validation: '=lazyValidation'
+      }
+    };
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer.footer-directive', [])
+    .directive('footerDirective', footerDirective);
+
+  /* @ngInject */
+  function footerDirective($sce) {
+    var directive = {
+      link: link,
+      templateUrl: 'modules/footer/footer.tpl.html',
+      restrict: 'EA',
+      scope: {
+        settings: '=?footerSettings'
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs) {
+      var defaultSettings = {
+        links: [
+          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
+          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
+          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
+          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
+          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
+          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
+          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
+        ],
+
+        copyright: {
+          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
+          text: 'Crown copyright'
+        },
+
+        licence: {
+          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+          text: 'All content is available under the \
+                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
+                  Open Government Licence v3.0 \
+                 </a>, \
+                 except where otherwise stated'
+        }
+      };
+
+      var mergedSettings = angular.extend(defaultSettings, scope.settings);
+
+      if (mergedSettings.licence && mergedSettings.licence.text) {
+        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
+      }
+
+      scope.settings = mergedSettings;
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [
+      'ngGovUk.footer.footer-directive'
+    ]);
+
+})();
 
 (function(module) {
 try {

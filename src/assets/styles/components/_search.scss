@@ -1,0 +1,53 @@
+.input-group.search-group {
+  position: relative;
+
+  @include media(tablet) {
+    width: 50%;
+  }
+
+  > input {
+    @extend .form-control;
+    width: 100% !important;
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 52px;
+    &:focus {
+      padding-left: 11px;
+      @include focus-input;
+    }
+  }
+
+  .input-group-btn {
+    width: 40px;
+    position: absolute;
+    height: 40px;
+    right: 0;
+    top: 0;
+
+    button.btn.btn-default.btn-search {
+      @extend .btn;
+      box-sizing: border-box;
+      box-shadow: none;
+      font-size: 0;
+      height: 40px;
+      padding: 6px 0 7px;
+      background: $black;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      width: 100%;
+      &:hover {
+        background: $black;
+      }
+      &:after {
+        font-family: FontAwesome, sans-serif;
+        content: '\f002';
+        color: $white;
+        font-size: 18px;
+      }
+      &:focus {
+        @include focus-input;
+        padding-top: 4px;
+      }
+    }
+  }
+}

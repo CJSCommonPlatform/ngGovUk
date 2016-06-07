@@ -1,5 +1,12 @@
+$dist-img-path: '../img';
+$nta-font-path: '../fonts';
+
+@function image-url($url) {
+  @return url('#{$dist-img-path}/#{$url}');
+}
+
 @import '~govuk-elements-sass/public/sass/govuk-elements';
 @import '~govuk_template_ejs/assets/stylesheets/govuk-template';
 
-@import 'styles/styles';
+@import 'assets/styles/styles';
 

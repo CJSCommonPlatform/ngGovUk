@@ -32,7 +32,8 @@ module.exports = function (config, log) {
   gulp.task('copy-dev-images', function () {
     return gulp.src([
       config.dev.imgPath + '/**/*',
-      'node_modules/govuk_template_ejs/assets/images/**'
+      'node_modules/govuk_template_ejs/assets/images/**',
+      'node_modules/govuk_frontend_toolkit/images/**'
     ])
       .pipe(gulp.dest(config.dist.imgPath));
   });

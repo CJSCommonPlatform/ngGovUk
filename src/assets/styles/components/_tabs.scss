@@ -1,0 +1,29 @@
+.tabbedMenu {
+  .nav.nav-tabs {
+    border-bottom: 1px solid $grey-3;
+    padding-left: 0;
+    > li {
+      list-style: none;
+      float: none;
+      display: inline-block;
+      margin: 0 10px;
+
+      > a {
+        padding: 10px 0;
+        display: block;
+        color: $link-colour;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 4px solid transparent;
+      }
+
+      &:active > a, &:hover > a {
+        color: #0b0c0c;
+        cursor: pointer;
+        background: transparent;
+        border-color: $black;
+      }
+    }
+  }
+}

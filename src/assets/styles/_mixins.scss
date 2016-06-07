@@ -1,0 +1,20 @@
+@mixin arrow($direction) {
+  &:before {
+    @include core-16;
+    display: inline-block;
+    padding: 2px 5px 0 0;
+
+    @if $direction == right {
+      content: '\25BA';
+    }
+    @if $direction == down {
+      content: '\25BC';
+    }
+  }
+}
+
+@mixin focus-input() {
+  outline: none;
+  box-shadow: none !important;
+  border: 3px solid $focus-colour;
+}
