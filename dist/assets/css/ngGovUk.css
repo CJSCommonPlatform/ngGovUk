@@ -3696,14 +3696,14 @@ tbody.collapse.in {
   font-size: 0;
   height: 40px;
   padding: 6px 0 7px;
-  background: #6f777b;
+  background: #0b0c0c;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   width: 100%;
 }
 
 .input-group.search-group .input-group-btn button.btn-default.btn-search.btn:hover {
-  background: #6f777b;
+  background: #0b0c0c;
 }
 
 .input-group.search-group .input-group-btn button.btn-default.btn-search.btn:after {
