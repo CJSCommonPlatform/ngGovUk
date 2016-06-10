@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <!-- Left col -->
+    <div class="col-sm-4">
+      <div data-sticky data-sticky-bottom-selector="footer" data-sticky-minimum-width="768">
+        <div data-nav-side-directive data-navigation-items="navItems"></div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+
+      <section id="page-intro">
+        <h1 class="text-uppercase">UI Components</h1>
+        <p class="lead">Reuseable components that can be used anywhere across your sites.</p>
+      </section>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/breadcrumbs.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/stripe.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/search.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/accordion.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/progress-list.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/alerts.tpl.html'"></div>
+
+      <div data-ng-include data-src="'app/views/partials/component-partials/notifications.tpl.html'"></div>
+    </div>
+  </div>
+</div>

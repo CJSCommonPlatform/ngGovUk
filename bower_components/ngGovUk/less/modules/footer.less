@@ -1,0 +1,67 @@
+.cpp-footer {
+  padding: 60px 0 60px 0;
+  background-color: @cpp-gray;
+  border-top: solid 1px @ccp-border-gray;
+  border-top: 10px solid @cpp-header-bar;
+  color: @grey-footer;
+  a {
+    color: @grey-footer;
+    font-size: @font-size-xs;
+    &:hover {
+      color: @black;
+    }
+  }
+}
+
+#menu-footer {
+  margin-bottom: 20px;
+}
+
+.footer-meta-inner {
+  margin-top: 54px;
+  @media (max-width: @screen-sm-max) {
+    margin-top: 0;
+  }
+}
+
+.crown-copy {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: @black;
+  }
+}
+
+.open-government-licence {
+  position: relative;
+  padding-left: 55px;
+  p {
+    line-height: 1.25;
+    font-size: @font-size-small;
+  }
+  .logo {
+    width: 41px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    a {
+      display: block;
+      width: 41px;
+      height: 17px;
+      background: url('@{image-path}ogl.png') no-repeat;
+      overflow: hidden;
+      text-indent: -999em;
+    }
+  }
+}
+
+.footer-logo {
+    background: url('@{image-path}govuk-crest.png') no-repeat center;
+    height: 105px;
+    text-align: center;
+    a {
+      top: 105px;
+      position: relative;
+    }
+}

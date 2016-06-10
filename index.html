@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" id="ng-app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ngGovUk</title>
+  <!-- demo app -->
+  <link rel="stylesheet" href="assets/css/app.css" type="text/css"/>
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/themes/prism.min.css"/>
+  <!-- fontAwesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body id="top">
+  <header data-global-nav data-nav-settings="globalNav"></header>
+  <div class="container">
+    <div class="phase-banner">
+      <p>
+        <strong class="alpha-banner">ALPHA</strong>
+        <span>This is a new service – your feedback will help us to improve it.</span>
+      </p>
+    </div>
+  </div>
+  <div ui-view class="content-wrapper"></div>
+  <!-- /.main -->
+  <div data-footer-directive></div>
+  <!--[if lt IE 10]>
+  <script data-remove="false" data-concat="false" src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/flexibility/dist/flexibility.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/respond/src/respond.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/es5-shim/es5-shim.min.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/es5-shim/es5-sham.min.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/es6-shim/es6-shim.min.js"></script>
+  <script data-remove="false" data-concat="false" src="bower_components/es6-shim/es6-sham.min.js"></script>
+  <![endif]-->
+  <script src="bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <!--prism.js - serving from cdn as bower module requires a separate build-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-javascript.min.js"></script>
+  <!--angular-->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-vertilize/angular-vertilize.js"></script>
+  <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
+  <!--ngGovUk-->
+  <script src="bower_components/ngGovUk/ngGovUk.js"></script>
+  <!-- demo app -->
+  <script src="app.js"></script>
+</body>
+</html>

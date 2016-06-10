@@ -1,0 +1,339 @@
+<section id="tables">
+  <h1>Tables</h1>
+
+  <p>Consider putting content into tables to make it easier to scan.</p>
+
+  <section id="numeric-tabular">
+    <h3>Numeric tabular data</h3>
+    <ul>
+      <li>when comparing rows of numbers, align numbers to the right in table cells</li>
+      <li>use the <code>numeric</code> class with elements containing numbers, in order to allow numbers of
+        the same width to be more easily compared
+      </li>
+    </ul>
+    <div class="bs-example" data-example-id="numeric-tabular">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th class="numeric" scope="col">Paper form</th>
+            <th class="numeric" scope="col">Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25 November to 1 December 2013</td>
+            <td class="numeric">2,763</td>
+            <td class="numeric">1,792</td>
+          </tr>
+          <tr>
+            <td>2 to 8 December 2013</td>
+            <td class="numeric">2,850</td>
+            <td class="numeric">1,740</td>
+          </tr>
+          <tr>
+            <td>9 to 15 December 2013</td>
+            <td class="numeric">2,388</td>
+            <td class="numeric">1,683</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th class="numeric" scope="col">Paper form</th>
+            <th class="numeric" scope="col">Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25 November to 1 December 2013</td>
+            <td class="numeric">2,763</td>
+            <td class="numeric">1,792</td>
+          </tr>
+          <tr>
+            <td>2 to 8 December 2013</td>
+            <td class="numeric">2,850</td>
+            <td class="numeric">1,740</td>
+          </tr>
+          <tr>
+            <td>9 to 15 December 2013</td>
+            <td class="numeric">2,388</td>
+            <td class="numeric">1,683</td>
+          </tr>
+        </tbody>
+      </table>'></div>
+  </section>
+
+  <section id="numeric-data">
+    <h3>Data in a table</h3>
+    <p>Not all content in tables should be right aligned.</p>
+    <div class="bs-example" data-example-id="numeric-data">
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2">Dates and amounts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First 6 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Next 33 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Total estimated pay</td>
+            <td>£4,282.20</td>
+          </tr>
+          <tr>
+            <td>Tell the mother’s employer</td>
+            <td>28 days before they want to start maternity pay</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2">Dates and amounts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First 6 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Next 33 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Total estimated pay</td>
+            <td>£4,282.20</td>
+          </tr>
+          <tr>
+            <td>Tell the mother’s employer</td>
+            <td>28 days before they want to start maternity pay</td>
+          </tr>
+        </tbody>
+      </table>'></div>
+  </section>
+
+  <section id="hover-rows">
+    <h3>Hover Rows</h3>
+    <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.
+    </p>
+    <div class="bs-example" data-example-id="numeric-data">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2">Dates and amounts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First 6 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Next 33 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Total estimated pay</td>
+            <td>£4,282.20</td>
+          </tr>
+          <tr>
+            <td>Tell the mother’s employer</td>
+            <td>28 days before they want to start maternity pay</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2">Dates and amounts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First 6 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Next 33 weeks</td>
+            <td>£109.80 per week</td>
+          </tr>
+          <tr>
+            <td>Total estimated pay</td>
+            <td>£4,282.20</td>
+          </tr>
+          <tr>
+            <td>Tell the mother’s employer</td>
+            <td>28 days before they want to start maternity pay</td>
+          </tr>
+        </tbody>
+      </table>'></div>
+  </section>
+
+  <section id="collapsible-table">
+    <h3>Collapsible table</h3>
+    <p>To make rows inside a table collapsible give the table a class of <code>collapsible</code>, give the
+      heading rows a class of <code>collapsible-row-header</code> and finally give the content rows a class of
+      <code>collapsible-row-content</code>. Use <code>ng-click</code> and <code>ng-show</code> to hide and
+      show rows.</p>
+    <div class="bs-example" data-example-id="collapsible-table">
+      <table class="table table-hover table-collapsible">
+        <thead>
+          <tr>
+            <th>Case no./URN</th>
+            <th>Defendant’s name</th>
+            <th>Next court date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
+              data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
+            <td>{{defendant.caseNumber}}</td>
+            <td>{{defendant.name}}</td>
+            <td>{{defendant.nextCourtDate}}</td>
+          </tr>
+          <tr class="collapsible-row-content sample-show-hide" data-ng-hide="defendant.collapsed"
+              data-ng-repeat-end>
+            <td colspan="3">
+              <p>{{defendant.content}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <table class="table table-hover table-collapsible">
+        <thead>
+          <tr>
+            <th>Case no./URN</th>
+            <th>Defendant’s name</th>
+            <th>Next court date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
+              data-ng-class="{&apos;open&apos;: !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
+            <td>{{defendant.caseNumber}}</td>
+            <td>{{defendant.name}}</td>
+            <td>{{defendant.nextCourtDate}}</td>
+          </tr>
+          <tr class="collapsible-row-content sample-show-hide" data-ng-hide="defendant.collapsed"
+              data-ng-repeat-end>
+            <td colspan="3">
+              <p>{{defendant.content}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>'></div>
+  </section>
+
+  <section id="sortable-table">
+    <h3>Sortable table</h3>
+    <p>Allows the table to be sortable by heading, add a class of <code>sortable</code>. By default it is a
+      down arrow, add a class of <code>sort-active-asc</code> to change it to an up arrow</p>
+    <div class="bs-example" data-example-id="collapsible-table">
+      <table class="table table-hover table-collapsible table-sortable">
+        <thead>
+          <tr>
+            <th>Case no./URN</th>
+            <th>Defendant’s name</th>
+            <th class="sortable" data-ng-click="vm.sort($event)">Next court date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
+              data-ng-class="{'open': !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
+            <td>{{defendant.caseNumber}}</td>
+            <td>{{defendant.name}}</td>
+            <td>{{defendant.nextCourtDate}}</td>
+          </tr>
+          <tr class="collapsible-row-content sample-show-hide" data-ng-hide="defendant.collapsed"
+              data-ng-class="{'visible': !defendant.collapsed}" data-ng-repeat-end>
+            <td colspan="3">
+              <p>{{defendant.content}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <table class="table table-hover table-collapsible table-sortable">
+        <thead>
+          <tr>
+            <th>Case no./URN</th>
+            <th>Defendant’s name</th>
+            <th class="sortable" data-ng-click="vm.sort($event)">Next court date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="collapsible-row-header" data-ng-click="defendant.collapsed = !defendant.collapsed"
+              data-ng-class="{&apos;open&apos;: !defendant.collapsed}" data-ng-repeat-start="defendant in vm.defendants">
+            <td>{{defendant.caseNumber}}</td>
+            <td>{{defendant.name}}</td>
+            <td>{{defendant.nextCourtDate}}</td>
+          </tr>
+          <tr class="collapsible-row-content sample-show-hide" data-ng-hide="defendant.collapsed"
+              data-ng-class="{&apos;visible&apos;: !defendant.collapsed}" data-ng-repeat-end>
+            <td colspan="3">
+              <p>{{defendant.content}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>'></div>
+  </section>
+
+  <section id="data-visualisation">
+    <h3>Data visualisation</h3>
+    <ul>
+      <li>data is recommended as an alternative to using images</li>
+      <li>for screen readers, ensure the data value appears first so it makes sense when read aloud</li>
+    </ul>
+    <div class="bs-example" data-example-id="data-visualisation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="data">
+              <h2 class="xx-large">24</h2>
+
+              <p class="x-small"><strong>Ministerial departments</strong></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="data">
+              <h2 class="x-large">56/154</h2>
+
+              <p class="x-small"><strong>on GOV.UK</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-syntax-highlighter data-source='
+      <div class="data">
+        <h2 class="xx-large">24</h2>
+
+        <p class="x-small"><strong>Ministerial departments</strong></p>
+      </div>
+
+      <div class="data">
+        <h2 class="x-large">56/154</h2>
+
+        <p class="x-small"><strong>on GOV.UK</strong></p>
+      </div>'></div>
+  </section>
+</section>

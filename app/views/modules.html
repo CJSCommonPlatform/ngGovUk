@@ -1,0 +1,394 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <section id="page-intro">
+        <div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <h1 class="text-uppercase">Angular Modules</h1>
+                <p class="lead">Some angular modules that can be included in any project for some global gds designs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="global-nav">
+            <h2>global-nav</h2>
+            <div>
+              <p>To include the header add the directive by using the data attribute <code>data-global-nav</code> in the mark up.</p>
+              <p>In the javascript create an object called <code>globalNav</code> which can contain two objects: <code>pageTitle</code> and <code>navItems</code>. If your page does not require either of those, they can simply be omitted.</p>
+            </div>
+            <div class="bs-example" data-example-id="global-nav">
+              <div data-ng-controller="globalNavDemo">
+                <header data-global-nav data-nav-settings="demoNav"></header>
+              </div>
+            </div>
+
+            <div data-tabset>
+              <div data-tab data-heading="Markup">
+                <div data-syntax-highlighter data-source='
+                  <header data-global-nav data-nav-settings="demoNav"></header>'></div>
+              </div>
+              <div data-tab data-heading="JavaScript">
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('globalNavDemo', function ($scope) {
+                    $scope.demoNav = {
+                      pageTitle: {
+                        title: 'Demo Title',
+                        type: 'text',
+                        ref: '#'
+                      },
+                      navItems: [
+                        {
+                          title: 'Nav Item 1',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'Nav Item 2',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'Nav Item 3',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'Nav Item 4',
+                          type: 'href',
+                          ref: '#!/modules'
+                        },
+                        {
+                          title: 'Nav Item 5',
+                          type: 'href',
+                          ref: '#!/modules'
+                        }
+                      ],
+                      displaySettings:{
+                        showUnderline: true
+                      }
+                    };
+                  });"></div>
+              </div>
+            </div>
+          </div>
+          <div class="vertical-spacer"></div>
+          <div id="footer">
+            <h2>footer</h2>
+            <div>
+              <p>In order include the footer directive add a data attribute of <code>data-footer-directive</code>.</p>
+              <p>Elements within the directive can be overridden using the <code>data-footer-settings</code> attribute. Only set the properties that you want to override and the directive will keep the default ones.</p>
+            </div>
+            <div class="bs-example" data-example-id="footer">
+              <div data-footer-directive></div>
+            </div>
+            <div data-tabset>
+              <div data-tab data-heading="Markup">
+                <div data-syntax-highlighter data-source='
+                  <!-- using with default configuration -->
+                  <div data-footer-directive></div>
+                  <!-- defining custom configuration -->
+                  <div data-footer-directive data-footer-settings="footerSettings"></div>'></div>
+              </div>
+              <div data-tab data-heading="JavaScript">
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('footerDemo', function ($scope) {
+                    $scope.footerSettings = {
+                      // (OPTIONAL) overrides default links
+                      links: [
+                        {
+                          title: 'Anchor link',
+                          ref: 'http://link',
+                          type: 'href'
+                        },
+                        {
+                          title: 'Link to a ui-route state',
+                          ref: 'my-state-name',
+                          type: 'ui-sref'
+                        },
+                      ],
+
+                      // (OPTIONAL) overrides default copyright
+                      copyright: {
+                        link: '',
+                        text: ''
+                      },
+
+                      // (OPTIONAL) overrides default licence
+                      licence: {
+                        link: '',
+                        text: '' // text allows html content
+                      }
+                    }
+                  });"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="nav-side">
+            <h2>nav-side</h2>
+            <div>
+              <p>This modules is used to create a navigation panel on the left side of the screen, it has been created by utilising the data-ng-bootstrap accordion</p>
+              <p>In order to set up the side nav, there are a couple of things that need to be done:</p>
+              <ol>
+                <li>Add the directive as an attribute 'data-nav-side-directive'</li>
+                <li>In the controller create an object with the the navigation items (See example for correct format) and assign it to the scope</li>
+                <li>Add the attribute 'data-navigation-items' with an assigned value of the object created in the controller
+                  <ul>
+                    <li>under the 'type', you have the option to add 'scrollto', 'uisref' or 'href' as a string to decide where the anchor goes.</li>
+                    <li>please note: if the 'scrollto' option is chosen, the 'ref' should be set to the id of the element to be scrolled to.</li>
+                    <li>if a 'detail' is provided to one of the child items this will sit below the list item below, please refer to the example.</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div class="bs-example" data-example-id="nav-side">
+              <div data-ng-controller="navSideDemo">
+                <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="'Case Structure'"></div>
+              </div>
+            </div>
+
+            <div data-tabset>
+              <div data-tab data-heading="Markup">
+                <div data-syntax-highlighter data-source='
+                  <div data-nav-side-directive data-navigation-items="navItems" data-collapse-title="&apos;Case Structure&apos;"></div>'></div>
+              </div>
+              <div data-tab data-heading="JavaScript">
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('navSideDemo', function ($scope) {
+                    $scope.navItems = [
+                      {
+                        title: 'Single Link',
+                        type: 'ui-sref',
+                        ref: '#'
+                      },
+                      {
+                        title: 'Example Accordion Title 1',
+                        href: null,
+                        children: [
+                          {
+                            title: 'Example 1',
+                            type: 'ui-sref',
+                            ref: '#',
+                            detail: 'Incomplete'
+                          },
+                          {
+                            title: 'Example 2',
+                            type: 'ui-sref',
+                            ref: '#'
+                          },
+                          {
+                            title: 'Example 3',
+                            type: 'ui-sref',
+                            ref: '#'
+                          }
+                        ]
+                      },
+                      {
+                        title: 'Example Accordion Title 2',
+                        href: null,
+                        children: [
+                          {
+                            title: 'Example 1',
+                            type: 'scroll-to',
+                            ref: 'scroll-to-id'
+                          },
+                          {
+                            title: 'Example 2',
+                            type: 'href',
+                            ref: '#'
+                          }
+                        ]
+                      }
+                    ];
+                });"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tabbed-menu">
+            <h2>tabbed-menu</h2>
+            <div>
+              <p>This directive creates a tabbed menu as a directive, creating a title infront of the items is optional and can be ommited in order to have just the tabs. In the scope add an array of item objects under the name of 'items'; each item should contain a 'title and a ref'.</p>
+            </div>
+            <div class="bs-example" data-example-id="tabbed-menu">
+              <div data-ng-controller="tabbedMenuDemo">
+                <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>
+              </div>
+            </div>
+            <div data-tabset>
+              <div data-tab data-heading="Markup">
+                <div data-syntax-highlighter data-source='
+                  <div data-tabbed-menu data-title="tabbedItems.title" data-tabbed-items="tabbedItems.items"></div>'></div>
+              </div>
+              <div data-tab data-heading="JavaScript">
+                <div data-syntax-highlighter data-language="javascript" data-source="
+                  angular.module('app').controller('tabbedMenuDemo', function ($scope) {
+                    $scope.tabbedItems = {
+                      title: 'View:',
+                      items: [
+                        {
+                          title: 'Cases added today',
+                          ref: ''
+                        },
+                        {
+                          title: 'All cases',
+                          ref: ''
+                        }
+                      ]
+                    };
+                  });"></div>
+              </div>
+            </div>
+          </div>
+          <div id="lazy-validation">
+            <h2>lazy-validation</h2>
+              <div>
+                <p>This module enables angular validation to be triggered lazily, when a specific event occurs (such as clicking on a submit button)</p>
+                <p>When the error ocurrs because the form is invalid, if an id is provided (should be to the top where
+                  error messages are displayed) it will do the scrolling</p>
+                <p>It also uses the focus directive so when clicking in the error link it will scroll to the right input
+                  and set the focus</p>
+              </div>
+              <div class="bs-example" data-example-id="lazy-validation-example">
+                <div data-ng-controller="lazyValidationDemo">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <form data-lazy-validation="form" novalidate>
+                          <div class="cpp-form-error-summary"
+                          role="group"
+                          aria-labelledby="error-summary-heading-example-2"
+                          data-ng-show="form.$invalid">
+                          <h3 id="error-summary-heading-example-2">Required fields are blank</h3>
+
+                          <p>Optional description of the error(s) and how to correct them</p>
+                          <ul class="cpp-form-error-summary-list">
+                            <li data-ng-if="form.fullName.$error.required">
+                              <a href="#" data-event-focus="click" data-scroll-to="example-full-name">Full name must be
+                                entered</a></li>
+                            <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
+                          </ul>
+                        </div>
+                        <h2>Your personal details</h2>
+                        <div class="form-group" data-ng-class="{'cpp-form-error': form.fullName.$invalid }">
+                          <label for="example-full-name"
+                          id="error-message-full-name-label">
+                          <span class="form-label-bold">Full name</span>
+                          <span class="form-hint-text">As shown on your birth certificate or passport</span>
+                        </label>
+                        <div data-ng-if="form.fullName.$error.required">
+                          <h6 class="cpp-form-error-message">Full name must be entered</h6>
+                        </div>
+                        <div data-ng-if="form.fullName.$error.minlength">
+                          <h6 class="cpp-form-error-message">Full name must be at least 5 characters long</h6>
+                        </div>
+                        <input class="form-control"
+                          id="example-full-name"
+                          type="text"
+                          name="fullName"
+                          data-ng-model="vm.fullName"
+                          aria-describedby="error-message-full-name-label"
+                          data-ng-required="true"
+                          data-ng-minlength="5">
+                      </div>
+                      <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form"
+                      data-move-page-to="error-summary-heading-example-2"
+                      data-lazy-validation-on-click="submitForm()">
+                      <input class="btn btn-default"
+                        type="submit"
+                        value="Submit form (manual validation check)"
+                        data-lazy-validation-on-click
+                        data-ng-click="checkValidationManually()">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-tabset>
+            <div data-tab data-heading="Markup">
+              <div data-syntax-highlighter data-source='
+                <div data-ng-controller="lazyValidationDemo">
+                  <form data-lazy-validation="form" novalidate>
+                    <div class="cpp-form-error-summary"
+                      role="group"
+                      aria-labelledby="error-summary-heading-example-2"
+                      data-ng-show="form.$invalid">
+                      <h3 id="error-summary-heading-example-2">Required fields are blank</h3>
+                      <p>Optional description of the error(s) and how to correct them</p>
+                      <ul class="cpp-form-error-summary-list">
+                        <li data-ng-if="form.fullName.$error.required">
+                        <a data-event-focus="click" data-scroll-to="example-full-name">Full name must be entered</a></li>
+                        <li data-ng-if="form.fullName.$error.minlength"><a>Full name must be at least 5 characters long</a></li>
+                      </ul>
+                    </div>
+                    <h2>Your personal details</h2>
+                    <div class="form-group" data-ng-class="{&apos;cpp-form-error&apos;: form.fullName.$invalid }">
+                      <label for="example-full-name"
+                        id="error-message-full-name-label">
+                        <span class="form-label-bold">Full name</span>
+                        <span class="form-hint-text">As shown on your birth certificate or passport</span>
+                      </label>
+                      <div data-ng-if="form.fullName.$error.required">
+                        <h6 class="cpp-form-error-message">Full name must be entered</h6>
+                      </div>
+                      <div data-ng-if="form.fullName.$error.minlength">
+                        <h6 class="cpp-form-error-message">Full name must be at least 5 characters long</h6>
+                      </div>
+                      <input class="form-control"
+                        id="example-full-name"
+                        type="text"
+                        name="fullName"
+                        data-ng-model="vm.fullName"
+                        aria-describedby="error-message-full-name-label"
+                        data-ng-required="true"
+                        data-ng-minlength="5">
+                    </div>
+                    <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form"
+                      data-lazy-validation-on-click="submitForm()">
+                    <input class="btn btn-default"
+                      type="submit"
+                      value="Submit form (manual validation check)"
+                      data-move-page-to="error-summary-heading-example-2"
+                      data-lazy-validation-on-click
+                      data-ng-click="checkValidationManually()">
+                  </form>
+                </div>'></div>
+            </div>
+            <div data-tab data-heading="JavaScript">
+              <div data-syntax-highlighter data-language="javascript" data-source="
+                (function() {
+                  'use strict';
+                  angular
+                    .module('app')
+                    .controller('lazyValidationDemo', LazyValidationDemo);
+                    function LazyValidationDemo($scope) {
+                      $scope.submitForm = function () {
+                        alert('Submit form: This gets called only when form is valid');
+                      };
+                      $scope.checkValidationManually = function () {
+                        // Check additional criteria before submitting the form
+                        if ($scope.form.$valid) {
+                          $scope.submitForm();
+                        }
+                      };
+                    }
+                })();"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
