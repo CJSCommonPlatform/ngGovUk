@@ -8,6 +8,7 @@
     'ngGovUk.tabbed-menu',
     'ngGovUk.form-validation',
     'ngGovUk.progress-list',
+    'ngGovUk.focus',
     'ngGovUk.sticky'
   ]);
 })();
@@ -15,69 +16,39 @@
 (function () {
   'use strict';
 
-  angular
-    .module('ngGovUk.footer.footer-directive', [])
-    .directive('footerDirective', footerDirective);
+  /**
+  * @desc This directive will allow to focus on the specific input when validation error links are displayed
+  *      at the top of a form. It should be used together with data-ng-scroll="id" so it will scroll to the
+  *      right input on the page and set the focus to the field.
+  * @example <a href="#" data-event-focus="click" data-scroll-to="contact-list">
+  */
 
-  /* @ngInject */
-  function footerDirective($sce) {
-    var directive = {
-      link: link,
-      templateUrl: 'modules/footer/footer.tpl.html',
-      restrict: 'EA',
-      scope: {
-        settings: '=?footerSettings'
+  angular
+    .module('ngGovUk.focus', [])
+    .directive('eventFocus', ['$timeout', '$window', eventFocus]);
+
+  function eventFocus($timeout, $window){
+    return {
+      restrict: 'A',
+      link: function (scope, elem, attr) {
+        elem.on(attr.eventFocus, function () {
+          var id = attr.scrollTo;
+          // timeout makes sure that it is invoked after any other event has been triggered like clicks
+          $timeout(function () {
+            var element = $window.document.getElementById(id);
+            if (element) {
+              element.focus();
+            }
+          });
+        });
+
+      // Removes bound events in the element itself when the scope is destroyed
+        scope.$on('$destroy', function () {
+          elem.off(attr.eventFocus);
+        });
       }
     };
-
-    return directive;
-
-    function link(scope, element, attrs) {
-      var defaultSettings = {
-        links: [
-          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
-          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
-          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
-          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
-          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
-          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
-          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
-        ],
-
-        copyright: {
-          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
-          text: 'Crown copyright'
-        },
-
-        licence: {
-          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-          text: 'All content is available under the \
-                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
-                  Open Government Licence v3.0 \
-                 </a>, \
-                 except where otherwise stated'
-        }
-      };
-
-      var mergedSettings = angular.extend(defaultSettings, scope.settings);
-
-      if (mergedSettings.licence && mergedSettings.licence.text) {
-        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
-      }
-
-      scope.settings = mergedSettings;
-    }
   }
-})();
-
-(function () {
-  'use strict';
-
-  angular
-    .module('ngGovUk.footer', [
-      'ngGovUk.footer.footer-directive'
-    ]);
-
 })();
 
 (function () {
@@ -94,18 +65,23 @@
 
   angular
       .module('ngGovUk.form-validation.lazy-validation-on-click', [
-        'ngGovUk.form-validation.lazy-validation'
+        'ngGovUk.form-validation.lazy-validation',
+        'smoothScroll'
       ])
-      .directive('lazyValidationOnClick', lazyValidationOnClick);
+      .directive('lazyValidationOnClick', ['smoothScroll', '$window', lazyValidationOnClick]);
 
   /**
-   * This directive triggers revalidation of a form on a click event
+   * @name lazyVAlidationOnClick
+   * @desc This directive triggers revalidation of a form on a click event and scrolls to the id provided if form is invalid
+   * (should go to the error message validation)
    *
+   * @example
+   * <div id="error-summary"></div>
    * <form lazy-validation="scopePropertyToBindFormValidation">
-   *     <button lazy-validation-on-click="optionalCallbackWhenFormValid()" />
+   *     <button data-move-page-to="error-summary" lazy-validation-on-click="optionalCallbackWhenFormValid()" />
    * </form>
    */
-  function lazyValidationOnClick() {
+  function lazyValidationOnClick(smoothScroll, $window) {
     return {
       restrict: 'A',
       require: '^^lazyValidation',
@@ -117,6 +93,12 @@
 
           if (lazyValidationController.isValid() && $scope.ifValidCallback) {
             $scope.ifValidCallback();
+          } else {
+            var id = attrs.movePageTo;
+            var element = $window.document.getElementById(id);
+            if(element) {
+              smoothScroll(element);
+            }
           }
         };
 
@@ -130,6 +112,7 @@
     };
   }
 })();
+
 (function () {
   'use strict';
 
@@ -223,6 +206,74 @@
 
     }
   }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer.footer-directive', [])
+    .directive('footerDirective', footerDirective);
+
+  /* @ngInject */
+  function footerDirective($sce) {
+    var directive = {
+      link: link,
+      templateUrl: 'modules/footer/footer.tpl.html',
+      restrict: 'EA',
+      scope: {
+        settings: '=?footerSettings'
+      }
+    };
+
+    return directive;
+
+    function link(scope, element, attrs) {
+      var defaultSettings = {
+        links: [
+          { title: 'All GOV.UK blogs', ref: 'https://www.blog.gov.uk', type: 'href' },
+          { title: 'All GOV.UK blog posts', ref: 'https://www.blog.gov.uk/all-posts/', type: 'href' },
+          { title: 'GOV.UK', ref: 'https://www.gov.uk', type: 'href' },
+          { title: 'All departments', ref: 'https://www.gov.uk/government/organisations', type: 'href' },
+          { title: 'All topics', ref: 'https://www.gov.uk/government/topics', type: 'href' },
+          { title: 'All policies', ref: 'https://www.gov.uk/government/policies', type: 'href' },
+          { title: 'Cookies', ref: 'https://www.blog.gov.uk/cookies', type: 'href' }
+        ],
+
+        copyright: {
+          link: 'https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm',
+          text: 'Crown copyright'
+        },
+
+        licence: {
+          link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+          text: 'All content is available under the \
+                 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license"> \
+                  Open Government Licence v3.0 \
+                 </a>, \
+                 except where otherwise stated'
+        }
+      };
+
+      var mergedSettings = angular.extend(defaultSettings, scope.settings);
+
+      if (mergedSettings.licence && mergedSettings.licence.text) {
+        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
+      }
+
+      scope.settings = mergedSettings;
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
+  angular
+    .module('ngGovUk.footer', [
+      'ngGovUk.footer.footer-directive'
+    ]);
+
 })();
 
 (function () {
